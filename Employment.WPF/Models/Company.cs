@@ -9,6 +9,7 @@ public class Company
     {
         Phones = new HashSet<Phone>();
         Vacancies = new HashSet<Vacancy>();
+        Addresses = new HashSet<Address>();
     }
 
     public Guid CompanyId { get; set; }

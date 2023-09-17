@@ -33,11 +33,13 @@ public class Vacancy
 
     public int EducationId { get; set; }
     public Guid CompanyId { get; set; }
+    public int PositionId { get; set; }
     //public int SalaryId { get; set; }
 
     //public PersonRequirement PersonRequirement { get; set; } = null!;
     public Company Company { get; set; } = null!;
     public Education Education { get; set; } = null!;
+    public Position Position { get; set; } = null!;
     //public Salary? Salary { get; set; }
     public ICollection<VacancySkill>? Skills { get; set; }
     public ICollection<VacancyResponsibility>? Responsibilities { get; set; }

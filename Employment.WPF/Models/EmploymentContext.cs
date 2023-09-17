@@ -14,7 +14,7 @@ public class EmploymentContext : DbContext
         : base(options) { }
 
     public virtual DbSet<Company> Companies { get; set; }
-    public virtual DbSet<Organization> Organizations { get; set; }
+    //public virtual DbSet<Organization> Organizations { get; set; }
     public virtual DbSet<Vacancy> Vacancies { get; set; }
     public virtual DbSet<Address> Addresses { get; set; }
     public virtual DbSet<Phone> Phones { get; set; }
@@ -36,28 +36,32 @@ public class EmploymentContext : DbContext
     }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Organization>(entity =>
+        //modelBuilder.Entity<Organization>(entity =>
+        //{
+        //    entity.HasKey(e => e.OrganizationId);
+
+        //    entity.Property(e => e.OrganizationId)
+        //       .ValueGeneratedOnAdd()
+        //       .HasDefaultValueSql("gen_random_uuid()");
+
+        //    entity.Property(e => e.Name)
+        //       .HasMaxLength(255);
+
+        //    entity.Property(e => e.ShortName)
+        //       .HasMaxLength(63);
+
+        //    entity.Property(e => e.Email)
+        //        .HasMaxLength(256);
+
+        //    entity.HasMany<Phone>(o => o.Phones)
+        //        .WithOne()
+        //        .HasForeignKey(p => p.ExternalId)
+        //        .OnDelete(DeleteBehavior.Cascade);
+        //});
+        foreach (var entityType in modelBuilder.Model.GetEntityTypes())
         {
-            entity.HasKey(e => e.OrganizationId);
-
-            entity.Property(e => e.OrganizationId)
-               .ValueGeneratedOnAdd()
-               .HasDefaultValueSql("gen_random_uuid()");
-
-            entity.Property(e => e.Name)
-               .HasMaxLength(255);
-
-            entity.Property(e => e.ShortName)
-               .HasMaxLength(63);
-
-            entity.Property(e => e.Email)
-                .HasMaxLength(256);
-
-            entity.HasMany<Phone>(o => o.Phones)
-                .WithOne()
-                .HasForeignKey(p => p.ExternalId)
-                .OnDelete(DeleteBehavior.Cascade);
-        });
+            entityType.SetTableName(entityType.DisplayName());
+        }
 
         modelBuilder.Entity<Company>(entity =>
         {
@@ -86,10 +90,10 @@ public class EmploymentContext : DbContext
         {
             entity.HasKey(a => a.AddressId);
 
-            entity.HasOne(a => a.Organization)
-                  .WithMany()
-                  .HasForeignKey(a => a.ExternalId)
-                  .OnDelete(DeleteBehavior.Restrict);
+            //entity.HasOne(a => a.Organization)
+            //      .WithMany()
+            //      .HasForeignKey(a => a.ExternalId)
+            //      .OnDelete(DeleteBehavior.Restrict);
 
             entity.HasOne(a => a.Company)
                   .WithMany()
@@ -97,7 +101,7 @@ public class EmploymentContext : DbContext
                   .OnDelete(DeleteBehavior.Restrict);
 
             entity.HasOne(a => a.Locality)
-                  .WithMany()
+                  .WithMany(l => l.Addresses)
                   .HasForeignKey(a => a.LocalityId);
 
             entity.HasOne(a => a.Street)
@@ -115,11 +119,11 @@ public class EmploymentContext : DbContext
                   .OnDelete(DeleteBehavior.Restrict)
                   .IsRequired(false);
 
-            entity.HasOne(p => p.Organization)
-                  .WithMany(o => o.Phones)
-                  .HasForeignKey(p => p.ExternalId)
-                  .OnDelete(DeleteBehavior.Restrict)
-                  .IsRequired(false);
+            //entity.HasOne(p => p.Organization)
+            //      .WithMany(o => o.Phones)
+            //      .HasForeignKey(p => p.ExternalId)
+            //      .OnDelete(DeleteBehavior.Restrict)
+            //      .IsRequired(false);
         });
 
         modelBuilder.Entity<Locality>(entity =>
@@ -205,7 +209,7 @@ public class EmploymentContext : DbContext
 
         modelBuilder.Entity<StreetType>(entity =>
         {
-            entity.HasKey(st => st.StreetId);
+            entity.HasKey(st => st.StreetTypeId);
 
             entity.Property(e => e.Name)
             .HasMaxLength(255);
@@ -229,6 +233,11 @@ public class EmploymentContext : DbContext
             entity.HasOne(v => v.Education)
                   .WithMany(c => c.Vacancies)
                   .HasForeignKey(v => v.EducationId)
+                  .OnDelete(DeleteBehavior.Restrict);
+
+            entity.HasOne(v => v.Position)
+                  .WithMany(c => c.Vacancies)
+                  .HasForeignKey(v => v.PositionId)
                   .OnDelete(DeleteBehavior.Restrict);
 
             entity.HasMany(v => v.Skills)
@@ -260,6 +269,15 @@ public class EmploymentContext : DbContext
         var companies = DataGenerator.GenerateCompanies();
         modelBuilder.Entity<Company>().HasData(companies);
 
+        var educations = DataGenerator.GenerateEducations();
+        modelBuilder.Entity<Education>().HasData(educations);
+
+        var positions = DataGenerator.GeneratePositions();
+        modelBuilder.Entity<Position>().HasData(positions);
+
+        var responsibilities = DataGenerator.GenerateResponsibilities();
+        modelBuilder.Entity<Responsibility>().HasData(responsibilities);
+
         // Генерация телефонов, вакансий и адресов для компаний
         var allPhones = new List<Phone>();
         var allAddresses = new List<Address>();
@@ -270,17 +288,16 @@ public class EmploymentContext : DbContext
             var phones = DataGenerator.GeneratePhonesForCompany(company.CompanyId, 2);
             allPhones.AddRange(phones);
 
-            var addresses = DataGenerator.GenerateAddressesForCompany(company.CompanyId, 2);
+            var addresses = DataGenerator.GenerateAddressesForCompany(company.CompanyId, 2, streets, streetTypes, localityTypes, localities);
             allAddresses.AddRange(addresses);
 
-            var vacancies = DataGenerator.GenerateVacanciesForCompany(company.Name, 2);
+            var vacancies = DataGenerator.GenerateVacanciesForCompany(company.Name, company.CompanyId, 2);
             allVacancies.AddRange(vacancies);
         }
 
         modelBuilder.Entity<Phone>().HasData(allPhones);
         modelBuilder.Entity<Address>().HasData(allAddresses);
         modelBuilder.Entity<Vacancy>().HasData(allVacancies);
-
 
     }
 }

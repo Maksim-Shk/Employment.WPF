@@ -14,7 +14,7 @@ namespace Employment.WPF.Models
 
         public EntityType EntityType { get; set; }
         public Company? Company { get; set; }
-        public Organization? Organization { get; set; }
+        //public Organization? Organization { get; set; }
     }
     public enum EntityType
     {
