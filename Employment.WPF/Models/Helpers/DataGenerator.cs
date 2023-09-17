@@ -59,12 +59,14 @@ namespace Employment.WPF.Models.Helpers
         {
             var vacancies = new List<Vacancy>();
             var responsibilities = GenerateResponsibilities();
-
+            var skills = GenerateSkills();
+        
             for (int i = 0; i < count; i++)
             {
-                List<Responsibility> randomResponsibilities = responsibilities.OrderBy(x => _random.Next()).Take(_random.Next(2, 6)).ToList();
+                var randomResponsibilities = responsibilities.OrderBy(x => _random.Next()).Take(_random.Next(2, 6)).ToList();
+                var randomSkills = skills.OrderBy(x => _random.Next()).Take(_random.Next(2, 6)).ToList();
 
-                vacancies.Add(new Vacancy
+                var vacancy = new Vacancy
                 {
                     CompanyId = companyId,
                     VacancyId = _entityIdCounter--,
@@ -80,10 +82,30 @@ namespace Employment.WPF.Models.Helpers
                     UpperSalary = _random.Next(61, 100) * 1000,
                     EducationId = _random.Next(1, 5),
                     PositionId = _random.Next(1,10),
-                    Responsibilities = randomResponsibilities
-                });
-            }
+                    Responsibilities = new List<VacancyResponsibility>(),
+                    Skills = new List<VacancySkill>()
+                };
+        
+                foreach (var responsibility in randomResponsibilities)
+                {
+                    vacancy.Responsibilities.Add(new VacancyResponsibility
+                    {
+                        Vacancy = vacancy,
+                        Responsibility = responsibility
+                    });
+                }
+                foreach (var skill in skills)
+                {
+                    vacancy.Skills.Add(new VacancySkill
+                    {
+                        Vacancy = vacancy,
+                        Skill = skill
+                    });
+                }
 
+                vacancies.Add(vacancy);
+            }
+        
             return vacancies;
         }
 
@@ -252,6 +274,22 @@ namespace Employment.WPF.Models.Helpers
                 };
         }
 
+        public static List<Skill> GenerateSkills()
+        {
+            return new List<Skill>
+                {
+                    new Skill { SkillId = 1, Name = "Знание электронного документооборота" },
+                    new Skill { SkillId = 2, Name = "Владение Microsoft Office" },
+                    new Skill { SkillId = 3, Name = "Опыт работы с 1C" },
+                    new Skill { SkillId = 4, Name = "Владение Adobe Photoshop" },
+                    new Skill { SkillId = 5, Name = "Знание системы контроля версий Git" },
+                    new Skill { SkillId = 6, Name = "Опыт работы с CRM-системами" },
+                    new Skill { SkillId = 7, Name = "Опыт работы с ERP-системами" },
+                    new Skill { SkillId = 8, Name = "Владение языками программирования (например, Python, C#)" },
+                    new Skill { SkillId = 9, Name = "Знание баз данных (SQL)" },
+                    new Skill { SkillId = 10, Name = "Коммуникабельность" },
+                };
+        }
     }
 }
 

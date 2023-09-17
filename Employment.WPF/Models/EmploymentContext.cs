@@ -278,6 +278,9 @@ public class EmploymentContext : DbContext
         var responsibilities = DataGenerator.GenerateResponsibilities();
         modelBuilder.Entity<Responsibility>().HasData(responsibilities);
 
+        var skills = DataGenerator.GenerateSkills();  
+        modelBuilder.Entity<Skill>().HasData(skills); 
+
         // Генерация телефонов, вакансий и адресов для компаний
         var allPhones = new List<Phone>();
         var allAddresses = new List<Address>();
@@ -297,7 +300,36 @@ public class EmploymentContext : DbContext
 
         modelBuilder.Entity<Phone>().HasData(allPhones);
         modelBuilder.Entity<Address>().HasData(allAddresses);
-        modelBuilder.Entity<Vacancy>().HasData(allVacancies);
 
+        var allVacancyResponsibilities = new List<VacancyResponsibility>();
+        var allVacancySkills = new List<VacancySkill>(); 
+
+        foreach (var vacancy in allVacancies)
+        {
+            // Важно: Убедитесь, что ваши вакансии не имеют заданных обязанностей при инициализации.
+            vacancy.Responsibilities = null; // Очистите список обязанностей
+            vacancy.Skills = null;
+            modelBuilder.Entity<Vacancy>().HasData(vacancy);
+
+            // Затем создайте записи VacancyResponsibility для каждой обязанности, связанной с вакансией
+            foreach (var responsibility in responsibilities) // Используйте свой список обязанностей
+            {
+                allVacancyResponsibilities.Add(new VacancyResponsibility
+                {
+                    VacancyId = vacancy.VacancyId,
+                    ResponsibilityId = responsibility.ResponsibilityId
+                });
+            }
+            foreach (var skill in skills) 
+            {
+                allVacancySkills.Add(new VacancySkill
+                {
+                    VacancyId = vacancy.VacancyId,
+                    SkillId = skill.SkillId
+                });
+            }
+        }
+        modelBuilder.Entity<VacancyResponsibility>().HasData(allVacancyResponsibilities);
+        modelBuilder.Entity<VacancySkill>().HasData(allVacancySkills);
     }
 }

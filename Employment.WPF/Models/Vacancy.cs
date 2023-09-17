@@ -6,6 +6,12 @@ namespace Employment.WPF.Models;
 
 public class Vacancy
 {
+    public Vacancy()
+    {
+        Responsibilities = new List<VacancyResponsibility>();
+        Skills = new List<VacancySkill>();
+    }
+
     public int VacancyId { get; set; }
     public string Name { get; set; } = null!;
 
