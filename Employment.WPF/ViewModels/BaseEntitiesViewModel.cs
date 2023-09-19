@@ -10,20 +10,20 @@ using System.Linq;
 
 namespace Employment.WPF.ViewModels
 {
-    public class MainMenuViewModel : INotifyPropertyChanged
+    public class BaseEntitiesViewModel : INotifyPropertyChanged
     {
-        public MainMenuViewModel()
+        public BaseEntitiesViewModel()
         {
 
         }
 
-        private RelayCommand _LoadMainWindowCommand;
-        public RelayCommand LoadMainWindowCommand
+        private RelayCommand _LoadBaseEntitiesWindowCommand;
+        public RelayCommand LoadBaseEntitiesCommand
         {
             get
             {
-                return _LoadMainWindowCommand ??
-                  (_LoadMainWindowCommand = new RelayCommand(obj =>
+                return _LoadBaseEntitiesWindowCommand ??
+                  (_LoadBaseEntitiesWindowCommand = new RelayCommand(obj =>
                   {
                       using (var db = new EmploymentContext())
                       {
@@ -32,7 +32,6 @@ namespace Employment.WPF.ViewModels
                   }));
             }
         }
-
         private Locality _currentLocality;
         public Locality CurrentLocality
         {

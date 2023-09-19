@@ -31,8 +31,8 @@ public class Vacancy
 
     [DisplayName("Пол")]
     public string? Gender { get; set; } = "Не указан";
-    public double? LowerAge { get; set; } = null;
-    public double? TopAge { get; set; } = null;
+    public int? LowerAge { get; set; } = null;
+    public int? TopAge { get; set; } = null;
 
     public double? LowerSalary { get; set; }
     public double? UpperSalary { get; set; }
