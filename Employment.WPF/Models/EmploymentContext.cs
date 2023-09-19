@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure.Internal;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace Employment.WPF.Models;
@@ -26,6 +27,9 @@ public class EmploymentContext : DbContext
     public virtual DbSet<VacancySkill> VacancySkills { get; set; }
     public virtual DbSet<Street> Streets { get; set; }
     public virtual DbSet<StreetType> StreetTypes { get; set; }
+    public virtual DbSet<Education> Educations { get; set; }
+    public virtual DbSet<Position> Positions { get; set; }
+    public virtual DbSet<Activity> Activities { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

@@ -17,21 +17,7 @@ namespace Employment.WPF.ViewModels
 
         }
 
-        private RelayCommand _LoadBaseEntitiesWindowCommand;
-        public RelayCommand LoadBaseEntitiesCommand
-        {
-            get
-            {
-                return _LoadBaseEntitiesWindowCommand ??
-                  (_LoadBaseEntitiesWindowCommand = new RelayCommand(obj =>
-                  {
-                      using (var db = new EmploymentContext())
-                      {
-                          MessageBox.Show("Hello");
-                      }
-                  }));
-            }
-        }
+        #region CurrentEnities
         private Locality _currentLocality;
         public Locality CurrentLocality
         {
@@ -45,6 +31,79 @@ namespace Employment.WPF.ViewModels
                 }
             }
         }
+
+        private Locality _currentStreet;
+        public Locality CurrentStreet
+        {
+            get => _currentStreet;
+            set
+            {
+                if (_currentStreet != value)
+                {
+                    _currentStreet = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        private Locality _currentLocalityType;
+        public Locality CurrentLocalityType
+        {
+            get => _currentLocalityType;
+            set
+            {
+                if (_currentLocalityType != value)
+                {
+                    _currentLocalityType = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        private Locality _currentStreetType;
+        public Locality CurrentStreetType
+        {
+            get => _currentStreetType;
+            set
+            {
+                if (_currentStreetType != value)
+                {
+                    _currentStreetType = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        private Locality _currentAddress;
+        public Locality CurrentAddress
+        {
+            get => _currentAddress;
+            set
+            {
+                if (_currentAddress != value)
+                {
+                    _currentAddress = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        #endregion
+
+        private RelayCommand _LoadBaseEntitiesWindowCommand;
+        public RelayCommand LoadBaseEntitiesCommand
+        {
+            get
+            {
+                return _LoadBaseEntitiesWindowCommand ??
+                  (_LoadBaseEntitiesWindowCommand = new RelayCommand(obj =>
+                  {
+                      using (var db = new EmploymentContext())
+                      {
+
+                      }
+                  }));
+            }
+        }
+
 
         private RelayCommand _addOrUpdateLocalityCommand;
         public RelayCommand AddOrUpdateLocalityCommand
