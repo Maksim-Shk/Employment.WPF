@@ -34,7 +34,8 @@ public class EmploymentContext : DbContext
     {
         if (!optionsBuilder.IsConfigured)
         {
-            optionsBuilder.UseNpgsql("Host=localhost;Port=5434;Database=Employment;Username=postgres;Password=password");
+            optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=Employment;Username=postgres;Password=101001Zeus");
+            //optionsBuilder.UseNpgsql("Host=localhost;Port=5434;Database=Employment;Username=postgres;Password=password");
         }
     }
     protected override void OnModelCreating(ModelBuilder modelBuilder)

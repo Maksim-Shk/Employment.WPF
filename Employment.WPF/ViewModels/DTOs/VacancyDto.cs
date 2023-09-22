@@ -13,10 +13,10 @@ namespace Employment.WPF.ViewModels.DTOs
         public string Name { get; set; }
 
         [DisplayName("Трудовая книжка")]
-        public bool WorkBookRegistration { get; set; }
+        public string WorkBookRegistration { get; set; } = null;
 
         [DisplayName("Соц. пакет")]
-        public bool SocialPackage { get; set; }
+        public string SocialPackage { get; set; } = null;
         public DateTime OpenDate { get; set; }
         public DateTime? CloseDate { get; set; } = null;
 

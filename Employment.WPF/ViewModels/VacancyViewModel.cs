@@ -62,7 +62,7 @@ namespace Employment.WPF.ViewModels
                                             .Where(x => x.CompanyId == company.CompanyId)
                                             .Select(v => v.ToVacancyDto())
                                             .ToList();
-
+                          
                           Vacancies = new ObservableCollection<VacancyDto>(vacancies);
                       }
                   }));

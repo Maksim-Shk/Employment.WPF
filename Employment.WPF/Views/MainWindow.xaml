@@ -13,6 +13,16 @@
         <viewModels:MainViewModel/>
     </Window.DataContext>
 
+    <Window.Resources>
+        <Style TargetType="{x:Type TextBlock}" x:Key="WrapText">
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="DataGridColumnHeader" x:Key="WrapTextHeader">
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+        </Style>
+    </Window.Resources>    
+    
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding MainMenuViewModel.LoadMainWindowCommand}"/>
@@ -22,6 +32,7 @@
     <Grid>
 
         <Grid.RowDefinitions>
+            <RowDefinition Height="10*" MaxHeight="50"/>
             <RowDefinition Height="10*" MaxHeight="50"/>
             <RowDefinition Height="10*" MaxHeight="50"/>
             <RowDefinition Height="10*" MaxHeight="500"/>
@@ -38,7 +49,7 @@
             <ColumnDefinition Width="50*" MaxWidth="400"/>
         </Grid.ColumnDefinitions>
 
-        <Menu Background="#FFA9D1F4" Grid.Column="2" Grid.RowSpan="1" >
+        <Menu Background="#FFA9D1F4" Grid.Column="3" Grid.RowSpan="1" >
             <Menu.ItemsPanel>
                 <ItemsPanelTemplate>
                     <Grid HorizontalAlignment="Stretch"/>
@@ -51,7 +62,7 @@
         </Menu>
 
         <ComboBox x:Name="companyCb"
-                  Background="#FFA9D1F4" Grid.Row="1" Grid.Column="0"
+                  Background="#FFA9D1F4" Grid.Row="1" Grid.Column="1"
                   ItemsSource="{Binding CompaniesViewModel.Companies, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                   SelectedItem="{Binding CompaniesViewModel.SelectedCompany, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                   Height="30" VerticalAlignment="Center"
@@ -71,8 +82,8 @@
 
         </ComboBox>
 
-        <DataGrid 
-            Grid.Row="1"
+        <!--<DataGrid 
+            Grid.Row="2"
             Grid.RowSpan="4"
             Grid.Column="1"
             Grid.ColumnSpan="3"
@@ -80,6 +91,130 @@
             ItemsSource="{Binding VacancyViewModel.Vacancies}"
                   >
             
+        </DataGrid>-->
+
+        <DataGrid x:Name="vacancyGrid" 
+                  AutoGenerateColumns="False"
+                  FontSize="20" 
+                  IsReadOnly="True"
+                  Margin="10"
+                  Grid.Row="2"
+                  Grid.RowSpan="4"
+                  Grid.Column="1"
+                  Grid.ColumnSpan="3"
+                  VirtualizingPanel.ScrollUnit="Item" 
+                  VirtualizingPanel.IsVirtualizing="True"
+                  ItemsSource="{Binding VacancyViewModel.Vacancies, UpdateSourceTrigger=PropertyChanged}">
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Height" Value="80"/>
+                    <Setter Property="Height" Value="Auto"/>
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Название"
+                    Binding="{Binding Name}"
+                    Width="30*" 
+                    ElementStyle="{StaticResource WrapText}" 
+                    HeaderStyle="{StaticResource WrapTextHeader}"/>
+
+                <DataGridTextColumn Header="Трудовая книжка"
+                    Binding="{Binding WorkBookRegistration}"
+                    Width="10*"
+                    FontSize="50"
+                    ElementStyle="{StaticResource WrapText}" 
+                    HeaderStyle="{StaticResource WrapTextHeader}"/>
+
+                <DataGridTextColumn Header="Соц. пакет" 
+                    Binding="{Binding SocialPackage}"
+                    Width="20*" 
+                    ElementStyle="{StaticResource WrapText}" 
+                    HeaderStyle="{StaticResource WrapTextHeader}"/>
+
+                <DataGridTextColumn Header="Пол" 
+                    Binding="{Binding Gender}"
+                    Width="20*" 
+                    ElementStyle="{StaticResource WrapText}" 
+                    HeaderStyle="{StaticResource WrapTextHeader}"/>
+
+                <DataGridTextColumn Header="Возраст" 
+                    Binding="{Binding AgeRange}"
+                    Width="20*" 
+                    ElementStyle="{StaticResource WrapText}" 
+                    HeaderStyle="{StaticResource WrapTextHeader}"/>
+
+                <DataGridTextColumn Header="Зарплата" 
+                    Binding="{Binding SalaryRange}"
+                    Width="20*" 
+                    ElementStyle="{StaticResource WrapText}" 
+                    HeaderStyle="{StaticResource WrapTextHeader}"/>
+
+                <DataGridTextColumn Header="Образование" 
+                    Binding="{Binding Education}"
+                    Width="20*" 
+                    ElementStyle="{StaticResource WrapText}" 
+                    HeaderStyle="{StaticResource WrapTextHeader}"/>
+
+                <DataGridTextColumn Header="Должность" 
+                    Binding="{Binding Position}"
+                    Width="20*" 
+                    ElementStyle="{StaticResource WrapText}" 
+                    HeaderStyle="{StaticResource WrapTextHeader}"/>
+
+                <DataGridTemplateColumn Header="Навыки" HeaderStyle="{StaticResource WrapTextHeader}" MinWidth="200">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ListBox ItemsSource="{Binding Skills, UpdateSourceTrigger=PropertyChanged, TargetNullValue='отсутсвует'}" 
+                                     ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                                <ListBox.ItemContainerStyle>
+                                    <Style>
+                                        <Setter Property="ListBoxItem.Background" Value="AliceBlue"/>
+                                        <Setter Property="ListBoxItem.Margin" Value="2"/>
+                                        <Setter Property="ListBoxItem.Padding" Value="1"/>
+                                    </Style>
+                                </ListBox.ItemContainerStyle>
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding description,TargetNullValue='отсутсвует'}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="Издатель" HeaderStyle="{StaticResource WrapTextHeader}" 
+                        Width="50*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ListBox>
+                                <!--ItemsSource="{Binding Publishers_str, UpdateSourceTrigger=PropertyChanged}"-->
+                                <ListBox.ItemContainerStyle>
+                                    <Style>
+                                        <Setter Property="ListBoxItem.Background" Value="LightSteelBlue"/>
+                                        <Setter Property="ListBoxItem.Margin" Value="5"/>
+                                        <Setter Property="ListBoxItem.Padding" Value="5"/>
+                                    </Style>
+                                </ListBox.ItemContainerStyle>
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock  TextWrapping="Wrap"/>
+                                        <!--Text="{Binding}"-->
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+
+
+                <!--<DataGridTextColumn Header="Комментарий"
+                    Width="50*" 
+                    ElementStyle="{StaticResource WrapText}" 
+                    HeaderStyle="{StaticResource WrapTextHeader}"/>-->
+            </DataGrid.Columns>
         </DataGrid>
 
 

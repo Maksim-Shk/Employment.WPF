@@ -14,8 +14,8 @@ namespace Employment.WPF.ViewModels.DTOs
             {
                 VacancyId = vacancy.VacancyId,
                 Name = vacancy.Name,
-                WorkBookRegistration = vacancy.WorkBookRegistration,
-                SocialPackage = vacancy.SocialPackage,
+                WorkBookRegistration = vacancy.WorkBookRegistration ? "Да" : "Нет",
+                SocialPackage = vacancy.SocialPackage ? "Да" : "Нет",
                 OpenDate = vacancy.OpenDate,
                 CloseDate = vacancy.CloseDate,
                 Gender = vacancy.Gender,
