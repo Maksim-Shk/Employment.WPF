@@ -29,13 +29,12 @@ public class EmploymentContext : DbContext
     public virtual DbSet<StreetType> StreetTypes { get; set; }
     public virtual DbSet<Education> Educations { get; set; }
     public virtual DbSet<Position> Positions { get; set; }
-    public virtual DbSet<Activity> Activities { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         if (!optionsBuilder.IsConfigured)
         {
-            optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=Employment;Username=postgres;Password=101001Zeus");
+            optionsBuilder.UseNpgsql("Host=localhost;Port=5434;Database=Employment;Username=postgres;Password=password");
         }
     }
     protected override void OnModelCreating(ModelBuilder modelBuilder)

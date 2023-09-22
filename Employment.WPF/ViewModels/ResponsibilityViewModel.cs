@@ -1,40 +1,33 @@
 ﻿using Employment.WPF.Models;
-using Employment.WPF.ViewModels.DTOs;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Security.Policy;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Employment.WPF.ViewModels
 {
-    public class ActivityViewModel : INotifyPropertyChanged
+    public class ResponsibilityViewModel : INotifyPropertyChanged
     {
-        public ActivityViewModel()
+        public ResponsibilityViewModel()
         {
-            Activity = new();
+            Responsibility = new();
             using (var db = new EmploymentContext())
             {
                 LoadVacanciesCommand.Execute(null);
             }
         }
 
-        private ObservableCollection<Activity> _activity;
-        public ObservableCollection<Activity> Activity
+        private ObservableCollection<Responsibility> _responsibility;
+        public ObservableCollection<Responsibility> Responsibility
         {
             get
             {
-                return _activity;
+                return _responsibility;
             }
             set
             {
-                _activity = value;
-                OnPropertyChanged("Activity");
+                _responsibility = value;
+                OnPropertyChanged("Responsibility");
             }
         }
 
@@ -48,7 +41,7 @@ namespace Employment.WPF.ViewModels
                   {
                       using (var db = new EmploymentContext())
                       {
-                          Activity = new ObservableCollection<Activity>(db.Activities.ToList());
+                          Responsibility = new ObservableCollection<Responsibility>(db.Responsibilities.ToList());
                       }
                   }));
             }
