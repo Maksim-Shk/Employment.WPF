@@ -7,7 +7,7 @@
         xmlns:viewModels="clr-namespace:Employment.WPF.ViewModels"
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="900" Width="1600">
 
     <Window.DataContext>
         <viewModels:MainViewModel/>
@@ -32,32 +32,55 @@
     <Grid>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="10*" MaxHeight="50"/>
-            <RowDefinition Height="10*" MaxHeight="50"/>
-            <RowDefinition Height="10*" MaxHeight="50"/>
             <RowDefinition Height="10*" MaxHeight="500"/>
+            <!--<RowDefinition Height="20*" MaxHeight="500"/>-->
+            <RowDefinition Height="15*" MaxHeight="500"/>
+            <RowDefinition Height="100*" MaxHeight="5000"/>
+            <RowDefinition Height="100*" MaxHeight="5000"/>
+            <RowDefinition Height="100*" MaxHeight="500"/>
             <RowDefinition Height="10*" MaxHeight="500"/>
-            <RowDefinition Height="10*" MaxHeight="50"/>
-            <RowDefinition Height="10*" MaxHeight="50"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="50*" MaxWidth="400"/>
-            <ColumnDefinition Width="150*" MaxWidth="400"/>
-            <ColumnDefinition Width="150*" MaxWidth="400"/>
-            <ColumnDefinition Width="150*" MaxWidth="400"/>
-            <ColumnDefinition Width="50*" MaxWidth="400"/>
+            <ColumnDefinition Width="10*" MaxWidth="4000"/>
+            <ColumnDefinition Width="150*" MaxWidth="4000"/>
+            <ColumnDefinition Width="150*" MaxWidth="4000"/>
+            <ColumnDefinition Width="150*" MaxWidth="4000"/>
+            <ColumnDefinition Width="10*" MaxWidth="4000"/>
         </Grid.ColumnDefinitions>
 
-        <Menu Background="#FFA9D1F4" Grid.Column="3" Grid.RowSpan="1" >
-            <Menu.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <Grid HorizontalAlignment="Stretch"/>
-                </ItemsPanelTemplate>
-            </Menu.ItemsPanel>
-            <MenuItem Header="Profile" FontSize="30">
-                <MenuItem Header="Настройки"/>
-                <MenuItem Header="Выйти"/>
+        <Menu Height="25" VerticalAlignment="Top" Grid.ColumnSpan="5">
+            <MenuItem Header="Сервис" >
+                <MenuItem Header="Настройки" Command="{Binding OptionsViewModel.OpenOption}">
+                </MenuItem>
+                <MenuItem Header="Работа с подразделениями">
+                    <MenuItem Header="Добавить новое" Command="{Binding WorkWithDatabaseViewModel.SelectAddCommand}">
+                    </MenuItem>
+                    <MenuItem Header="Редактировать выбранное" Command="{Binding BranchesViewModel.EditCommand}">
+                    </MenuItem>
+                    <Separator></Separator>
+                    <MenuItem Header="Удалить выбранное" Command="{Binding BranchesViewModel.RemoveCommand}">
+                    </MenuItem>
+                </MenuItem>
+                <Separator></Separator>
+                <MenuItem Header="Отчеты">
+                    <MenuItem Header="Список предприятий по должности" Command="{Binding EmploymentViewModel.LoadCompaniesWithVacanciesForPositionCommand}">
+                        
+                    </MenuItem>
+                    <MenuItem Header="Самая популярная должность по дате" Command="{Binding EmploymentViewModel.LoadTopPositionByVacanciesForPeriodCommand}">
+
+                    </MenuItem>
+                    <MenuItem Header="Вакансии без образования по дате">
+
+                    </MenuItem>
+                </MenuItem>
+                <Separator></Separator>
+                <MenuItem Header="Заменить директора" Command="{Binding DirectorWindowViewModel.DirectorsCommand}">
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Справка" Click="MenuItem_Click" >
+            </MenuItem>
+            <MenuItem Header="Выход" Click="MenuItem_Click_1" >
             </MenuItem>
         </Menu>
 
@@ -93,6 +116,22 @@
             
         </DataGrid>-->
 
+        <StackPanel  Orientation="Horizontal" Grid.Row="1" Grid.Column="3">
+            <Button Command="{Binding MainWindowViewModel.ShowGameWindowCommand}" 
+                     CommandParameter="{Binding}"
+                     Content="Добавить"
+                     Margin="5 5 5 5" 
+                     HorizontalAlignment="Left" Width="136">
+            </Button>
+            <Button Command="{Binding MainWindowViewModel.RemoveGameCommand}"
+                     Content="Удалить" Margin="5 5 5 5" HorizontalAlignment="Left" Width="136">
+            </Button>
+            <Button Command="{Binding MainWindowViewModel.ShowGameWindowUpdateCommand}" 
+                     CommandParameter="{Binding}"
+                     Content="Редактировать" Margin="5 5 5 5" HorizontalAlignment="Left" Width="136">
+            </Button>
+        </StackPanel>
+
         <DataGrid x:Name="vacancyGrid" 
                   AutoGenerateColumns="False"
                   FontSize="20" 
@@ -114,50 +153,57 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Название"
                     Binding="{Binding Name}"
-                    Width="30*" 
+                    Width="30*"
+                    MinWidth="40"
                     ElementStyle="{StaticResource WrapText}" 
                     HeaderStyle="{StaticResource WrapTextHeader}"/>
 
-                <DataGridTextColumn Header="Трудовая книжка"
+                <DataGridTextColumn Header="Т.К."
                     Binding="{Binding WorkBookRegistration}"
                     Width="10*"
-                    FontSize="50"
+                    MinWidth="50"
                     ElementStyle="{StaticResource WrapText}" 
                     HeaderStyle="{StaticResource WrapTextHeader}"/>
 
                 <DataGridTextColumn Header="Соц. пакет" 
                     Binding="{Binding SocialPackage}"
                     Width="20*" 
+                    MinWidth="80"
                     ElementStyle="{StaticResource WrapText}" 
                     HeaderStyle="{StaticResource WrapTextHeader}"/>
 
                 <DataGridTextColumn Header="Пол" 
                     Binding="{Binding Gender}"
                     Width="20*" 
+                    MinWidth="80"
                     ElementStyle="{StaticResource WrapText}" 
                     HeaderStyle="{StaticResource WrapTextHeader}"/>
 
                 <DataGridTextColumn Header="Возраст" 
                     Binding="{Binding AgeRange}"
                     Width="20*" 
+                    MinWidth="80"
                     ElementStyle="{StaticResource WrapText}" 
                     HeaderStyle="{StaticResource WrapTextHeader}"/>
 
                 <DataGridTextColumn Header="Зарплата" 
                     Binding="{Binding SalaryRange}"
                     Width="20*" 
+                    MinWidth="100"
                     ElementStyle="{StaticResource WrapText}" 
                     HeaderStyle="{StaticResource WrapTextHeader}"/>
 
                 <DataGridTextColumn Header="Образование" 
                     Binding="{Binding Education}"
                     Width="20*" 
+                    MinWidth="115"
                     ElementStyle="{StaticResource WrapText}" 
                     HeaderStyle="{StaticResource WrapTextHeader}"/>
 
                 <DataGridTextColumn Header="Должность" 
                     Binding="{Binding Position}"
                     Width="20*" 
+                    MinWidth="115"
                     ElementStyle="{StaticResource WrapText}" 
                     HeaderStyle="{StaticResource WrapTextHeader}"/>
 
@@ -175,7 +221,7 @@
                                 </ListBox.ItemContainerStyle>
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding description,TargetNullValue='отсутсвует'}" TextWrapping="Wrap"/>
+                                        <TextBlock Text="{Binding Name,TargetNullValue='отсутсвует'}" TextWrapping="Wrap"/>
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>
                             </ListBox>
@@ -183,27 +229,24 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
-                <DataGridTemplateColumn Header="Издатель" HeaderStyle="{StaticResource WrapTextHeader}" 
-                        Width="50*">
+                <DataGridTemplateColumn Header="Обязанности" HeaderStyle="{StaticResource WrapTextHeader}" MinWidth="200">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <ListBox>
-                                <!--ItemsSource="{Binding Publishers_str, UpdateSourceTrigger=PropertyChanged}"-->
+                            <ListBox ItemsSource="{Binding Responsibilities, UpdateSourceTrigger=PropertyChanged, TargetNullValue='отсутсвует'}" 
+                     ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                                 <ListBox.ItemContainerStyle>
                                     <Style>
-                                        <Setter Property="ListBoxItem.Background" Value="LightSteelBlue"/>
-                                        <Setter Property="ListBoxItem.Margin" Value="5"/>
-                                        <Setter Property="ListBoxItem.Padding" Value="5"/>
+                                        <Setter Property="ListBoxItem.Background" Value="AliceBlue"/>
+                                        <Setter Property="ListBoxItem.Margin" Value="2"/>
+                                        <Setter Property="ListBoxItem.Padding" Value="1"/>
                                     </Style>
                                 </ListBox.ItemContainerStyle>
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
-                                        <TextBlock  TextWrapping="Wrap"/>
-                                        <!--Text="{Binding}"-->
+                                        <TextBlock Text="{Binding Name,TargetNullValue='отсутсвует'}" TextWrapping="Wrap"/>
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>
                             </ListBox>
-
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

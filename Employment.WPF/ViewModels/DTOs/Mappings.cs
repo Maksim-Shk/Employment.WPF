@@ -1,6 +1,7 @@
 ﻿using Employment.WPF.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,7 +28,11 @@ namespace Employment.WPF.ViewModels.DTOs
                 UpperSalary = vacancy.UpperSalary,
                 CompanyId = vacancy.CompanyId,
                 EducationId = vacancy.EducationId,
-                PositionId = vacancy.PositionId
+                PositionId = vacancy.PositionId,
+                Education = vacancy.Education.Level,
+                Position = vacancy.Position.Title,
+                Responsibilities = new ObservableCollection<Responsibility>(vacancy.Responsibilities.Select(r=>r.Responsibility).ToList()),
+                Skills = new ObservableCollection<Skill>(vacancy.Skills.Select(s => s.Skill).ToList())
             };
 
         private static string GetAgeRange(string? lowerAge, string? topAge)

@@ -27,7 +27,7 @@ namespace Employment.WPF.ViewModels
                   {
                       using (var db = new EmploymentContext())
                       {
-                          MessageBox.Show("Hello");
+
                       }
                   }));
             }

@@ -1,5 +1,6 @@
 ﻿using Employment.WPF.Models;
 using Employment.WPF.ViewModels.DTOs;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -59,12 +60,25 @@ namespace Employment.WPF.ViewModels
                       {
                           var company = obj as Company;
                           var vacancies = db.Vacancies
+                                            .Include(v => v.Skills).ThenInclude(vs => vs.Skill)
+                                            .Include(v => v.Responsibilities).ThenInclude(vr => vr.Responsibility)
+                                            .Include(v => v.Education)
+                                            .Include(v => v.Position)
                                             .Where(x => x.CompanyId == company.CompanyId)
                                             .Select(v => v.ToVacancyDto())
                                             .ToList();
-                          
+
+                          //foreach (var vacancy in vacancies)
+                          //{
+                          //    vacancy.Education = db.Educations.FirstOrDefault(x => x.EducationId == vacancy.EducationId).Level.ToString();
+                          //    vacancy.Position = db.Positions.FirstOrDefault(x => x.PositionId == vacancy.PositionId).Title.ToString();
+                          //}
+
                           Vacancies = new ObservableCollection<VacancyDto>(vacancies);
                       }
+
+                      //Обратите внимание на использование Include и ThenInclude - это способ гарантировать, что Entity Framework загрузит связанные данные, когда вы запрашиваете основные данные.Это поможет избежать "ленивой загрузки"(lazy loading) и сделает ваш код более эффективным, так как он будет выполнять меньше запросов к базе данных.
+
                   }));
             }
         }
