@@ -80,7 +80,7 @@ namespace Employment.WPF.Models.Helpers
                     TopAge = _random.Next(50, 70),
                     LowerSalary = _random.Next(25, 60) * 1000,
                     UpperSalary = _random.Next(61, 100) * 1000,
-                    EducationId = _random.Next(1, 5),
+                    EducationId = _random.Next(1, 6),
                     PositionId = _random.Next(1,10),
                     Responsibilities = new List<VacancyResponsibility>(),
                     Skills = new List<VacancySkill>()
@@ -249,11 +249,12 @@ namespace Employment.WPF.Models.Helpers
         {
             return new List<Education>
                 {
-                    new Education { EducationId = 1, Level = "Начальное образование" },
-                    new Education { EducationId = 2, Level = "Основное общее образование"  },
-                    new Education { EducationId = 3, Level = "Среднее общее образование" },
-                    new Education { EducationId = 4, Level = "Среднее профессиональное образование" },
-                    new Education { EducationId = 5, Level = "Высшее образование" }
+                    new Education { EducationId = 1, Level = "Не имеет значения" },
+                    new Education { EducationId = 2, Level = "Начальное образование" },
+                    new Education { EducationId = 3, Level = "Основное общее образование"  },
+                    new Education { EducationId = 4, Level = "Среднее общее образование" },
+                    new Education { EducationId = 5, Level = "Среднее профессиональное образование" },
+                    new Education { EducationId = 6, Level = "Высшее образование" }
                 };
         }
 

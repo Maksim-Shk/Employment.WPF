@@ -70,7 +70,7 @@
                     <MenuItem Header="Самая популярная должность по дате" Command="{Binding EmploymentViewModel.LoadTopPositionByVacanciesForPeriodCommand}">
 
                     </MenuItem>
-                    <MenuItem Header="Вакансии без образования по дате">
+                    <MenuItem Header="Вакансии без образования по дате" Command="{Binding EmploymentViewModel.LoadCompaniesWithNoEducationRequirementCommand}">
 
                     </MenuItem>
                 </MenuItem>

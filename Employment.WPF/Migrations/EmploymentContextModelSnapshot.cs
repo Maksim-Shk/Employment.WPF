@@ -64,181 +64,181 @@ namespace Employment.WPF.Migrations
                         new
                         {
                             AddressId = 898,
-                            Apartment = "3",
-                            ExternalId = new Guid("35e32042-8241-4e07-adde-3f6d3d2775c1"),
-                            House = "4",
-                            LocalityId = 902,
-                            StreetId = 920
-                        },
-                        new
-                        {
-                            AddressId = 897,
-                            Apartment = "39",
-                            ExternalId = new Guid("35e32042-8241-4e07-adde-3f6d3d2775c1"),
-                            House = "87",
-                            LocalityId = 904,
-                            StreetId = 920
-                        },
-                        new
-                        {
-                            AddressId = 892,
-                            Apartment = "127",
-                            ExternalId = new Guid("b09102d8-6e3a-4feb-b8dd-231c436a16f1"),
-                            House = "28",
-                            LocalityId = 908,
-                            StreetId = 918
-                        },
-                        new
-                        {
-                            AddressId = 891,
-                            Apartment = "46",
-                            ExternalId = new Guid("b09102d8-6e3a-4feb-b8dd-231c436a16f1"),
-                            House = "39",
-                            LocalityId = 906,
-                            StreetId = 918
-                        },
-                        new
-                        {
-                            AddressId = 886,
-                            Apartment = "30",
-                            ExternalId = new Guid("e64606e5-8f5f-4cad-a01c-083ffe93a415"),
-                            House = "11",
-                            LocalityId = 906,
-                            StreetId = 914
-                        },
-                        new
-                        {
-                            AddressId = 885,
-                            Apartment = "181",
-                            ExternalId = new Guid("e64606e5-8f5f-4cad-a01c-083ffe93a415"),
-                            House = "29",
-                            LocalityId = 905,
+                            Apartment = "61",
+                            ExternalId = new Guid("8c35fb04-1849-49db-84af-bccb5fc72358"),
+                            House = "55",
+                            LocalityId = 907,
                             StreetId = 912
                         },
                         new
                         {
+                            AddressId = 897,
+                            Apartment = "195",
+                            ExternalId = new Guid("8c35fb04-1849-49db-84af-bccb5fc72358"),
+                            House = "59",
+                            LocalityId = 902,
+                            StreetId = 917
+                        },
+                        new
+                        {
+                            AddressId = 892,
+                            Apartment = "40",
+                            ExternalId = new Guid("c834819a-091a-4dfe-b8e8-2fba4700653e"),
+                            House = "55",
+                            LocalityId = 907,
+                            StreetId = 914
+                        },
+                        new
+                        {
+                            AddressId = 891,
+                            Apartment = "186",
+                            ExternalId = new Guid("c834819a-091a-4dfe-b8e8-2fba4700653e"),
+                            House = "59",
+                            LocalityId = 906,
+                            StreetId = 916
+                        },
+                        new
+                        {
+                            AddressId = 886,
+                            Apartment = "22",
+                            ExternalId = new Guid("6e4737f9-d1c5-407c-a0ea-e7f2208d3418"),
+                            House = "64",
+                            LocalityId = 907,
+                            StreetId = 920
+                        },
+                        new
+                        {
+                            AddressId = 885,
+                            Apartment = "78",
+                            ExternalId = new Guid("6e4737f9-d1c5-407c-a0ea-e7f2208d3418"),
+                            House = "29",
+                            LocalityId = 902,
+                            StreetId = 911
+                        },
+                        new
+                        {
                             AddressId = 880,
-                            Apartment = "158",
-                            ExternalId = new Guid("bd9193c0-3453-4255-84c1-6c3b857b7dcb"),
-                            House = "25",
-                            LocalityId = 910,
+                            Apartment = "44",
+                            ExternalId = new Guid("9c90e6da-bbf8-47f1-bb1e-92935304fc41"),
+                            House = "34",
+                            LocalityId = 909,
                             StreetId = 913
                         },
                         new
                         {
                             AddressId = 879,
-                            Apartment = "179",
-                            ExternalId = new Guid("bd9193c0-3453-4255-84c1-6c3b857b7dcb"),
-                            House = "72",
-                            LocalityId = 905,
-                            StreetId = 916
+                            Apartment = "163",
+                            ExternalId = new Guid("9c90e6da-bbf8-47f1-bb1e-92935304fc41"),
+                            House = "49",
+                            LocalityId = 904,
+                            StreetId = 918
                         },
                         new
                         {
                             AddressId = 874,
                             Apartment = "60",
-                            ExternalId = new Guid("4d1b4cda-3629-4484-bd81-ba7e60b2992a"),
-                            House = "40",
-                            LocalityId = 901,
-                            StreetId = 919
+                            ExternalId = new Guid("3126b9e8-4464-4b04-8d42-a80007967613"),
+                            House = "18",
+                            LocalityId = 906,
+                            StreetId = 915
                         },
                         new
                         {
                             AddressId = 873,
-                            Apartment = "4",
-                            ExternalId = new Guid("4d1b4cda-3629-4484-bd81-ba7e60b2992a"),
-                            House = "65",
-                            LocalityId = 906,
+                            Apartment = "36",
+                            ExternalId = new Guid("3126b9e8-4464-4b04-8d42-a80007967613"),
+                            House = "28",
+                            LocalityId = 903,
                             StreetId = 915
                         },
                         new
                         {
                             AddressId = 868,
-                            Apartment = "53",
-                            ExternalId = new Guid("5d6d809d-7241-44f4-bc57-c580218709ed"),
-                            House = "48",
-                            LocalityId = 904,
-                            StreetId = 911
-                        },
-                        new
-                        {
-                            AddressId = 867,
-                            Apartment = "67",
-                            ExternalId = new Guid("5d6d809d-7241-44f4-bc57-c580218709ed"),
-                            House = "4",
-                            LocalityId = 904,
+                            Apartment = "157",
+                            ExternalId = new Guid("e9d9a204-4c5c-41dd-8c52-720d61b6450a"),
+                            House = "58",
+                            LocalityId = 903,
                             StreetId = 919
                         },
                         new
                         {
-                            AddressId = 862,
-                            Apartment = "95",
-                            ExternalId = new Guid("0bca6cff-2ded-409d-bcc4-fd4078425077"),
-                            House = "77",
-                            LocalityId = 905,
-                            StreetId = 917
-                        },
-                        new
-                        {
-                            AddressId = 861,
-                            Apartment = "160",
-                            ExternalId = new Guid("0bca6cff-2ded-409d-bcc4-fd4078425077"),
-                            House = "46",
-                            LocalityId = 909,
+                            AddressId = 867,
+                            Apartment = "10",
+                            ExternalId = new Guid("e9d9a204-4c5c-41dd-8c52-720d61b6450a"),
+                            House = "95",
+                            LocalityId = 906,
                             StreetId = 918
                         },
                         new
                         {
-                            AddressId = 856,
-                            Apartment = "151",
-                            ExternalId = new Guid("236bb49e-8d2e-4e21-889f-aa46078486ca"),
-                            House = "78",
+                            AddressId = 862,
+                            Apartment = "106",
+                            ExternalId = new Guid("8c532375-700c-48fd-a6f3-b6296451b5a2"),
+                            House = "32",
                             LocalityId = 905,
+                            StreetId = 912
+                        },
+                        new
+                        {
+                            AddressId = 861,
+                            Apartment = "116",
+                            ExternalId = new Guid("8c532375-700c-48fd-a6f3-b6296451b5a2"),
+                            House = "21",
+                            LocalityId = 901,
+                            StreetId = 915
+                        },
+                        new
+                        {
+                            AddressId = 856,
+                            Apartment = "126",
+                            ExternalId = new Guid("05242870-9d27-499a-94cc-4889bfabe199"),
+                            House = "52",
+                            LocalityId = 904,
                             StreetId = 913
                         },
                         new
                         {
                             AddressId = 855,
-                            Apartment = "60",
-                            ExternalId = new Guid("236bb49e-8d2e-4e21-889f-aa46078486ca"),
-                            House = "38",
-                            LocalityId = 901,
-                            StreetId = 911
-                        },
-                        new
-                        {
-                            AddressId = 850,
-                            Apartment = "114",
-                            ExternalId = new Guid("68b3a388-7379-43bf-b63f-f637a9b282a9"),
-                            House = "76",
-                            LocalityId = 909,
-                            StreetId = 911
-                        },
-                        new
-                        {
-                            AddressId = 849,
-                            Apartment = "15",
-                            ExternalId = new Guid("68b3a388-7379-43bf-b63f-f637a9b282a9"),
-                            House = "4",
-                            LocalityId = 909,
-                            StreetId = 911
-                        },
-                        new
-                        {
-                            AddressId = 844,
-                            Apartment = "23",
-                            ExternalId = new Guid("94e350e9-a096-4e9c-8ec3-1b121b3de22b"),
-                            House = "31",
-                            LocalityId = 906,
+                            Apartment = "134",
+                            ExternalId = new Guid("05242870-9d27-499a-94cc-4889bfabe199"),
+                            House = "12",
+                            LocalityId = 905,
                             StreetId = 915
                         },
                         new
                         {
-                            AddressId = 843,
-                            Apartment = "193",
-                            ExternalId = new Guid("94e350e9-a096-4e9c-8ec3-1b121b3de22b"),
-                            House = "70",
+                            AddressId = 850,
+                            Apartment = "48",
+                            ExternalId = new Guid("5592cf0c-c209-4d35-9705-2745a54f66f7"),
+                            House = "13",
                             LocalityId = 904,
+                            StreetId = 918
+                        },
+                        new
+                        {
+                            AddressId = 849,
+                            Apartment = "127",
+                            ExternalId = new Guid("5592cf0c-c209-4d35-9705-2745a54f66f7"),
+                            House = "52",
+                            LocalityId = 910,
+                            StreetId = 918
+                        },
+                        new
+                        {
+                            AddressId = 844,
+                            Apartment = "175",
+                            ExternalId = new Guid("ab89ca0b-0990-4da4-8c5d-ede3005d23a4"),
+                            House = "20",
+                            LocalityId = 910,
+                            StreetId = 919
+                        },
+                        new
+                        {
+                            AddressId = 843,
+                            Apartment = "197",
+                            ExternalId = new Guid("ab89ca0b-0990-4da4-8c5d-ede3005d23a4"),
+                            House = "33",
+                            LocalityId = 906,
                             StreetId = 917
                         });
                 });
@@ -271,70 +271,70 @@ namespace Employment.WPF.Migrations
                     b.HasData(
                         new
                         {
-                            CompanyId = new Guid("35e32042-8241-4e07-adde-3f6d3d2775c1"),
+                            CompanyId = new Guid("8c35fb04-1849-49db-84af-bccb5fc72358"),
                             Email = "daisy@mail.ru",
                             Name = "ООО Ромашка",
                             ShortName = "Ромашка"
                         },
                         new
                         {
-                            CompanyId = new Guid("b09102d8-6e3a-4feb-b8dd-231c436a16f1"),
+                            CompanyId = new Guid("c834819a-091a-4dfe-b8e8-2fba4700653e"),
                             Email = "sunflower@mail.ru",
                             Name = "ЗАО Подсолнух",
                             ShortName = "Подсолнух"
                         },
                         new
                         {
-                            CompanyId = new Guid("e64606e5-8f5f-4cad-a01c-083ffe93a415"),
+                            CompanyId = new Guid("6e4737f9-d1c5-407c-a0ea-e7f2208d3418"),
                             Email = "forest@mail.ru",
                             Name = "ПАО Лес",
                             ShortName = "Лес"
                         },
                         new
                         {
-                            CompanyId = new Guid("bd9193c0-3453-4255-84c1-6c3b857b7dcb"),
+                            CompanyId = new Guid("9c90e6da-bbf8-47f1-bb1e-92935304fc41"),
                             Email = "horizon@mail.ru",
                             Name = "ООО Горизонт",
                             ShortName = "Горизонт"
                         },
                         new
                         {
-                            CompanyId = new Guid("4d1b4cda-3629-4484-bd81-ba7e60b2992a"),
+                            CompanyId = new Guid("3126b9e8-4464-4b04-8d42-a80007967613"),
                             Email = "breeze@mail.ru",
                             Name = "ЗАО Ветерок",
                             ShortName = "Ветерок"
                         },
                         new
                         {
-                            CompanyId = new Guid("5d6d809d-7241-44f4-bc57-c580218709ed"),
+                            CompanyId = new Guid("e9d9a204-4c5c-41dd-8c52-720d61b6450a"),
                             Email = "sunset@mail.ru",
                             Name = "ПАО Закат",
                             ShortName = "Закат"
                         },
                         new
                         {
-                            CompanyId = new Guid("0bca6cff-2ded-409d-bcc4-fd4078425077"),
+                            CompanyId = new Guid("8c532375-700c-48fd-a6f3-b6296451b5a2"),
                             Email = "firefly@mail.ru",
                             Name = "ООО Светлячок",
                             ShortName = "Светлячок"
                         },
                         new
                         {
-                            CompanyId = new Guid("236bb49e-8d2e-4e21-889f-aa46078486ca"),
+                            CompanyId = new Guid("05242870-9d27-499a-94cc-4889bfabe199"),
                             Email = "mountain@mail.ru",
                             Name = "ООО Гора",
                             ShortName = "Гора"
                         },
                         new
                         {
-                            CompanyId = new Guid("68b3a388-7379-43bf-b63f-f637a9b282a9"),
+                            CompanyId = new Guid("5592cf0c-c209-4d35-9705-2745a54f66f7"),
                             Email = "wave@mail.ru",
                             Name = "ПАО Волна",
                             ShortName = "Волна"
                         },
                         new
                         {
-                            CompanyId = new Guid("94e350e9-a096-4e9c-8ec3-1b121b3de22b"),
+                            CompanyId = new Guid("ab89ca0b-0990-4da4-8c5d-ede3005d23a4"),
                             Email = "valley@mail.ru",
                             Name = "ООО Долина",
                             ShortName = "Долина"
@@ -360,26 +360,31 @@ namespace Employment.WPF.Migrations
                         new
                         {
                             EducationId = 1,
-                            Level = "Начальное образование"
+                            Level = "Не имеет значения"
                         },
                         new
                         {
                             EducationId = 2,
-                            Level = "Основное общее образование"
+                            Level = "Начальное образование"
                         },
                         new
                         {
                             EducationId = 3,
-                            Level = "Среднее общее образование"
+                            Level = "Основное общее образование"
                         },
                         new
                         {
                             EducationId = 4,
-                            Level = "Среднее профессиональное образование"
+                            Level = "Среднее общее образование"
                         },
                         new
                         {
                             EducationId = 5,
+                            Level = "Среднее профессиональное образование"
+                        },
+                        new
+                        {
+                            EducationId = 6,
                             Level = "Высшее образование"
                         });
                 });
@@ -426,19 +431,19 @@ namespace Employment.WPF.Migrations
                         new
                         {
                             LocalityId = 908,
-                            LocalityTypeId = 4,
+                            LocalityTypeId = 2,
                             Name = "Вязовка"
                         },
                         new
                         {
                             LocalityId = 907,
-                            LocalityTypeId = 4,
+                            LocalityTypeId = 2,
                             Name = "Каменка"
                         },
                         new
                         {
                             LocalityId = 906,
-                            LocalityTypeId = 4,
+                            LocalityTypeId = 3,
                             Name = "Березовка"
                         },
                         new
@@ -450,13 +455,13 @@ namespace Employment.WPF.Migrations
                         new
                         {
                             LocalityId = 904,
-                            LocalityTypeId = 4,
+                            LocalityTypeId = 1,
                             Name = "Липово"
                         },
                         new
                         {
                             LocalityId = 903,
-                            LocalityTypeId = 1,
+                            LocalityTypeId = 4,
                             Name = "Заборье"
                         },
                         new
@@ -468,7 +473,7 @@ namespace Employment.WPF.Migrations
                         new
                         {
                             LocalityId = 901,
-                            LocalityTypeId = 4,
+                            LocalityTypeId = 5,
                             Name = "Черничка"
                         });
                 });
@@ -556,141 +561,141 @@ namespace Employment.WPF.Migrations
                         {
                             PhoneId = 900,
                             EntityType = 0,
-                            ExternalId = new Guid("35e32042-8241-4e07-adde-3f6d3d2775c1"),
-                            PhoneNumber = "+79557156213"
+                            ExternalId = new Guid("8c35fb04-1849-49db-84af-bccb5fc72358"),
+                            PhoneNumber = "+79984446186"
                         },
                         new
                         {
                             PhoneId = 899,
                             EntityType = 0,
-                            ExternalId = new Guid("35e32042-8241-4e07-adde-3f6d3d2775c1"),
-                            PhoneNumber = "+79564199029"
+                            ExternalId = new Guid("8c35fb04-1849-49db-84af-bccb5fc72358"),
+                            PhoneNumber = "+79958366415"
                         },
                         new
                         {
                             PhoneId = 894,
                             EntityType = 0,
-                            ExternalId = new Guid("b09102d8-6e3a-4feb-b8dd-231c436a16f1"),
-                            PhoneNumber = "+79887049385"
+                            ExternalId = new Guid("c834819a-091a-4dfe-b8e8-2fba4700653e"),
+                            PhoneNumber = "+79977283998"
                         },
                         new
                         {
                             PhoneId = 893,
                             EntityType = 0,
-                            ExternalId = new Guid("b09102d8-6e3a-4feb-b8dd-231c436a16f1"),
-                            PhoneNumber = "+79057402023"
+                            ExternalId = new Guid("c834819a-091a-4dfe-b8e8-2fba4700653e"),
+                            PhoneNumber = "+79967488457"
                         },
                         new
                         {
                             PhoneId = 888,
                             EntityType = 0,
-                            ExternalId = new Guid("e64606e5-8f5f-4cad-a01c-083ffe93a415"),
-                            PhoneNumber = "+79139934169"
+                            ExternalId = new Guid("6e4737f9-d1c5-407c-a0ea-e7f2208d3418"),
+                            PhoneNumber = "+79681487374"
                         },
                         new
                         {
                             PhoneId = 887,
                             EntityType = 0,
-                            ExternalId = new Guid("e64606e5-8f5f-4cad-a01c-083ffe93a415"),
-                            PhoneNumber = "+79724317587"
+                            ExternalId = new Guid("6e4737f9-d1c5-407c-a0ea-e7f2208d3418"),
+                            PhoneNumber = "+79047813897"
                         },
                         new
                         {
                             PhoneId = 882,
                             EntityType = 0,
-                            ExternalId = new Guid("bd9193c0-3453-4255-84c1-6c3b857b7dcb"),
-                            PhoneNumber = "+79651984552"
+                            ExternalId = new Guid("9c90e6da-bbf8-47f1-bb1e-92935304fc41"),
+                            PhoneNumber = "+79752798646"
                         },
                         new
                         {
                             PhoneId = 881,
                             EntityType = 0,
-                            ExternalId = new Guid("bd9193c0-3453-4255-84c1-6c3b857b7dcb"),
-                            PhoneNumber = "+79854842615"
+                            ExternalId = new Guid("9c90e6da-bbf8-47f1-bb1e-92935304fc41"),
+                            PhoneNumber = "+79375656592"
                         },
                         new
                         {
                             PhoneId = 876,
                             EntityType = 0,
-                            ExternalId = new Guid("4d1b4cda-3629-4484-bd81-ba7e60b2992a"),
-                            PhoneNumber = "+79341328846"
+                            ExternalId = new Guid("3126b9e8-4464-4b04-8d42-a80007967613"),
+                            PhoneNumber = "+79185501390"
                         },
                         new
                         {
                             PhoneId = 875,
                             EntityType = 0,
-                            ExternalId = new Guid("4d1b4cda-3629-4484-bd81-ba7e60b2992a"),
-                            PhoneNumber = "+79024155738"
+                            ExternalId = new Guid("3126b9e8-4464-4b04-8d42-a80007967613"),
+                            PhoneNumber = "+79805929118"
                         },
                         new
                         {
                             PhoneId = 870,
                             EntityType = 0,
-                            ExternalId = new Guid("5d6d809d-7241-44f4-bc57-c580218709ed"),
-                            PhoneNumber = "+79079796476"
+                            ExternalId = new Guid("e9d9a204-4c5c-41dd-8c52-720d61b6450a"),
+                            PhoneNumber = "+79356214723"
                         },
                         new
                         {
                             PhoneId = 869,
                             EntityType = 0,
-                            ExternalId = new Guid("5d6d809d-7241-44f4-bc57-c580218709ed"),
-                            PhoneNumber = "+79593448036"
+                            ExternalId = new Guid("e9d9a204-4c5c-41dd-8c52-720d61b6450a"),
+                            PhoneNumber = "+79294878228"
                         },
                         new
                         {
                             PhoneId = 864,
                             EntityType = 0,
-                            ExternalId = new Guid("0bca6cff-2ded-409d-bcc4-fd4078425077"),
-                            PhoneNumber = "+79692763457"
+                            ExternalId = new Guid("8c532375-700c-48fd-a6f3-b6296451b5a2"),
+                            PhoneNumber = "+79489507349"
                         },
                         new
                         {
                             PhoneId = 863,
                             EntityType = 0,
-                            ExternalId = new Guid("0bca6cff-2ded-409d-bcc4-fd4078425077"),
-                            PhoneNumber = "+79952371425"
+                            ExternalId = new Guid("8c532375-700c-48fd-a6f3-b6296451b5a2"),
+                            PhoneNumber = "+79178241147"
                         },
                         new
                         {
                             PhoneId = 858,
                             EntityType = 0,
-                            ExternalId = new Guid("236bb49e-8d2e-4e21-889f-aa46078486ca"),
-                            PhoneNumber = "+79698662863"
+                            ExternalId = new Guid("05242870-9d27-499a-94cc-4889bfabe199"),
+                            PhoneNumber = "+79805421373"
                         },
                         new
                         {
                             PhoneId = 857,
                             EntityType = 0,
-                            ExternalId = new Guid("236bb49e-8d2e-4e21-889f-aa46078486ca"),
-                            PhoneNumber = "+79387585177"
+                            ExternalId = new Guid("05242870-9d27-499a-94cc-4889bfabe199"),
+                            PhoneNumber = "+79386147893"
                         },
                         new
                         {
                             PhoneId = 852,
                             EntityType = 0,
-                            ExternalId = new Guid("68b3a388-7379-43bf-b63f-f637a9b282a9"),
-                            PhoneNumber = "+79768167046"
+                            ExternalId = new Guid("5592cf0c-c209-4d35-9705-2745a54f66f7"),
+                            PhoneNumber = "+79838985139"
                         },
                         new
                         {
                             PhoneId = 851,
                             EntityType = 0,
-                            ExternalId = new Guid("68b3a388-7379-43bf-b63f-f637a9b282a9"),
-                            PhoneNumber = "+79911357505"
+                            ExternalId = new Guid("5592cf0c-c209-4d35-9705-2745a54f66f7"),
+                            PhoneNumber = "+79025682032"
                         },
                         new
                         {
                             PhoneId = 846,
                             EntityType = 0,
-                            ExternalId = new Guid("94e350e9-a096-4e9c-8ec3-1b121b3de22b"),
-                            PhoneNumber = "+79367347366"
+                            ExternalId = new Guid("ab89ca0b-0990-4da4-8c5d-ede3005d23a4"),
+                            PhoneNumber = "+79431546384"
                         },
                         new
                         {
                             PhoneId = 845,
                             EntityType = 0,
-                            ExternalId = new Guid("94e350e9-a096-4e9c-8ec3-1b121b3de22b"),
-                            PhoneNumber = "+79062889652"
+                            ExternalId = new Guid("ab89ca0b-0990-4da4-8c5d-ede3005d23a4"),
+                            PhoneNumber = "+79243485806"
                         });
                 });
 
@@ -932,13 +937,13 @@ namespace Employment.WPF.Migrations
                         {
                             StreetId = 920,
                             Name = "Ленина",
-                            StreeTypetId = 1
+                            StreeTypetId = 3
                         },
                         new
                         {
                             StreetId = 919,
                             Name = "Мира",
-                            StreeTypetId = 3
+                            StreeTypetId = 5
                         },
                         new
                         {
@@ -950,43 +955,43 @@ namespace Employment.WPF.Migrations
                         {
                             StreetId = 917,
                             Name = "Молодежная",
-                            StreeTypetId = 4
+                            StreeTypetId = 2
                         },
                         new
                         {
                             StreetId = 916,
                             Name = "Центральная",
-                            StreeTypetId = 4
+                            StreeTypetId = 2
                         },
                         new
                         {
                             StreetId = 915,
                             Name = "Школьная",
-                            StreeTypetId = 3
+                            StreeTypetId = 5
                         },
                         new
                         {
                             StreetId = 914,
                             Name = "Новая",
-                            StreeTypetId = 1
+                            StreeTypetId = 4
                         },
                         new
                         {
                             StreetId = 913,
                             Name = "Заречная",
-                            StreeTypetId = 4
+                            StreeTypetId = 2
                         },
                         new
                         {
                             StreetId = 912,
                             Name = "Садовая",
-                            StreeTypetId = 2
+                            StreeTypetId = 1
                         },
                         new
                         {
                             StreetId = 911,
                             Name = "Луговая",
-                            StreeTypetId = 1
+                            StreeTypetId = 5
                         });
                 });
 
@@ -1107,335 +1112,333 @@ namespace Employment.WPF.Migrations
                         new
                         {
                             VacancyId = 896,
-                            CloseDate = new DateTime(2023, 9, 25, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4023),
-                            CompanyId = new Guid("35e32042-8241-4e07-adde-3f6d3d2775c1"),
-                            EducationId = 1,
+                            CloseDate = new DateTime(2023, 10, 10, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(8995),
+                            CompanyId = new Guid("8c35fb04-1849-49db-84af-bccb5fc72358"),
+                            EducationId = 4,
                             Gender = "Не указан",
                             LowerAge = 19,
-                            LowerSalary = 41000.0,
+                            LowerSalary = 50000.0,
                             Name = "Вакансия 1 в <ООО Ромашка>",
-                            OpenDate = new DateTime(2023, 9, 7, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4017),
-                            PositionId = 1,
+                            OpenDate = new DateTime(2023, 9, 20, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(8986),
+                            PositionId = 6,
                             SocialPackage = true,
                             TopAge = 53,
-                            UpperSalary = 67000.0,
-                            WorkBookRegistration = true
+                            UpperSalary = 69000.0,
+                            WorkBookRegistration = false
                         },
                         new
                         {
                             VacancyId = 895,
-                            CloseDate = new DateTime(2023, 10, 8, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4097),
-                            CompanyId = new Guid("35e32042-8241-4e07-adde-3f6d3d2775c1"),
-                            EducationId = 3,
+                            CloseDate = new DateTime(2023, 10, 10, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9035),
+                            CompanyId = new Guid("8c35fb04-1849-49db-84af-bccb5fc72358"),
+                            EducationId = 2,
                             Gender = "Не указан",
-                            LowerAge = 23,
-                            LowerSalary = 43000.0,
+                            LowerAge = 22,
+                            LowerSalary = 44000.0,
                             Name = "Вакансия 2 в <ООО Ромашка>",
-                            OpenDate = new DateTime(2023, 8, 24, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4097),
-                            PositionId = 4,
+                            OpenDate = new DateTime(2023, 9, 10, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9034),
+                            PositionId = 5,
                             SocialPackage = false,
-                            TopAge = 51,
-                            UpperSalary = 72000.0,
-                            WorkBookRegistration = true
+                            TopAge = 50,
+                            UpperSalary = 92000.0,
+                            WorkBookRegistration = false
                         },
                         new
                         {
                             VacancyId = 890,
-                            CloseDate = new DateTime(2023, 10, 14, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4190),
-                            CompanyId = new Guid("b09102d8-6e3a-4feb-b8dd-231c436a16f1"),
+                            CloseDate = new DateTime(2023, 10, 15, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9097),
+                            CompanyId = new Guid("c834819a-091a-4dfe-b8e8-2fba4700653e"),
                             EducationId = 3,
-                            Gender = "Не указан",
-                            LowerAge = 20,
-                            LowerSalary = 48000.0,
+                            Gender = "Мужской",
+                            LowerAge = 23,
+                            LowerSalary = 34000.0,
                             Name = "Вакансия 1 в <ЗАО Подсолнух>",
-                            OpenDate = new DateTime(2023, 9, 7, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4189),
-                            PositionId = 2,
+                            OpenDate = new DateTime(2023, 9, 6, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9097),
+                            PositionId = 9,
                             SocialPackage = false,
-                            TopAge = 53,
-                            UpperSalary = 92000.0,
-                            WorkBookRegistration = true
+                            TopAge = 58,
+                            UpperSalary = 82000.0,
+                            WorkBookRegistration = false
                         },
                         new
                         {
                             VacancyId = 889,
-                            CloseDate = new DateTime(2023, 10, 2, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4238),
-                            CompanyId = new Guid("b09102d8-6e3a-4feb-b8dd-231c436a16f1"),
+                            CompanyId = new Guid("c834819a-091a-4dfe-b8e8-2fba4700653e"),
                             EducationId = 4,
-                            Gender = "Мужской",
-                            LowerAge = 21,
-                            LowerSalary = 47000.0,
+                            Gender = "Не указан",
+                            LowerAge = 19,
+                            LowerSalary = 45000.0,
                             Name = "Вакансия 2 в <ЗАО Подсолнух>",
-                            OpenDate = new DateTime(2023, 9, 1, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4237),
-                            PositionId = 2,
-                            SocialPackage = false,
-                            TopAge = 52,
-                            UpperSalary = 80000.0,
-                            WorkBookRegistration = false
-                        },
-                        new
-                        {
-                            VacancyId = 884,
-                            CompanyId = new Guid("e64606e5-8f5f-4cad-a01c-083ffe93a415"),
-                            EducationId = 2,
-                            Gender = "Не указан",
-                            LowerAge = 19,
-                            LowerSalary = 58000.0,
-                            Name = "Вакансия 1 в <ПАО Лес>",
-                            OpenDate = new DateTime(2023, 8, 31, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4326),
-                            PositionId = 5,
-                            SocialPackage = true,
-                            TopAge = 56,
-                            UpperSalary = 77000.0,
-                            WorkBookRegistration = true
-                        },
-                        new
-                        {
-                            VacancyId = 883,
-                            CompanyId = new Guid("e64606e5-8f5f-4cad-a01c-083ffe93a415"),
-                            EducationId = 1,
-                            Gender = "Мужской",
-                            LowerAge = 19,
-                            LowerSalary = 57000.0,
-                            Name = "Вакансия 2 в <ПАО Лес>",
-                            OpenDate = new DateTime(2023, 9, 12, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4370),
-                            PositionId = 9,
-                            SocialPackage = true,
-                            TopAge = 56,
-                            UpperSalary = 64000.0,
-                            WorkBookRegistration = true
-                        },
-                        new
-                        {
-                            VacancyId = 878,
-                            CloseDate = new DateTime(2023, 10, 11, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4460),
-                            CompanyId = new Guid("bd9193c0-3453-4255-84c1-6c3b857b7dcb"),
-                            EducationId = 2,
-                            Gender = "Не указан",
-                            LowerAge = 19,
-                            LowerSalary = 49000.0,
-                            Name = "Вакансия 1 в <ООО Горизонт>",
-                            OpenDate = new DateTime(2023, 9, 1, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4459),
-                            PositionId = 2,
-                            SocialPackage = false,
-                            TopAge = 62,
-                            UpperSalary = 97000.0,
-                            WorkBookRegistration = false
-                        },
-                        new
-                        {
-                            VacancyId = 877,
-                            CompanyId = new Guid("bd9193c0-3453-4255-84c1-6c3b857b7dcb"),
-                            EducationId = 3,
-                            Gender = "Женский",
-                            LowerAge = 20,
-                            LowerSalary = 27000.0,
-                            Name = "Вакансия 2 в <ООО Горизонт>",
-                            OpenDate = new DateTime(2023, 9, 5, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4503),
-                            PositionId = 1,
-                            SocialPackage = true,
-                            TopAge = 54,
-                            UpperSalary = 86000.0,
-                            WorkBookRegistration = true
-                        },
-                        new
-                        {
-                            VacancyId = 872,
-                            CloseDate = new DateTime(2023, 9, 28, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4588),
-                            CompanyId = new Guid("4d1b4cda-3629-4484-bd81-ba7e60b2992a"),
-                            EducationId = 1,
-                            Gender = "Женский",
-                            LowerAge = 18,
-                            LowerSalary = 43000.0,
-                            Name = "Вакансия 1 в <ЗАО Ветерок>",
-                            OpenDate = new DateTime(2023, 9, 10, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4587),
-                            PositionId = 1,
-                            SocialPackage = false,
-                            TopAge = 51,
-                            UpperSalary = 76000.0,
-                            WorkBookRegistration = false
-                        },
-                        new
-                        {
-                            VacancyId = 871,
-                            CloseDate = new DateTime(2023, 10, 9, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4633),
-                            CompanyId = new Guid("4d1b4cda-3629-4484-bd81-ba7e60b2992a"),
-                            EducationId = 2,
-                            Gender = "Не указан",
-                            LowerAge = 19,
-                            LowerSalary = 37000.0,
-                            Name = "Вакансия 2 в <ЗАО Ветерок>",
-                            OpenDate = new DateTime(2023, 9, 17, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4632),
-                            PositionId = 8,
-                            SocialPackage = true,
-                            TopAge = 57,
-                            UpperSalary = 61000.0,
-                            WorkBookRegistration = true
-                        },
-                        new
-                        {
-                            VacancyId = 866,
-                            CloseDate = new DateTime(2023, 9, 28, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4713),
-                            CompanyId = new Guid("5d6d809d-7241-44f4-bc57-c580218709ed"),
-                            EducationId = 3,
-                            Gender = "Не указан",
-                            LowerAge = 23,
-                            LowerSalary = 57000.0,
-                            Name = "Вакансия 1 в <ПАО Закат>",
-                            OpenDate = new DateTime(2023, 9, 1, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4712),
-                            PositionId = 8,
-                            SocialPackage = true,
-                            TopAge = 58,
-                            UpperSalary = 91000.0,
-                            WorkBookRegistration = true
-                        },
-                        new
-                        {
-                            VacancyId = 865,
-                            CloseDate = new DateTime(2023, 10, 13, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4757),
-                            CompanyId = new Guid("5d6d809d-7241-44f4-bc57-c580218709ed"),
-                            EducationId = 3,
-                            Gender = "Не указан",
-                            LowerAge = 22,
-                            LowerSalary = 46000.0,
-                            Name = "Вакансия 2 в <ПАО Закат>",
-                            OpenDate = new DateTime(2023, 9, 6, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4757),
-                            PositionId = 9,
-                            SocialPackage = false,
-                            TopAge = 61,
-                            UpperSalary = 91000.0,
-                            WorkBookRegistration = false
-                        },
-                        new
-                        {
-                            VacancyId = 860,
-                            CloseDate = new DateTime(2023, 9, 21, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4842),
-                            CompanyId = new Guid("0bca6cff-2ded-409d-bcc4-fd4078425077"),
-                            EducationId = 3,
-                            Gender = "Мужской",
-                            LowerAge = 22,
-                            LowerSalary = 48000.0,
-                            Name = "Вакансия 1 в <ООО Светлячок>",
-                            OpenDate = new DateTime(2023, 8, 26, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4841),
-                            PositionId = 9,
-                            SocialPackage = true,
-                            TopAge = 63,
-                            UpperSalary = 76000.0,
-                            WorkBookRegistration = true
-                        },
-                        new
-                        {
-                            VacancyId = 859,
-                            CompanyId = new Guid("0bca6cff-2ded-409d-bcc4-fd4078425077"),
-                            EducationId = 4,
-                            Gender = "Не указан",
-                            LowerAge = 19,
-                            LowerSalary = 26000.0,
-                            Name = "Вакансия 2 в <ООО Светлячок>",
-                            OpenDate = new DateTime(2023, 9, 16, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4889),
-                            PositionId = 8,
-                            SocialPackage = false,
-                            TopAge = 60,
-                            UpperSalary = 83000.0,
-                            WorkBookRegistration = false
-                        },
-                        new
-                        {
-                            VacancyId = 854,
-                            CloseDate = new DateTime(2023, 10, 12, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4970),
-                            CompanyId = new Guid("236bb49e-8d2e-4e21-889f-aa46078486ca"),
-                            EducationId = 4,
-                            Gender = "Не указан",
-                            LowerAge = 23,
-                            LowerSalary = 54000.0,
-                            Name = "Вакансия 1 в <ООО Гора>",
-                            OpenDate = new DateTime(2023, 9, 18, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4969),
-                            PositionId = 6,
-                            SocialPackage = false,
-                            TopAge = 66,
-                            UpperSalary = 64000.0,
-                            WorkBookRegistration = true
-                        },
-                        new
-                        {
-                            VacancyId = 853,
-                            CloseDate = new DateTime(2023, 9, 30, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(5014),
-                            CompanyId = new Guid("236bb49e-8d2e-4e21-889f-aa46078486ca"),
-                            EducationId = 1,
-                            Gender = "Не указан",
-                            LowerAge = 23,
-                            LowerSalary = 34000.0,
-                            Name = "Вакансия 2 в <ООО Гора>",
-                            OpenDate = new DateTime(2023, 8, 31, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(5013),
+                            OpenDate = new DateTime(2023, 9, 6, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9117),
                             PositionId = 3,
-                            SocialPackage = false,
-                            TopAge = 57,
-                            UpperSalary = 95000.0,
-                            WorkBookRegistration = false
-                        },
-                        new
-                        {
-                            VacancyId = 848,
-                            CloseDate = new DateTime(2023, 10, 7, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(5100),
-                            CompanyId = new Guid("68b3a388-7379-43bf-b63f-f637a9b282a9"),
-                            EducationId = 1,
-                            Gender = "Мужской",
-                            LowerAge = 18,
-                            LowerSalary = 39000.0,
-                            Name = "Вакансия 1 в <ПАО Волна>",
-                            OpenDate = new DateTime(2023, 9, 18, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(5099),
-                            PositionId = 8,
-                            SocialPackage = false,
-                            TopAge = 53,
-                            UpperSalary = 73000.0,
-                            WorkBookRegistration = false
-                        },
-                        new
-                        {
-                            VacancyId = 847,
-                            CompanyId = new Guid("68b3a388-7379-43bf-b63f-f637a9b282a9"),
-                            EducationId = 1,
-                            Gender = "Не указан",
-                            LowerAge = 21,
-                            LowerSalary = 27000.0,
-                            Name = "Вакансия 2 в <ПАО Волна>",
-                            OpenDate = new DateTime(2023, 9, 14, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(5147),
-                            PositionId = 1,
                             SocialPackage = true,
-                            TopAge = 56,
+                            TopAge = 53,
                             UpperSalary = 87000.0,
                             WorkBookRegistration = true
                         },
                         new
                         {
-                            VacancyId = 842,
-                            CompanyId = new Guid("94e350e9-a096-4e9c-8ec3-1b121b3de22b"),
-                            EducationId = 2,
+                            VacancyId = 884,
+                            CompanyId = new Guid("6e4737f9-d1c5-407c-a0ea-e7f2208d3418"),
+                            EducationId = 3,
                             Gender = "Не указан",
-                            LowerAge = 18,
-                            LowerSalary = 27000.0,
-                            Name = "Вакансия 1 в <ООО Долина>",
-                            OpenDate = new DateTime(2023, 9, 7, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(5232),
+                            LowerAge = 19,
+                            LowerSalary = 53000.0,
+                            Name = "Вакансия 1 в <ПАО Лес>",
+                            OpenDate = new DateTime(2023, 9, 5, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9175),
+                            PositionId = 7,
+                            SocialPackage = true,
+                            TopAge = 64,
+                            UpperSalary = 90000.0,
+                            WorkBookRegistration = true
+                        },
+                        new
+                        {
+                            VacancyId = 883,
+                            CompanyId = new Guid("6e4737f9-d1c5-407c-a0ea-e7f2208d3418"),
+                            EducationId = 2,
+                            Gender = "Женский",
+                            LowerAge = 21,
+                            LowerSalary = 55000.0,
+                            Name = "Вакансия 2 в <ПАО Лес>",
+                            OpenDate = new DateTime(2023, 9, 4, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9198),
+                            PositionId = 2,
+                            SocialPackage = false,
+                            TopAge = 58,
+                            UpperSalary = 68000.0,
+                            WorkBookRegistration = true
+                        },
+                        new
+                        {
+                            VacancyId = 878,
+                            CompanyId = new Guid("9c90e6da-bbf8-47f1-bb1e-92935304fc41"),
+                            EducationId = 1,
+                            Gender = "Мужской",
+                            LowerAge = 19,
+                            LowerSalary = 48000.0,
+                            Name = "Вакансия 1 в <ООО Горизонт>",
+                            OpenDate = new DateTime(2023, 9, 12, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9254),
+                            PositionId = 4,
+                            SocialPackage = true,
+                            TopAge = 50,
+                            UpperSalary = 62000.0,
+                            WorkBookRegistration = false
+                        },
+                        new
+                        {
+                            VacancyId = 877,
+                            CompanyId = new Guid("9c90e6da-bbf8-47f1-bb1e-92935304fc41"),
+                            EducationId = 4,
+                            Gender = "Женский",
+                            LowerAge = 22,
+                            LowerSalary = 56000.0,
+                            Name = "Вакансия 2 в <ООО Горизонт>",
+                            OpenDate = new DateTime(2023, 9, 17, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9272),
+                            PositionId = 6,
+                            SocialPackage = false,
+                            TopAge = 58,
+                            UpperSalary = 90000.0,
+                            WorkBookRegistration = true
+                        },
+                        new
+                        {
+                            VacancyId = 872,
+                            CompanyId = new Guid("3126b9e8-4464-4b04-8d42-a80007967613"),
+                            EducationId = 1,
+                            Gender = "Женский",
+                            LowerAge = 21,
+                            LowerSalary = 39000.0,
+                            Name = "Вакансия 1 в <ЗАО Ветерок>",
+                            OpenDate = new DateTime(2023, 8, 30, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9326),
+                            PositionId = 9,
+                            SocialPackage = false,
+                            TopAge = 50,
+                            UpperSalary = 88000.0,
+                            WorkBookRegistration = true
+                        },
+                        new
+                        {
+                            VacancyId = 871,
+                            CloseDate = new DateTime(2023, 10, 12, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9351),
+                            CompanyId = new Guid("3126b9e8-4464-4b04-8d42-a80007967613"),
+                            EducationId = 1,
+                            Gender = "Не указан",
+                            LowerAge = 22,
+                            LowerSalary = 30000.0,
+                            Name = "Вакансия 2 в <ЗАО Ветерок>",
+                            OpenDate = new DateTime(2023, 8, 26, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9350),
                             PositionId = 8,
                             SocialPackage = false,
-                            TopAge = 61,
-                            UpperSalary = 64000.0,
+                            TopAge = 65,
+                            UpperSalary = 77000.0,
+                            WorkBookRegistration = true
+                        },
+                        new
+                        {
+                            VacancyId = 866,
+                            CloseDate = new DateTime(2023, 10, 16, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9408),
+                            CompanyId = new Guid("e9d9a204-4c5c-41dd-8c52-720d61b6450a"),
+                            EducationId = 4,
+                            Gender = "Не указан",
+                            LowerAge = 18,
+                            LowerSalary = 41000.0,
+                            Name = "Вакансия 1 в <ПАО Закат>",
+                            OpenDate = new DateTime(2023, 8, 27, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9408),
+                            PositionId = 2,
+                            SocialPackage = false,
+                            TopAge = 62,
+                            UpperSalary = 93000.0,
+                            WorkBookRegistration = false
+                        },
+                        new
+                        {
+                            VacancyId = 865,
+                            CloseDate = new DateTime(2023, 10, 22, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9432),
+                            CompanyId = new Guid("e9d9a204-4c5c-41dd-8c52-720d61b6450a"),
+                            EducationId = 5,
+                            Gender = "Не указан",
+                            LowerAge = 21,
+                            LowerSalary = 58000.0,
+                            Name = "Вакансия 2 в <ПАО Закат>",
+                            OpenDate = new DateTime(2023, 9, 23, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9431),
+                            PositionId = 1,
+                            SocialPackage = true,
+                            TopAge = 52,
+                            UpperSalary = 87000.0,
+                            WorkBookRegistration = false
+                        },
+                        new
+                        {
+                            VacancyId = 860,
+                            CompanyId = new Guid("8c532375-700c-48fd-a6f3-b6296451b5a2"),
+                            EducationId = 3,
+                            Gender = "Женский",
+                            LowerAge = 20,
+                            LowerSalary = 27000.0,
+                            Name = "Вакансия 1 в <ООО Светлячок>",
+                            OpenDate = new DateTime(2023, 9, 20, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9497),
+                            PositionId = 7,
+                            SocialPackage = true,
+                            TopAge = 65,
+                            UpperSalary = 94000.0,
+                            WorkBookRegistration = true
+                        },
+                        new
+                        {
+                            VacancyId = 859,
+                            CloseDate = new DateTime(2023, 10, 4, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9516),
+                            CompanyId = new Guid("8c532375-700c-48fd-a6f3-b6296451b5a2"),
+                            EducationId = 4,
+                            Gender = "Не указан",
+                            LowerAge = 19,
+                            LowerSalary = 27000.0,
+                            Name = "Вакансия 2 в <ООО Светлячок>",
+                            OpenDate = new DateTime(2023, 9, 5, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9516),
+                            PositionId = 7,
+                            SocialPackage = true,
+                            TopAge = 55,
+                            UpperSalary = 69000.0,
+                            WorkBookRegistration = true
+                        },
+                        new
+                        {
+                            VacancyId = 854,
+                            CloseDate = new DateTime(2023, 10, 4, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9571),
+                            CompanyId = new Guid("05242870-9d27-499a-94cc-4889bfabe199"),
+                            EducationId = 4,
+                            Gender = "Мужской",
+                            LowerAge = 19,
+                            LowerSalary = 42000.0,
+                            Name = "Вакансия 1 в <ООО Гора>",
+                            OpenDate = new DateTime(2023, 9, 13, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9571),
+                            PositionId = 1,
+                            SocialPackage = false,
+                            TopAge = 66,
+                            UpperSalary = 95000.0,
+                            WorkBookRegistration = false
+                        },
+                        new
+                        {
+                            VacancyId = 853,
+                            CloseDate = new DateTime(2023, 10, 4, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9593),
+                            CompanyId = new Guid("05242870-9d27-499a-94cc-4889bfabe199"),
+                            EducationId = 3,
+                            Gender = "Не указан",
+                            LowerAge = 22,
+                            LowerSalary = 27000.0,
+                            Name = "Вакансия 2 в <ООО Гора>",
+                            OpenDate = new DateTime(2023, 8, 29, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9593),
+                            PositionId = 1,
+                            SocialPackage = true,
+                            TopAge = 64,
+                            UpperSalary = 69000.0,
+                            WorkBookRegistration = true
+                        },
+                        new
+                        {
+                            VacancyId = 848,
+                            CloseDate = new DateTime(2023, 9, 27, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9650),
+                            CompanyId = new Guid("5592cf0c-c209-4d35-9705-2745a54f66f7"),
+                            EducationId = 2,
+                            Gender = "Мужской",
+                            LowerAge = 23,
+                            LowerSalary = 50000.0,
+                            Name = "Вакансия 1 в <ПАО Волна>",
+                            OpenDate = new DateTime(2023, 9, 5, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9649),
+                            PositionId = 9,
+                            SocialPackage = true,
+                            TopAge = 52,
+                            UpperSalary = 78000.0,
+                            WorkBookRegistration = true
+                        },
+                        new
+                        {
+                            VacancyId = 847,
+                            CloseDate = new DateTime(2023, 10, 2, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9670),
+                            CompanyId = new Guid("5592cf0c-c209-4d35-9705-2745a54f66f7"),
+                            EducationId = 2,
+                            Gender = "Женский",
+                            LowerAge = 22,
+                            LowerSalary = 45000.0,
+                            Name = "Вакансия 2 в <ПАО Волна>",
+                            OpenDate = new DateTime(2023, 9, 14, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9670),
+                            PositionId = 4,
+                            SocialPackage = true,
+                            TopAge = 66,
+                            UpperSalary = 93000.0,
+                            WorkBookRegistration = false
+                        },
+                        new
+                        {
+                            VacancyId = 842,
+                            CompanyId = new Guid("ab89ca0b-0990-4da4-8c5d-ede3005d23a4"),
+                            EducationId = 5,
+                            Gender = "Мужской",
+                            LowerAge = 23,
+                            LowerSalary = 33000.0,
+                            Name = "Вакансия 1 в <ООО Долина>",
+                            OpenDate = new DateTime(2023, 9, 10, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9726),
+                            PositionId = 5,
+                            SocialPackage = true,
+                            TopAge = 65,
+                            UpperSalary = 92000.0,
                             WorkBookRegistration = false
                         },
                         new
                         {
                             VacancyId = 841,
-                            CloseDate = new DateTime(2023, 10, 13, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(5279),
-                            CompanyId = new Guid("94e350e9-a096-4e9c-8ec3-1b121b3de22b"),
-                            EducationId = 2,
-                            Gender = "Женский",
-                            LowerAge = 18,
-                            LowerSalary = 27000.0,
+                            CloseDate = new DateTime(2023, 10, 14, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9746),
+                            CompanyId = new Guid("ab89ca0b-0990-4da4-8c5d-ede3005d23a4"),
+                            EducationId = 1,
+                            Gender = "Мужской",
+                            LowerAge = 19,
+                            LowerSalary = 30000.0,
                             Name = "Вакансия 2 в <ООО Долина>",
-                            OpenDate = new DateTime(2023, 8, 30, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(5278),
+                            OpenDate = new DateTime(2023, 9, 17, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9746),
                             PositionId = 9,
                             SocialPackage = false,
-                            TopAge = 62,
-                            UpperSalary = 73000.0,
+                            TopAge = 68,
+                            UpperSalary = 99000.0,
                             WorkBookRegistration = false
                         });
                 });

@@ -79,7 +79,7 @@ namespace Employment.WPF.ViewModels
                              SELECT p.""PositionId"", p.""Title""
                              FROM ""Vacancy"" v
                              JOIN ""Position"" p ON v.""PositionId"" = p.""PositionId""
-                             WHERE v.""OpenDate"" BETWEEN '2023-01-01' AND '2023-10-10'
+                             WHERE v.""OpenDate"" BETWEEN '{startDate}' AND '{endDate}'
                              GROUP BY p.""PositionId"", p.""Title""
                              ORDER BY COUNT(v.""VacancyId"") DESC
                              LIMIT 1";
@@ -104,11 +104,14 @@ namespace Employment.WPF.ViewModels
                 return _loadCompaniesWithNoEducationRequirementCommand ??
                   (_loadCompaniesWithNoEducationRequirementCommand = new RelayCommand(obj =>
                   {
-                      DateTime date = (DateTime)obj;
-                      string query = @"SELECT DISTINCT c.*
-                                      FROM Companies c
-                                      JOIN Vacancies v ON c.CompanyId = v.CompanyId
-                                      WHERE v.EducationId IS NULL AND v.OpenDate <= @Date AND (v.CloseDate IS NULL OR v.CloseDate >= @Date)";
+                      //DateTime date = (DateTime)obj;
+                      var date = DateTime.Now;
+                      string query = $@"
+                             SELECT DISTINCT c.*
+                             FROM ""Company"" c
+                             JOIN ""Vacancy"" v ON c.""CompanyId"" = v.""CompanyId""
+                             LEFT JOIN ""Education"" e ON v.""EducationId"" = e.""EducationId""
+                             WHERE (v.""EducationId"" IS NULL OR e.""Level"" = 'Не имеет значения') AND v.""OpenDate"" <= '{date:yyyy-MM-dd}' AND (v.""CloseDate"" IS NULL OR v.""CloseDate"" >= '{date:yyyy-MM-dd}')";
 
                       using (var db = new EmploymentContext())
                       {

@@ -308,16 +308,16 @@ namespace Employment.WPF.Migrations
                 columns: new[] { "CompanyId", "Email", "Name", "ShortName" },
                 values: new object[,]
                 {
-                    { new Guid("0bca6cff-2ded-409d-bcc4-fd4078425077"), "firefly@mail.ru", "ООО Светлячок", "Светлячок" },
-                    { new Guid("236bb49e-8d2e-4e21-889f-aa46078486ca"), "mountain@mail.ru", "ООО Гора", "Гора" },
-                    { new Guid("35e32042-8241-4e07-adde-3f6d3d2775c1"), "daisy@mail.ru", "ООО Ромашка", "Ромашка" },
-                    { new Guid("4d1b4cda-3629-4484-bd81-ba7e60b2992a"), "breeze@mail.ru", "ЗАО Ветерок", "Ветерок" },
-                    { new Guid("5d6d809d-7241-44f4-bc57-c580218709ed"), "sunset@mail.ru", "ПАО Закат", "Закат" },
-                    { new Guid("68b3a388-7379-43bf-b63f-f637a9b282a9"), "wave@mail.ru", "ПАО Волна", "Волна" },
-                    { new Guid("94e350e9-a096-4e9c-8ec3-1b121b3de22b"), "valley@mail.ru", "ООО Долина", "Долина" },
-                    { new Guid("b09102d8-6e3a-4feb-b8dd-231c436a16f1"), "sunflower@mail.ru", "ЗАО Подсолнух", "Подсолнух" },
-                    { new Guid("bd9193c0-3453-4255-84c1-6c3b857b7dcb"), "horizon@mail.ru", "ООО Горизонт", "Горизонт" },
-                    { new Guid("e64606e5-8f5f-4cad-a01c-083ffe93a415"), "forest@mail.ru", "ПАО Лес", "Лес" }
+                    { new Guid("05242870-9d27-499a-94cc-4889bfabe199"), "mountain@mail.ru", "ООО Гора", "Гора" },
+                    { new Guid("3126b9e8-4464-4b04-8d42-a80007967613"), "breeze@mail.ru", "ЗАО Ветерок", "Ветерок" },
+                    { new Guid("5592cf0c-c209-4d35-9705-2745a54f66f7"), "wave@mail.ru", "ПАО Волна", "Волна" },
+                    { new Guid("6e4737f9-d1c5-407c-a0ea-e7f2208d3418"), "forest@mail.ru", "ПАО Лес", "Лес" },
+                    { new Guid("8c35fb04-1849-49db-84af-bccb5fc72358"), "daisy@mail.ru", "ООО Ромашка", "Ромашка" },
+                    { new Guid("8c532375-700c-48fd-a6f3-b6296451b5a2"), "firefly@mail.ru", "ООО Светлячок", "Светлячок" },
+                    { new Guid("9c90e6da-bbf8-47f1-bb1e-92935304fc41"), "horizon@mail.ru", "ООО Горизонт", "Горизонт" },
+                    { new Guid("ab89ca0b-0990-4da4-8c5d-ede3005d23a4"), "valley@mail.ru", "ООО Долина", "Долина" },
+                    { new Guid("c834819a-091a-4dfe-b8e8-2fba4700653e"), "sunflower@mail.ru", "ЗАО Подсолнух", "Подсолнух" },
+                    { new Guid("e9d9a204-4c5c-41dd-8c52-720d61b6450a"), "sunset@mail.ru", "ПАО Закат", "Закат" }
                 });
 
             migrationBuilder.InsertData(
@@ -325,11 +325,12 @@ namespace Employment.WPF.Migrations
                 columns: new[] { "EducationId", "Level" },
                 values: new object[,]
                 {
-                    { 1, "Начальное образование" },
-                    { 2, "Основное общее образование" },
-                    { 3, "Среднее общее образование" },
-                    { 4, "Среднее профессиональное образование" },
-                    { 5, "Высшее образование" }
+                    { 1, "Не имеет значения" },
+                    { 2, "Начальное образование" },
+                    { 3, "Основное общее образование" },
+                    { 4, "Среднее общее образование" },
+                    { 5, "Среднее профессиональное образование" },
+                    { 6, "Высшее образование" }
                 });
 
             migrationBuilder.InsertData(
@@ -412,14 +413,14 @@ namespace Employment.WPF.Migrations
                 columns: new[] { "LocalityId", "LocalityTypeId", "Name", "ShortName" },
                 values: new object[,]
                 {
-                    { 901, 4, "Черничка", null },
+                    { 901, 5, "Черничка", null },
                     { 902, 1, "Терновка", null },
-                    { 903, 1, "Заборье", null },
-                    { 904, 4, "Липово", null },
+                    { 903, 4, "Заборье", null },
+                    { 904, 1, "Липово", null },
                     { 905, 5, "Степаново", null },
-                    { 906, 4, "Березовка", null },
-                    { 907, 4, "Каменка", null },
-                    { 908, 4, "Вязовка", null },
+                    { 906, 3, "Березовка", null },
+                    { 907, 2, "Каменка", null },
+                    { 908, 2, "Вязовка", null },
                     { 909, 4, "Дубровка", null },
                     { 910, 5, "Погорелка", null }
                 });
@@ -429,26 +430,26 @@ namespace Employment.WPF.Migrations
                 columns: new[] { "PhoneId", "EntityType", "ExternalId", "PhoneNumber" },
                 values: new object[,]
                 {
-                    { 845, 0, new Guid("94e350e9-a096-4e9c-8ec3-1b121b3de22b"), "+79062889652" },
-                    { 846, 0, new Guid("94e350e9-a096-4e9c-8ec3-1b121b3de22b"), "+79367347366" },
-                    { 851, 0, new Guid("68b3a388-7379-43bf-b63f-f637a9b282a9"), "+79911357505" },
-                    { 852, 0, new Guid("68b3a388-7379-43bf-b63f-f637a9b282a9"), "+79768167046" },
-                    { 857, 0, new Guid("236bb49e-8d2e-4e21-889f-aa46078486ca"), "+79387585177" },
-                    { 858, 0, new Guid("236bb49e-8d2e-4e21-889f-aa46078486ca"), "+79698662863" },
-                    { 863, 0, new Guid("0bca6cff-2ded-409d-bcc4-fd4078425077"), "+79952371425" },
-                    { 864, 0, new Guid("0bca6cff-2ded-409d-bcc4-fd4078425077"), "+79692763457" },
-                    { 869, 0, new Guid("5d6d809d-7241-44f4-bc57-c580218709ed"), "+79593448036" },
-                    { 870, 0, new Guid("5d6d809d-7241-44f4-bc57-c580218709ed"), "+79079796476" },
-                    { 875, 0, new Guid("4d1b4cda-3629-4484-bd81-ba7e60b2992a"), "+79024155738" },
-                    { 876, 0, new Guid("4d1b4cda-3629-4484-bd81-ba7e60b2992a"), "+79341328846" },
-                    { 881, 0, new Guid("bd9193c0-3453-4255-84c1-6c3b857b7dcb"), "+79854842615" },
-                    { 882, 0, new Guid("bd9193c0-3453-4255-84c1-6c3b857b7dcb"), "+79651984552" },
-                    { 887, 0, new Guid("e64606e5-8f5f-4cad-a01c-083ffe93a415"), "+79724317587" },
-                    { 888, 0, new Guid("e64606e5-8f5f-4cad-a01c-083ffe93a415"), "+79139934169" },
-                    { 893, 0, new Guid("b09102d8-6e3a-4feb-b8dd-231c436a16f1"), "+79057402023" },
-                    { 894, 0, new Guid("b09102d8-6e3a-4feb-b8dd-231c436a16f1"), "+79887049385" },
-                    { 899, 0, new Guid("35e32042-8241-4e07-adde-3f6d3d2775c1"), "+79564199029" },
-                    { 900, 0, new Guid("35e32042-8241-4e07-adde-3f6d3d2775c1"), "+79557156213" }
+                    { 845, 0, new Guid("ab89ca0b-0990-4da4-8c5d-ede3005d23a4"), "+79243485806" },
+                    { 846, 0, new Guid("ab89ca0b-0990-4da4-8c5d-ede3005d23a4"), "+79431546384" },
+                    { 851, 0, new Guid("5592cf0c-c209-4d35-9705-2745a54f66f7"), "+79025682032" },
+                    { 852, 0, new Guid("5592cf0c-c209-4d35-9705-2745a54f66f7"), "+79838985139" },
+                    { 857, 0, new Guid("05242870-9d27-499a-94cc-4889bfabe199"), "+79386147893" },
+                    { 858, 0, new Guid("05242870-9d27-499a-94cc-4889bfabe199"), "+79805421373" },
+                    { 863, 0, new Guid("8c532375-700c-48fd-a6f3-b6296451b5a2"), "+79178241147" },
+                    { 864, 0, new Guid("8c532375-700c-48fd-a6f3-b6296451b5a2"), "+79489507349" },
+                    { 869, 0, new Guid("e9d9a204-4c5c-41dd-8c52-720d61b6450a"), "+79294878228" },
+                    { 870, 0, new Guid("e9d9a204-4c5c-41dd-8c52-720d61b6450a"), "+79356214723" },
+                    { 875, 0, new Guid("3126b9e8-4464-4b04-8d42-a80007967613"), "+79805929118" },
+                    { 876, 0, new Guid("3126b9e8-4464-4b04-8d42-a80007967613"), "+79185501390" },
+                    { 881, 0, new Guid("9c90e6da-bbf8-47f1-bb1e-92935304fc41"), "+79375656592" },
+                    { 882, 0, new Guid("9c90e6da-bbf8-47f1-bb1e-92935304fc41"), "+79752798646" },
+                    { 887, 0, new Guid("6e4737f9-d1c5-407c-a0ea-e7f2208d3418"), "+79047813897" },
+                    { 888, 0, new Guid("6e4737f9-d1c5-407c-a0ea-e7f2208d3418"), "+79681487374" },
+                    { 893, 0, new Guid("c834819a-091a-4dfe-b8e8-2fba4700653e"), "+79967488457" },
+                    { 894, 0, new Guid("c834819a-091a-4dfe-b8e8-2fba4700653e"), "+79977283998" },
+                    { 899, 0, new Guid("8c35fb04-1849-49db-84af-bccb5fc72358"), "+79958366415" },
+                    { 900, 0, new Guid("8c35fb04-1849-49db-84af-bccb5fc72358"), "+79984446186" }
                 });
 
             migrationBuilder.InsertData(
@@ -456,16 +457,16 @@ namespace Employment.WPF.Migrations
                 columns: new[] { "StreetId", "Name", "ShortName", "StreeTypetId" },
                 values: new object[,]
                 {
-                    { 911, "Луговая", null, 1 },
-                    { 912, "Садовая", null, 2 },
-                    { 913, "Заречная", null, 4 },
-                    { 914, "Новая", null, 1 },
-                    { 915, "Школьная", null, 3 },
-                    { 916, "Центральная", null, 4 },
-                    { 917, "Молодежная", null, 4 },
+                    { 911, "Луговая", null, 5 },
+                    { 912, "Садовая", null, 1 },
+                    { 913, "Заречная", null, 2 },
+                    { 914, "Новая", null, 4 },
+                    { 915, "Школьная", null, 5 },
+                    { 916, "Центральная", null, 2 },
+                    { 917, "Молодежная", null, 2 },
                     { 918, "Советская", null, 1 },
-                    { 919, "Мира", null, 3 },
-                    { 920, "Ленина", null, 1 }
+                    { 919, "Мира", null, 5 },
+                    { 920, "Ленина", null, 3 }
                 });
 
             migrationBuilder.InsertData(
@@ -473,26 +474,26 @@ namespace Employment.WPF.Migrations
                 columns: new[] { "VacancyId", "CloseDate", "CompanyId", "EducationId", "Gender", "LowerAge", "LowerSalary", "Name", "OpenDate", "PositionId", "SocialPackage", "TopAge", "UpperSalary", "WorkBookRegistration" },
                 values: new object[,]
                 {
-                    { 841, new DateTime(2023, 10, 13, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(5279), new Guid("94e350e9-a096-4e9c-8ec3-1b121b3de22b"), 2, "Женский", 18, 27000.0, "Вакансия 2 в <ООО Долина>", new DateTime(2023, 8, 30, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(5278), 9, false, 62, 73000.0, false },
-                    { 842, null, new Guid("94e350e9-a096-4e9c-8ec3-1b121b3de22b"), 2, "Не указан", 18, 27000.0, "Вакансия 1 в <ООО Долина>", new DateTime(2023, 9, 7, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(5232), 8, false, 61, 64000.0, false },
-                    { 847, null, new Guid("68b3a388-7379-43bf-b63f-f637a9b282a9"), 1, "Не указан", 21, 27000.0, "Вакансия 2 в <ПАО Волна>", new DateTime(2023, 9, 14, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(5147), 1, true, 56, 87000.0, true },
-                    { 848, new DateTime(2023, 10, 7, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(5100), new Guid("68b3a388-7379-43bf-b63f-f637a9b282a9"), 1, "Мужской", 18, 39000.0, "Вакансия 1 в <ПАО Волна>", new DateTime(2023, 9, 18, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(5099), 8, false, 53, 73000.0, false },
-                    { 853, new DateTime(2023, 9, 30, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(5014), new Guid("236bb49e-8d2e-4e21-889f-aa46078486ca"), 1, "Не указан", 23, 34000.0, "Вакансия 2 в <ООО Гора>", new DateTime(2023, 8, 31, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(5013), 3, false, 57, 95000.0, false },
-                    { 854, new DateTime(2023, 10, 12, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4970), new Guid("236bb49e-8d2e-4e21-889f-aa46078486ca"), 4, "Не указан", 23, 54000.0, "Вакансия 1 в <ООО Гора>", new DateTime(2023, 9, 18, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4969), 6, false, 66, 64000.0, true },
-                    { 859, null, new Guid("0bca6cff-2ded-409d-bcc4-fd4078425077"), 4, "Не указан", 19, 26000.0, "Вакансия 2 в <ООО Светлячок>", new DateTime(2023, 9, 16, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4889), 8, false, 60, 83000.0, false },
-                    { 860, new DateTime(2023, 9, 21, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4842), new Guid("0bca6cff-2ded-409d-bcc4-fd4078425077"), 3, "Мужской", 22, 48000.0, "Вакансия 1 в <ООО Светлячок>", new DateTime(2023, 8, 26, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4841), 9, true, 63, 76000.0, true },
-                    { 865, new DateTime(2023, 10, 13, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4757), new Guid("5d6d809d-7241-44f4-bc57-c580218709ed"), 3, "Не указан", 22, 46000.0, "Вакансия 2 в <ПАО Закат>", new DateTime(2023, 9, 6, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4757), 9, false, 61, 91000.0, false },
-                    { 866, new DateTime(2023, 9, 28, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4713), new Guid("5d6d809d-7241-44f4-bc57-c580218709ed"), 3, "Не указан", 23, 57000.0, "Вакансия 1 в <ПАО Закат>", new DateTime(2023, 9, 1, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4712), 8, true, 58, 91000.0, true },
-                    { 871, new DateTime(2023, 10, 9, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4633), new Guid("4d1b4cda-3629-4484-bd81-ba7e60b2992a"), 2, "Не указан", 19, 37000.0, "Вакансия 2 в <ЗАО Ветерок>", new DateTime(2023, 9, 17, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4632), 8, true, 57, 61000.0, true },
-                    { 872, new DateTime(2023, 9, 28, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4588), new Guid("4d1b4cda-3629-4484-bd81-ba7e60b2992a"), 1, "Женский", 18, 43000.0, "Вакансия 1 в <ЗАО Ветерок>", new DateTime(2023, 9, 10, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4587), 1, false, 51, 76000.0, false },
-                    { 877, null, new Guid("bd9193c0-3453-4255-84c1-6c3b857b7dcb"), 3, "Женский", 20, 27000.0, "Вакансия 2 в <ООО Горизонт>", new DateTime(2023, 9, 5, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4503), 1, true, 54, 86000.0, true },
-                    { 878, new DateTime(2023, 10, 11, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4460), new Guid("bd9193c0-3453-4255-84c1-6c3b857b7dcb"), 2, "Не указан", 19, 49000.0, "Вакансия 1 в <ООО Горизонт>", new DateTime(2023, 9, 1, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4459), 2, false, 62, 97000.0, false },
-                    { 883, null, new Guid("e64606e5-8f5f-4cad-a01c-083ffe93a415"), 1, "Мужской", 19, 57000.0, "Вакансия 2 в <ПАО Лес>", new DateTime(2023, 9, 12, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4370), 9, true, 56, 64000.0, true },
-                    { 884, null, new Guid("e64606e5-8f5f-4cad-a01c-083ffe93a415"), 2, "Не указан", 19, 58000.0, "Вакансия 1 в <ПАО Лес>", new DateTime(2023, 8, 31, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4326), 5, true, 56, 77000.0, true },
-                    { 889, new DateTime(2023, 10, 2, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4238), new Guid("b09102d8-6e3a-4feb-b8dd-231c436a16f1"), 4, "Мужской", 21, 47000.0, "Вакансия 2 в <ЗАО Подсолнух>", new DateTime(2023, 9, 1, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4237), 2, false, 52, 80000.0, false },
-                    { 890, new DateTime(2023, 10, 14, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4190), new Guid("b09102d8-6e3a-4feb-b8dd-231c436a16f1"), 3, "Не указан", 20, 48000.0, "Вакансия 1 в <ЗАО Подсолнух>", new DateTime(2023, 9, 7, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4189), 2, false, 53, 92000.0, true },
-                    { 895, new DateTime(2023, 10, 8, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4097), new Guid("35e32042-8241-4e07-adde-3f6d3d2775c1"), 3, "Не указан", 23, 43000.0, "Вакансия 2 в <ООО Ромашка>", new DateTime(2023, 8, 24, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4097), 4, false, 51, 72000.0, true },
-                    { 896, new DateTime(2023, 9, 25, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4023), new Guid("35e32042-8241-4e07-adde-3f6d3d2775c1"), 1, "Не указан", 19, 41000.0, "Вакансия 1 в <ООО Ромашка>", new DateTime(2023, 9, 7, 16, 11, 56, 732, DateTimeKind.Utc).AddTicks(4017), 1, true, 53, 67000.0, true }
+                    { 841, new DateTime(2023, 10, 14, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9746), new Guid("ab89ca0b-0990-4da4-8c5d-ede3005d23a4"), 1, "Мужской", 19, 30000.0, "Вакансия 2 в <ООО Долина>", new DateTime(2023, 9, 17, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9746), 9, false, 68, 99000.0, false },
+                    { 842, null, new Guid("ab89ca0b-0990-4da4-8c5d-ede3005d23a4"), 5, "Мужской", 23, 33000.0, "Вакансия 1 в <ООО Долина>", new DateTime(2023, 9, 10, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9726), 5, true, 65, 92000.0, false },
+                    { 847, new DateTime(2023, 10, 2, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9670), new Guid("5592cf0c-c209-4d35-9705-2745a54f66f7"), 2, "Женский", 22, 45000.0, "Вакансия 2 в <ПАО Волна>", new DateTime(2023, 9, 14, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9670), 4, true, 66, 93000.0, false },
+                    { 848, new DateTime(2023, 9, 27, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9650), new Guid("5592cf0c-c209-4d35-9705-2745a54f66f7"), 2, "Мужской", 23, 50000.0, "Вакансия 1 в <ПАО Волна>", new DateTime(2023, 9, 5, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9649), 9, true, 52, 78000.0, true },
+                    { 853, new DateTime(2023, 10, 4, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9593), new Guid("05242870-9d27-499a-94cc-4889bfabe199"), 3, "Не указан", 22, 27000.0, "Вакансия 2 в <ООО Гора>", new DateTime(2023, 8, 29, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9593), 1, true, 64, 69000.0, true },
+                    { 854, new DateTime(2023, 10, 4, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9571), new Guid("05242870-9d27-499a-94cc-4889bfabe199"), 4, "Мужской", 19, 42000.0, "Вакансия 1 в <ООО Гора>", new DateTime(2023, 9, 13, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9571), 1, false, 66, 95000.0, false },
+                    { 859, new DateTime(2023, 10, 4, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9516), new Guid("8c532375-700c-48fd-a6f3-b6296451b5a2"), 4, "Не указан", 19, 27000.0, "Вакансия 2 в <ООО Светлячок>", new DateTime(2023, 9, 5, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9516), 7, true, 55, 69000.0, true },
+                    { 860, null, new Guid("8c532375-700c-48fd-a6f3-b6296451b5a2"), 3, "Женский", 20, 27000.0, "Вакансия 1 в <ООО Светлячок>", new DateTime(2023, 9, 20, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9497), 7, true, 65, 94000.0, true },
+                    { 865, new DateTime(2023, 10, 22, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9432), new Guid("e9d9a204-4c5c-41dd-8c52-720d61b6450a"), 5, "Не указан", 21, 58000.0, "Вакансия 2 в <ПАО Закат>", new DateTime(2023, 9, 23, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9431), 1, true, 52, 87000.0, false },
+                    { 866, new DateTime(2023, 10, 16, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9408), new Guid("e9d9a204-4c5c-41dd-8c52-720d61b6450a"), 4, "Не указан", 18, 41000.0, "Вакансия 1 в <ПАО Закат>", new DateTime(2023, 8, 27, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9408), 2, false, 62, 93000.0, false },
+                    { 871, new DateTime(2023, 10, 12, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9351), new Guid("3126b9e8-4464-4b04-8d42-a80007967613"), 1, "Не указан", 22, 30000.0, "Вакансия 2 в <ЗАО Ветерок>", new DateTime(2023, 8, 26, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9350), 8, false, 65, 77000.0, true },
+                    { 872, null, new Guid("3126b9e8-4464-4b04-8d42-a80007967613"), 1, "Женский", 21, 39000.0, "Вакансия 1 в <ЗАО Ветерок>", new DateTime(2023, 8, 30, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9326), 9, false, 50, 88000.0, true },
+                    { 877, null, new Guid("9c90e6da-bbf8-47f1-bb1e-92935304fc41"), 4, "Женский", 22, 56000.0, "Вакансия 2 в <ООО Горизонт>", new DateTime(2023, 9, 17, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9272), 6, false, 58, 90000.0, true },
+                    { 878, null, new Guid("9c90e6da-bbf8-47f1-bb1e-92935304fc41"), 1, "Мужской", 19, 48000.0, "Вакансия 1 в <ООО Горизонт>", new DateTime(2023, 9, 12, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9254), 4, true, 50, 62000.0, false },
+                    { 883, null, new Guid("6e4737f9-d1c5-407c-a0ea-e7f2208d3418"), 2, "Женский", 21, 55000.0, "Вакансия 2 в <ПАО Лес>", new DateTime(2023, 9, 4, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9198), 2, false, 58, 68000.0, true },
+                    { 884, null, new Guid("6e4737f9-d1c5-407c-a0ea-e7f2208d3418"), 3, "Не указан", 19, 53000.0, "Вакансия 1 в <ПАО Лес>", new DateTime(2023, 9, 5, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9175), 7, true, 64, 90000.0, true },
+                    { 889, null, new Guid("c834819a-091a-4dfe-b8e8-2fba4700653e"), 4, "Не указан", 19, 45000.0, "Вакансия 2 в <ЗАО Подсолнух>", new DateTime(2023, 9, 6, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9117), 3, true, 53, 87000.0, true },
+                    { 890, new DateTime(2023, 10, 15, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9097), new Guid("c834819a-091a-4dfe-b8e8-2fba4700653e"), 3, "Мужской", 23, 34000.0, "Вакансия 1 в <ЗАО Подсолнух>", new DateTime(2023, 9, 6, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9097), 9, false, 58, 82000.0, false },
+                    { 895, new DateTime(2023, 10, 10, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9035), new Guid("8c35fb04-1849-49db-84af-bccb5fc72358"), 2, "Не указан", 22, 44000.0, "Вакансия 2 в <ООО Ромашка>", new DateTime(2023, 9, 10, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(9034), 5, false, 50, 92000.0, false },
+                    { 896, new DateTime(2023, 10, 10, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(8995), new Guid("8c35fb04-1849-49db-84af-bccb5fc72358"), 4, "Не указан", 19, 50000.0, "Вакансия 1 в <ООО Ромашка>", new DateTime(2023, 9, 20, 20, 46, 0, 48, DateTimeKind.Utc).AddTicks(8986), 6, true, 53, 69000.0, false }
                 });
 
             migrationBuilder.InsertData(
@@ -500,26 +501,26 @@ namespace Employment.WPF.Migrations
                 columns: new[] { "AddressId", "Apartment", "CompanyId", "ExternalId", "House", "LocalityId", "StreetId" },
                 values: new object[,]
                 {
-                    { 843, "193", null, new Guid("94e350e9-a096-4e9c-8ec3-1b121b3de22b"), "70", 904, 917 },
-                    { 844, "23", null, new Guid("94e350e9-a096-4e9c-8ec3-1b121b3de22b"), "31", 906, 915 },
-                    { 849, "15", null, new Guid("68b3a388-7379-43bf-b63f-f637a9b282a9"), "4", 909, 911 },
-                    { 850, "114", null, new Guid("68b3a388-7379-43bf-b63f-f637a9b282a9"), "76", 909, 911 },
-                    { 855, "60", null, new Guid("236bb49e-8d2e-4e21-889f-aa46078486ca"), "38", 901, 911 },
-                    { 856, "151", null, new Guid("236bb49e-8d2e-4e21-889f-aa46078486ca"), "78", 905, 913 },
-                    { 861, "160", null, new Guid("0bca6cff-2ded-409d-bcc4-fd4078425077"), "46", 909, 918 },
-                    { 862, "95", null, new Guid("0bca6cff-2ded-409d-bcc4-fd4078425077"), "77", 905, 917 },
-                    { 867, "67", null, new Guid("5d6d809d-7241-44f4-bc57-c580218709ed"), "4", 904, 919 },
-                    { 868, "53", null, new Guid("5d6d809d-7241-44f4-bc57-c580218709ed"), "48", 904, 911 },
-                    { 873, "4", null, new Guid("4d1b4cda-3629-4484-bd81-ba7e60b2992a"), "65", 906, 915 },
-                    { 874, "60", null, new Guid("4d1b4cda-3629-4484-bd81-ba7e60b2992a"), "40", 901, 919 },
-                    { 879, "179", null, new Guid("bd9193c0-3453-4255-84c1-6c3b857b7dcb"), "72", 905, 916 },
-                    { 880, "158", null, new Guid("bd9193c0-3453-4255-84c1-6c3b857b7dcb"), "25", 910, 913 },
-                    { 885, "181", null, new Guid("e64606e5-8f5f-4cad-a01c-083ffe93a415"), "29", 905, 912 },
-                    { 886, "30", null, new Guid("e64606e5-8f5f-4cad-a01c-083ffe93a415"), "11", 906, 914 },
-                    { 891, "46", null, new Guid("b09102d8-6e3a-4feb-b8dd-231c436a16f1"), "39", 906, 918 },
-                    { 892, "127", null, new Guid("b09102d8-6e3a-4feb-b8dd-231c436a16f1"), "28", 908, 918 },
-                    { 897, "39", null, new Guid("35e32042-8241-4e07-adde-3f6d3d2775c1"), "87", 904, 920 },
-                    { 898, "3", null, new Guid("35e32042-8241-4e07-adde-3f6d3d2775c1"), "4", 902, 920 }
+                    { 843, "197", null, new Guid("ab89ca0b-0990-4da4-8c5d-ede3005d23a4"), "33", 906, 917 },
+                    { 844, "175", null, new Guid("ab89ca0b-0990-4da4-8c5d-ede3005d23a4"), "20", 910, 919 },
+                    { 849, "127", null, new Guid("5592cf0c-c209-4d35-9705-2745a54f66f7"), "52", 910, 918 },
+                    { 850, "48", null, new Guid("5592cf0c-c209-4d35-9705-2745a54f66f7"), "13", 904, 918 },
+                    { 855, "134", null, new Guid("05242870-9d27-499a-94cc-4889bfabe199"), "12", 905, 915 },
+                    { 856, "126", null, new Guid("05242870-9d27-499a-94cc-4889bfabe199"), "52", 904, 913 },
+                    { 861, "116", null, new Guid("8c532375-700c-48fd-a6f3-b6296451b5a2"), "21", 901, 915 },
+                    { 862, "106", null, new Guid("8c532375-700c-48fd-a6f3-b6296451b5a2"), "32", 905, 912 },
+                    { 867, "10", null, new Guid("e9d9a204-4c5c-41dd-8c52-720d61b6450a"), "95", 906, 918 },
+                    { 868, "157", null, new Guid("e9d9a204-4c5c-41dd-8c52-720d61b6450a"), "58", 903, 919 },
+                    { 873, "36", null, new Guid("3126b9e8-4464-4b04-8d42-a80007967613"), "28", 903, 915 },
+                    { 874, "60", null, new Guid("3126b9e8-4464-4b04-8d42-a80007967613"), "18", 906, 915 },
+                    { 879, "163", null, new Guid("9c90e6da-bbf8-47f1-bb1e-92935304fc41"), "49", 904, 918 },
+                    { 880, "44", null, new Guid("9c90e6da-bbf8-47f1-bb1e-92935304fc41"), "34", 909, 913 },
+                    { 885, "78", null, new Guid("6e4737f9-d1c5-407c-a0ea-e7f2208d3418"), "29", 902, 911 },
+                    { 886, "22", null, new Guid("6e4737f9-d1c5-407c-a0ea-e7f2208d3418"), "64", 907, 920 },
+                    { 891, "186", null, new Guid("c834819a-091a-4dfe-b8e8-2fba4700653e"), "59", 906, 916 },
+                    { 892, "40", null, new Guid("c834819a-091a-4dfe-b8e8-2fba4700653e"), "55", 907, 914 },
+                    { 897, "195", null, new Guid("8c35fb04-1849-49db-84af-bccb5fc72358"), "59", 902, 917 },
+                    { 898, "61", null, new Guid("8c35fb04-1849-49db-84af-bccb5fc72358"), "55", 907, 912 }
                 });
 
             migrationBuilder.InsertData(
