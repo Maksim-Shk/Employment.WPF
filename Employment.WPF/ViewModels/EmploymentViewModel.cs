@@ -31,6 +31,17 @@ namespace Employment.WPF.ViewModels
             }
         }
 
+        private DateTime _currentDate;
+        public DateTime CurrentDate
+        {
+            get => _currentDate;
+            set
+            {
+                _currentDate = value;
+                OnPropertyChanged();
+            }
+        }
+
         private RelayCommand _loadCompaniesWithVacanciesForPositionCommand;
         public RelayCommand LoadCompaniesWithVacanciesForPositionCommand
         {

@@ -292,13 +292,13 @@ public class EmploymentContext : DbContext
 
         foreach (var company in companies)
         {
-            var phones = DataGenerator.GeneratePhonesForCompany(company.CompanyId, 2);
+            var phones = DataGenerator.GeneratePhonesForCompany(company.CompanyId, 200);
             allPhones.AddRange(phones);
 
-            var addresses = DataGenerator.GenerateAddressesForCompany(company.CompanyId, 2, streets, streetTypes, localityTypes, localities);
+            var addresses = DataGenerator.GenerateAddressesForCompany(company.CompanyId, 200, streets, streetTypes, localityTypes, localities);
             allAddresses.AddRange(addresses);
 
-            var vacancies = DataGenerator.GenerateVacanciesForCompany(company.Name, company.CompanyId, 2);
+            var vacancies = DataGenerator.GenerateVacanciesForCompany(company.Name, company.CompanyId, 200);
             allVacancies.AddRange(vacancies);
         }
 

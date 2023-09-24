@@ -64,8 +64,8 @@
                 </MenuItem>
                 <Separator></Separator>
                 <MenuItem Header="Отчеты">
-                    <MenuItem Header="Список предприятий по должности" Command="{Binding EmploymentViewModel.LoadCompaniesWithVacanciesForPositionCommand}">
-                        
+                    <MenuItem Header="Список предприятий по должности" Click="MenuItem_Click_2">
+                        <!--Command="{Binding EmploymentViewModel.LoadCompaniesWithVacanciesForPositionCommand}"-->
                     </MenuItem>
                     <MenuItem Header="Самая популярная должность по дате" Command="{Binding EmploymentViewModel.LoadTopPositionByVacanciesForPeriodCommand}">
 

@@ -1,4 +1,6 @@
-﻿namespace Employment.WPF.ViewModels;
+﻿using Employment.WPF.ViewModels.Math;
+
+namespace Employment.WPF.ViewModels;
 
 public class MainViewModel
 {
@@ -6,6 +8,7 @@ public class MainViewModel
     public CompaniesViewModel CompaniesViewModel { get; set; }
     public VacancyViewModel VacancyViewModel { get; set; }  
     public EmploymentViewModel EmploymentViewModel { get; set; }
+    public ClusterAnalysisViewModel ClusterAnalysisViewModel { get; set; }
 
     public MainViewModel()
     {
@@ -13,5 +16,6 @@ public class MainViewModel
         CompaniesViewModel = new CompaniesViewModel();
         VacancyViewModel = new VacancyViewModel();
         EmploymentViewModel = new EmploymentViewModel();
+        ClusterAnalysisViewModel = new ClusterAnalysisViewModel();
     }
 }

@@ -9,7 +9,7 @@ namespace Employment.WPF.Models.Helpers
     public static class DataGenerator
     {
         private static Random _random = new Random();
-        private static int _entityIdCounter { get; set; } = 1000;
+        private static int _entityIdCounter { get; set; } = 100000;
         public static List<Company> GenerateCompanies()
         {
             var companyData = new (string RussianName, string EnglishName)[]
@@ -74,18 +74,71 @@ namespace Employment.WPF.Models.Helpers
                     WorkBookRegistration = _random.Next(0, 2) == 0,
                     SocialPackage = _random.Next(0, 2) == 0,
                     OpenDate = DateTime.UtcNow.AddDays(-_random.Next(0, 30)),
-                    CloseDate = _random.Next(0, 2) == 0 ? (DateTime?)null : DateTime.UtcNow.AddDays(_random.Next(1, 30)),
+                    //CloseDate = _random.Next(0, 2) == 0 ? (DateTime?)null : DateTime.UtcNow.AddDays(_random.Next(1, 30)),
                     Gender = _random.Next(0, 3) == 0 ? "Мужской" : (_random.Next(0, 3) == 1 ? "Женский" : "Не указан"),
                     LowerAge = _random.Next(18, 24),
                     TopAge = _random.Next(50, 70),
-                    LowerSalary = _random.Next(25, 60) * 1000,
-                    UpperSalary = _random.Next(61, 100) * 1000,
+                    //LowerSalary = _random.Next(25, 60) * 1000,
+                    //UpperSalary = _random.Next(61, 100) * 1000,
                     EducationId = _random.Next(1, 6),
                     PositionId = _random.Next(1,10),
                     Responsibilities = new List<VacancyResponsibility>(),
                     Skills = new List<VacancySkill>()
                 };
-        
+
+                double randomValue = _random.NextDouble();
+                if (randomValue < 0.2) // 20% вероятность
+                {
+                    vacancy.LowerSalary = _random.Next(15, 25) * 1000;
+                    vacancy.UpperSalary = _random.Next(27, 35) * 1000;
+                    vacancy.CloseDate = vacancy.OpenDate.AddDays(_random.Next(1, 35));
+                }
+                else if (randomValue < 0.4) // следующие 20%
+                {
+                    vacancy.LowerSalary = _random.Next(20, 36) * 1000;
+                    vacancy.UpperSalary = _random.Next(37, 45) * 1000;
+                    vacancy.CloseDate = vacancy.OpenDate.AddDays(_random.Next(1, 60));
+                }
+                else if (randomValue < 0.6) // следующие 20%
+                {
+                    vacancy.LowerSalary = _random.Next(30, 46) * 1000;
+                    vacancy.UpperSalary = _random.Next(47, 56) * 1000;
+                    vacancy.CloseDate = vacancy.OpenDate.AddDays(_random.Next(1, 50));
+                }
+                else if (randomValue < 0.8) // следующие 20%
+                {
+                    vacancy.LowerSalary = _random.Next(40, 56) * 1000;
+                    vacancy.UpperSalary = _random.Next(57, 66) * 1000;
+                    vacancy.CloseDate = vacancy.OpenDate.AddDays(_random.Next(1, 60));
+                }
+                else // последние 20%
+                {
+                    // Центральная крестовина: средние значения зарплаты и продолжительности
+                    vacancy.LowerSalary = _random.Next(50, 66) * 1000;
+                    vacancy.UpperSalary = _random.Next(67, 77) * 1000;
+                    vacancy.CloseDate = vacancy.OpenDate.AddDays(_random.Next(1, 50));
+                }
+
+                //if (_random.Next(0, 4) != 0) 
+                //{
+                //    vacancy.LowerSalary = _random.Next(15, 30) * 1000; 
+                //    vacancy.UpperSalary = _random.Next(31, 50) * 1000;
+                //}
+                //else
+                //{
+                //    vacancy.LowerSalary = _random.Next(40, 60) * 1000; 
+                //    vacancy.UpperSalary = _random.Next(61, 120) * 1000;
+                //}
+
+                //if (_random.Next(0, 4) != 0) 
+                //{
+                //    vacancy.CloseDate = _random.Next(0, 4) == 0 ? (DateTime?)null : vacancy.OpenDate.AddDays(_random.Next(1, 10)); 
+                //}
+                //else
+                //{
+                //    vacancy.CloseDate = _random.Next(0, 4) == 0 ? (DateTime?)null : vacancy.OpenDate.AddDays(_random.Next(7, 40)); 
+                //}
+
                 foreach (var responsibility in randomResponsibilities)
                 {
                     vacancy.Responsibilities.Add(new VacancyResponsibility

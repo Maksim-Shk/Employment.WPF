@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Employment.WPF.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,6 +34,13 @@ namespace Employment.WPF
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        {
+            var companiesWithVacanciesView = new CompaniesWithVacanciesView();
+            companiesWithVacanciesView.Show();
+
         }
     }
 }

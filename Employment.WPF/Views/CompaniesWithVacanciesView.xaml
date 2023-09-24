@@ -1,0 +1,16 @@
+﻿<Window x:Class="Employment.WPF.Views.CompaniesWithVacanciesView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:viewModels="clr-namespace:Employment.WPF.ViewModels"
+        Title="Vacancy Companies" Height="300" Width="400">
+    <Window.DataContext>
+        <viewModels:EmploymentViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <StackPanel VerticalAlignment="Center">
+            <ComboBox x:Name="positionComboBox" Margin="10" DisplayMemberPath="Title" SelectedValuePath="PositionId" />
+            <DatePicker x:Name="datePicker" Margin="10" SelectedDate="{Binding Path=CurrentDate, Mode=TwoWay}" />
+            <Button Content="Load Companies" Command="{Binding LoadCompaniesWithVacanciesForPositionCommand}" Height="30" Margin="10" />
+        </StackPanel>
+    </Grid>
+</Window>
