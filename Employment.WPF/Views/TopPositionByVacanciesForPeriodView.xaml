@@ -17,10 +17,49 @@
     <Grid>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBlock Text="Выберите начальную дату:" Margin="10"/>
-            <DatePicker x:Name="startDatePicker" Margin="10" SelectedDate="2022-10-10" />
+
+            <DatePicker x:Name="startDatePicker" Margin="10">
+                <DatePicker.SelectedDate>
+                    <Binding Path="StartDate" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <local:DateRangeValidationRule />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </DatePicker.SelectedDate>
+                <DatePicker.Style>
+                    <Style TargetType="{x:Type DatePicker}">
+                        <Style.Triggers>
+                            <Trigger Property="Validation.HasError" Value="True">
+                                <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Self}, Path=(Validation.Errors)[0].ErrorContent}" />
+                                <Setter Property="BorderBrush" Value="Red" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </DatePicker.Style>
+            </DatePicker>
 
             <TextBlock Text="Выберите конечную дату:" Margin="10"/>
-            <DatePicker x:Name="endDatePicker" Margin="10" SelectedDate="2023-9-10"/>
+
+            <DatePicker x:Name="endDatePicker" Margin="10">
+                <DatePicker.SelectedDate>
+                    <Binding Path="EndDate" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <local:DateRangeValidationRule />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </DatePicker.SelectedDate>
+                <DatePicker.Style>
+                    <Style TargetType="{x:Type DatePicker}">
+                        <Style.Triggers>
+                            <Trigger Property="Validation.HasError" Value="True">
+                                <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Self}, Path=(Validation.Errors)[0].ErrorContent}" />
+                                <Setter Property="BorderBrush" Value="Red" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </DatePicker.Style>
+            </DatePicker>
+
 
             <Button Content="Поиск" Command="{Binding LoadTopPositionByVacanciesForPeriodCommand}" Height="30" Margin="10">
                 <Button.CommandParameter>

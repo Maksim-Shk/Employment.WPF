@@ -22,9 +22,9 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="10*" MaxHeight="500"/>
+            <RowDefinition Height="10*"/>
             <!--<RowDefinition Height="20*" MaxHeight="500"/>-->
-            <RowDefinition Height="1*" MaxHeight="500"/>
+            <RowDefinition Height="1*" MaxHeight="300"/>
         </Grid.RowDefinitions>
         
         <oxy:PlotView Grid.Row="0" x:Name="plotView" Model="{Binding PlotCollection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
@@ -32,7 +32,7 @@
         Command="{Binding SavePlotCommand}" 
         CommandParameter="{Binding ElementName=plotView}" 
         Width="150" Height="30" 
-        HorizontalAlignment="Right" 
-        VerticalAlignment="Top"/>
+        HorizontalAlignment="Center" 
+        VerticalAlignment="Center"/>
     </Grid>
 </Window>

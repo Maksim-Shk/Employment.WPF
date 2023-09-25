@@ -86,6 +86,33 @@ namespace Employment.WPF.ViewModels
             }
         }
 
+        private DateTime _startDate = new DateTime(2022, 10, 10);
+        public DateTime StartDate
+        {
+            get { return _startDate; }
+            set
+            {
+                if (_startDate != value)
+                {
+                    _startDate = value;
+                    OnPropertyChanged(nameof(StartDate));
+                }
+            }
+        }
+
+        private DateTime _endDate = new DateTime(2023, 9, 10);
+        public DateTime EndDate
+        {
+            get { return _endDate; }
+            set
+            {
+                if (_endDate != value)
+                {
+                    _endDate = value;
+                    OnPropertyChanged(nameof(EndDate));
+                }
+            }
+        }
 
 
         private RelayCommand _loadCompaniesWithVacanciesForPositionCommand;
@@ -127,7 +154,7 @@ namespace Employment.WPF.ViewModels
                   {
                       var dateRange = obj as Tuple<DateTime, DateTime>;
                       
-                      if (dateRange == null) return; // обработка ошибки или добавьте логирование
+                      if (dateRange == null) return; 
 
                       string startDate = dateRange.Item1.ToString("yyyy-MM-dd");
                       string endDate = dateRange.Item2.ToString("yyyy-MM-dd");
@@ -172,7 +199,9 @@ namespace Employment.WPF.ViewModels
                              FROM ""Company"" c
                              JOIN ""Vacancy"" v ON c.""CompanyId"" = v.""CompanyId""
                              LEFT JOIN ""Education"" e ON v.""EducationId"" = e.""EducationId""
-                             WHERE (v.""EducationId"" IS NULL OR e.""Level"" = 'Не имеет значения') AND v.""OpenDate"" <= '{date:yyyy-MM-dd}' AND (v.""CloseDate"" IS NULL OR v.""CloseDate"" >= '{date:yyyy-MM-dd}')";
+                             WHERE (v.""EducationId"" IS NULL OR e.""Level"" = 'Не имеет значения') 
+                                   AND v.""OpenDate"" <= '{date:yyyy-MM-dd}' 
+                                   AND (v.""CloseDate"" IS NULL OR v.""CloseDate"" >= '{date:yyyy-MM-dd}')";
 
                       using (var db = new EmploymentContext())
                       {

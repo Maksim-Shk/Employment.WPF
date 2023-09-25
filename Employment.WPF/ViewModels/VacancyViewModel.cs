@@ -1,15 +1,10 @@
 ﻿using Employment.WPF.Models;
 using Employment.WPF.ViewModels.DTOs;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Security.Policy;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Employment.WPF.ViewModels
 {
@@ -22,16 +17,6 @@ namespace Employment.WPF.ViewModels
             {
                 LoadVacanciesCommand.Execute(db.Companies.First());
             }
-           //using (var db = new EmploymentContext())
-           //{
-           //    var companyId = db.Companies.First().CompanyId;
-           //    var vacancies = db.Vacancies
-           //                      .Where(x => x.CompanyId == companyId)
-           //                      .Select(v => v.ToVacancyDto())
-           //                      .ToList();
-           //
-           //    Vacancies = new ObservableCollection<VacancyDto>(vacancies);
-           //}
         }
 
         private ObservableCollection<VacancyDto> _Vacancies;
@@ -92,12 +77,6 @@ namespace Employment.WPF.ViewModels
                                             .Where(x => x.CompanyId == company.CompanyId)
                                             .Select(v => v.ToVacancyDto())
                                             .ToList();
-
-                          //foreach (var vacancy in vacancies)
-                          //{
-                          //    vacancy.Education = db.Educations.FirstOrDefault(x => x.EducationId == vacancy.EducationId).Level.ToString();
-                          //    vacancy.Position = db.Positions.FirstOrDefault(x => x.PositionId == vacancy.PositionId).Title.ToString();
-                          //}
 
                           Vacancies = new ObservableCollection<VacancyDto>(vacancies);
                       }

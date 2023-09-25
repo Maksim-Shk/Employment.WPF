@@ -73,7 +73,7 @@ namespace Employment.WPF.Models.Helpers
                     Name = $"Вакансия {i + 1} в <{companyName}>",
                     WorkBookRegistration = _random.Next(0, 2) == 0,
                     SocialPackage = _random.Next(0, 2) == 0,
-                    OpenDate = DateTime.UtcNow.AddDays(-_random.Next(0, 30)),
+                    OpenDate = DateTime.UtcNow.AddDays(-_random.Next(100, 130)),
                     //CloseDate = _random.Next(0, 2) == 0 ? (DateTime?)null : DateTime.UtcNow.AddDays(_random.Next(1, 30)),
                     Gender = _random.Next(0, 3) == 0 ? "Мужской" : (_random.Next(0, 3) == 1 ? "Женский" : "Не указан"),
                     LowerAge = _random.Next(18, 24),

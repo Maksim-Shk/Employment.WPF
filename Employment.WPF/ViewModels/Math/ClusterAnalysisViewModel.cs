@@ -21,6 +21,7 @@ namespace Employment.WPF.ViewModels.Math
         public ClusterAnalysisViewModel()
         {
             PlotCollection = new PlotModel { Title = "Кластеризация вакансий" };
+            PlotCollection.Background = OxyColors.White;
         }
 
         private PlotModel _PlotCollection;
@@ -59,15 +60,19 @@ namespace Employment.WPF.ViewModels.Math
                 DefaultExt = ".png",
                 AddExtension = true
             };
-
             if (dialog.ShowDialog() == true)
             {
                 string fileName = dialog.FileName;
                 var pngExporter = new OxyPlot.Wpf.PngExporter { Width = 600, Height = 400 };
-                var bitmap = pngExporter.ExportToBitmap(plotView.Model);
-                bitmap.Save(fileName, System.Drawing.Imaging.ImageFormat.Png);
+
+                using (var fileStream = new FileStream(fileName, FileMode.Create))
+                {
+                    pngExporter.Export(plotView.Model, fileStream);
+                }
             }
         }
+
+
 
 
 
