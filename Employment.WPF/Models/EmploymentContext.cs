@@ -292,13 +292,13 @@ public class EmploymentContext : DbContext
 
         foreach (var company in companies)
         {
-            var phones = DataGenerator.GeneratePhonesForCompany(company.CompanyId, 200);
+            var phones = DataGenerator.GeneratePhonesForCompany(company.CompanyId, 40);
             allPhones.AddRange(phones);
 
-            var addresses = DataGenerator.GenerateAddressesForCompany(company.CompanyId, 200, streets, streetTypes, localityTypes, localities);
+            var addresses = DataGenerator.GenerateAddressesForCompany(company.CompanyId, 40, streets, streetTypes, localityTypes, localities);
             allAddresses.AddRange(addresses);
 
-            var vacancies = DataGenerator.GenerateVacanciesForCompany(company.Name, company.CompanyId, 200);
+            var vacancies = DataGenerator.GenerateVacanciesForCompany(company.Name, company.CompanyId, 40);
             allVacancies.AddRange(vacancies);
         }
 
@@ -306,33 +306,45 @@ public class EmploymentContext : DbContext
         modelBuilder.Entity<Address>().HasData(allAddresses);
 
         var allVacancyResponsibilities = new List<VacancyResponsibility>();
-        var allVacancySkills = new List<VacancySkill>(); 
+        var allVacancySkills = new List<VacancySkill>();
+
+        Random random = new Random(); // Генератор случайных чисел
 
         foreach (var vacancy in allVacancies)
         {
-            // Важно: Убедитесь, что ваши вакансии не имеют заданных обязанностей при инициализации.
             vacancy.Responsibilities = null; // Очистите список обязанностей
             vacancy.Skills = null;
             modelBuilder.Entity<Vacancy>().HasData(vacancy);
 
-            // Затем создайте записи VacancyResponsibility для каждой обязанности, связанной с вакансией
-            foreach (var responsibility in responsibilities) // Используйте свой список обязанностей
+            // Перемешайте список обязанностей
+            var shuffledResponsibilities = responsibilities.OrderBy(r => random.Next()).ToList();
+
+            // Выберите случайное количество обязанностей (от 1 до 3)
+            int randomResponsibilityCount = random.Next(1, 4);
+
+            // Присваивайте только выбранное количество обязанностей
+            for (int i = 0; i < randomResponsibilityCount; i++)
             {
                 allVacancyResponsibilities.Add(new VacancyResponsibility
                 {
                     VacancyId = vacancy.VacancyId,
-                    ResponsibilityId = responsibility.ResponsibilityId
+                    ResponsibilityId = shuffledResponsibilities[i].ResponsibilityId
                 });
             }
-            foreach (var skill in skills) 
+
+            // Точно так же делаем для навыков (если это еще нужно)
+            var shuffledSkills = skills.OrderBy(s => random.Next()).ToList();
+            int randomSkillCount = random.Next(1, 4);
+            for (int i = 0; i < randomSkillCount; i++)
             {
                 allVacancySkills.Add(new VacancySkill
                 {
                     VacancyId = vacancy.VacancyId,
-                    SkillId = skill.SkillId
+                    SkillId = shuffledSkills[i].SkillId
                 });
             }
         }
+
         modelBuilder.Entity<VacancyResponsibility>().HasData(allVacancyResponsibilities);
         modelBuilder.Entity<VacancySkill>().HasData(allVacancySkills);
     }

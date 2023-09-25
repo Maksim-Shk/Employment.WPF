@@ -1,0 +1,38 @@
+﻿<Window x:Class="Employment.WPF.Views.TopPositionByVacanciesForPeriodView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:viewModels="clr-namespace:Employment.WPF.ViewModels"
+        xmlns:local="clr-namespace:Employment.WPF"
+        Title="Лучшая должность по вакансиям за период" Height="300" Width="400">
+
+    <Window.DataContext>
+        <viewModels:EmploymentViewModel/>
+    </Window.DataContext>
+
+    <Window.Resources>
+        <local:DateRangeConverter x:Key="DateRangeConverter" />
+    </Window.Resources>
+
+
+    <Grid>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="Выберите начальную дату:" Margin="10"/>
+            <DatePicker x:Name="startDatePicker" Margin="10" SelectedDate="2022-10-10" />
+
+            <TextBlock Text="Выберите конечную дату:" Margin="10"/>
+            <DatePicker x:Name="endDatePicker" Margin="10" SelectedDate="2023-9-10"/>
+
+            <Button Content="Поиск" Command="{Binding LoadTopPositionByVacanciesForPeriodCommand}" Height="30" Margin="10">
+                <Button.CommandParameter>
+                    <MultiBinding Converter="{StaticResource DateRangeConverter}">
+                        <Binding Path="SelectedDate" ElementName="startDatePicker"/>
+                        <Binding Path="SelectedDate" ElementName="endDatePicker"/>
+                    </MultiBinding>
+                </Button.CommandParameter>
+            </Button>
+
+            <TextBlock x:Name="topPositionTextBlock" Text="{Binding TopPositionTitle}" Margin="10"/>
+
+        </StackPanel>
+    </Grid>
+</Window>

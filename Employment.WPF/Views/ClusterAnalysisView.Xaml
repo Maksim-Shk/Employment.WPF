@@ -8,7 +8,7 @@
         xmlns:local="clr-namespace:Employment.WPF.Views"
         xmlns:viewModels="clr-namespace:Employment.WPF.ViewModels.Math"
         mc:Ignorable="d"
-        Title="ClusterAnalysisView" Height="450" Width="800">
+        Title="Кластерный анализ k-means" Height="450" Width="800">
 
     <Window.DataContext>
         <viewModels:ClusterAnalysisViewModel/>
@@ -21,6 +21,18 @@
     </i:Interaction.Triggers>
 
     <Grid>
-        <oxy:PlotView x:Name="plotView" Model="{Binding PlotCollection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*" MaxHeight="500"/>
+            <!--<RowDefinition Height="20*" MaxHeight="500"/>-->
+            <RowDefinition Height="1*" MaxHeight="500"/>
+        </Grid.RowDefinitions>
+        
+        <oxy:PlotView Grid.Row="0" x:Name="plotView" Model="{Binding PlotCollection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <Button Content="Сохранить график" Grid.Row="1"
+        Command="{Binding SavePlotCommand}" 
+        CommandParameter="{Binding ElementName=plotView}" 
+        Width="150" Height="30" 
+        HorizontalAlignment="Right" 
+        VerticalAlignment="Top"/>
     </Grid>
 </Window>

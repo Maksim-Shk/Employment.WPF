@@ -17,16 +17,33 @@ namespace Employment.WPF.ViewModels
     {
         public EmploymentViewModel()
         {
-            Companies = new ObservableCollection<Company>();
+            CompaniesWithVacanciesForPosition = new ObservableCollection<Company>();
+            using (var db = new EmploymentContext())
+            {
+                Positions = new ObservableCollection<Position>(db.Positions.ToList());
+            }
+            CurrentDate = DateTime.Now;
+            TopPositionTitle = "Пока что тут пусто";
         }
 
-        private ObservableCollection<Company> _companies;
-        public ObservableCollection<Company> Companies
+        private ObservableCollection<Position> _Positions;
+        public ObservableCollection<Position> Positions
         {
-            get => _companies;
+            get => _Positions;
             set
             {
-                _companies = value;
+                _Positions = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private ObservableCollection<Company> _CompaniesWithVacanciesForPosition;
+        public ObservableCollection<Company> CompaniesWithVacanciesForPosition
+        {
+            get => _CompaniesWithVacanciesForPosition;
+            set
+            {
+                _CompaniesWithVacanciesForPosition = value;
                 OnPropertyChanged();
             }
         }
@@ -41,6 +58,35 @@ namespace Employment.WPF.ViewModels
                 OnPropertyChanged();
             }
         }
+        private string _topPositionTitle;
+        public string TopPositionTitle
+        {
+            get { return _topPositionTitle; }
+            set
+            {
+                if (_topPositionTitle != value)
+                {
+                    _topPositionTitle = value;
+                    OnPropertyChanged(nameof(TopPositionTitle));
+                }
+            }
+        }
+
+        private ObservableCollection<Company> _companiesWithNoEducationRequirement;
+        public ObservableCollection<Company> CompaniesWithNoEducationRequirement
+        {
+            get { return _companiesWithNoEducationRequirement; }
+            set
+            {
+                if (_companiesWithNoEducationRequirement != value)
+                {
+                    _companiesWithNoEducationRequirement = value;
+                    OnPropertyChanged(nameof(CompaniesWithNoEducationRequirement));
+                }
+            }
+        }
+
+
 
         private RelayCommand _loadCompaniesWithVacanciesForPositionCommand;
         public RelayCommand LoadCompaniesWithVacanciesForPositionCommand
@@ -50,7 +96,7 @@ namespace Employment.WPF.ViewModels
                 return _loadCompaniesWithVacanciesForPositionCommand ??
                   (_loadCompaniesWithVacanciesForPositionCommand = new RelayCommand(obj =>
                   {
-                      var positionId = 2; // Используйте int, а не строку для идентификаторов
+                      var positionId = (int)obj; // Конвертируем полученный объект в int
                       DateTime currentDate = DateTime.Now;
 
                       string query = $@"
@@ -60,9 +106,10 @@ namespace Employment.WPF.ViewModels
                              WHERE v.""PositionId"" = :PositionId AND v.""OpenDate"" <= :CurrentDate AND 
                              (v.""CloseDate"" IS NULL OR v.""CloseDate"" >= :CurrentDate)";
 
+                      CompaniesWithVacanciesForPosition.Clear();
                       using (var db = new EmploymentContext())
                       {
-                          Companies = new ObservableCollection<Company>(db.Companies.FromSqlRaw(query,
+                          CompaniesWithVacanciesForPosition = new ObservableCollection<Company>(db.Companies.FromSqlRaw(query,
                               new NpgsqlParameter("PositionId", positionId),
                               new NpgsqlParameter("CurrentDate", currentDate)));
                       }
@@ -78,9 +125,8 @@ namespace Employment.WPF.ViewModels
                 return _loadTopPositionByVacanciesForPeriodCommand ??
                   (_loadTopPositionByVacanciesForPeriodCommand = new RelayCommand(obj =>
                   {
-                      //var dateRange = obj as Tuple<DateTime, DateTime>;
-                      var dateRange = new Tuple<DateTime, DateTime>(new DateTime(2023, 1, 1), new DateTime(2023, 12, 30));
-
+                      var dateRange = obj as Tuple<DateTime, DateTime>;
+                      
                       if (dateRange == null) return; // обработка ошибки или добавьте логирование
 
                       string startDate = dateRange.Item1.ToString("yyyy-MM-dd");
@@ -97,10 +143,14 @@ namespace Employment.WPF.ViewModels
 
                       using (var db = new EmploymentContext())
                       {
-                          var topPositionTitle = db.Positions.FromSqlRaw(query).FirstOrDefault();
-                          if (!string.IsNullOrEmpty(topPositionTitle.ToString()))
+                          var topPosition = db.Positions.FromSqlRaw(query).FirstOrDefault();
+                          if (topPosition != null)
                           {
-                              // Тут вы можете, например, сохранить название позиции в свойстве модели или выполнить другие действия
+                              TopPositionTitle = $"Популярная должность: {topPosition.Title}";
+                          }
+                          else
+                          {
+                              TopPositionTitle = "Нет данных о популярной должности";
                           }
                       }
                   }));
@@ -126,7 +176,7 @@ namespace Employment.WPF.ViewModels
 
                       using (var db = new EmploymentContext())
                       {
-                          Companies = new ObservableCollection<Company>(db.Companies.FromSqlRaw(query));
+                          CompaniesWithNoEducationRequirement = new ObservableCollection<Company>(db.Companies.FromSqlRaw(query));
                       }
                   }));
             }

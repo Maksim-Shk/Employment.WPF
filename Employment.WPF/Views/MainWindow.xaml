@@ -7,7 +7,7 @@
         xmlns:viewModels="clr-namespace:Employment.WPF.ViewModels"
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
-        Title="MainWindow" Height="900" Width="1600">
+        Title="Вакансии у компаний" Height="900" Width="1600">
 
     <Window.DataContext>
         <viewModels:MainViewModel/>
@@ -51,15 +51,15 @@
 
         <Menu Height="25" VerticalAlignment="Top" Grid.ColumnSpan="5">
             <MenuItem Header="Сервис" >
-                <MenuItem Header="Настройки" Command="{Binding OptionsViewModel.OpenOption}">
+                <MenuItem Header="Настройки" >
                 </MenuItem>
                 <MenuItem Header="Работа с подразделениями">
-                    <MenuItem Header="Добавить новое" Command="{Binding WorkWithDatabaseViewModel.SelectAddCommand}">
+                    <MenuItem Header="Добавить новое" >
                     </MenuItem>
-                    <MenuItem Header="Редактировать выбранное" Command="{Binding BranchesViewModel.EditCommand}">
+                    <MenuItem Header="Редактировать выбранное" >
                     </MenuItem>
                     <Separator></Separator>
-                    <MenuItem Header="Удалить выбранное" Command="{Binding BranchesViewModel.RemoveCommand}">
+                    <MenuItem Header="Удалить выбранное" >
                     </MenuItem>
                 </MenuItem>
                 <Separator></Separator>
@@ -67,15 +67,15 @@
                     <MenuItem Header="Список предприятий по должности" Click="MenuItem_Click_2">
                         <!--Command="{Binding EmploymentViewModel.LoadCompaniesWithVacanciesForPositionCommand}"-->
                     </MenuItem>
-                    <MenuItem Header="Самая популярная должность по дате" Command="{Binding EmploymentViewModel.LoadTopPositionByVacanciesForPeriodCommand}">
+                    <MenuItem Header="Самая популярная должность по дате" Click="MenuItem_Click_TopPositionByDateRange">
 
                     </MenuItem>
-                    <MenuItem Header="Вакансии без образования по дате" Command="{Binding EmploymentViewModel.LoadCompaniesWithNoEducationRequirementCommand}">
+                    <MenuItem Header="Вакансии без образования по дате" Click="MenuItem_Click_CompaniesWithNoEducationRequirementView">
 
                     </MenuItem>
                 </MenuItem>
                 <Separator></Separator>
-                <MenuItem Header="Заменить директора" Command="{Binding DirectorWindowViewModel.DirectorsCommand}">
+                <MenuItem Header="Провести кластерный анализ" Click="MenuItem_Click_ShowKmeansClick">
                 </MenuItem>
             </MenuItem>
             <MenuItem Header="Справка" Click="MenuItem_Click" >
@@ -85,6 +85,7 @@
         </Menu>
 
         <ComboBox x:Name="companyCb"
+                  SelectedIndex="1"
                   Background="#FFA9D1F4" Grid.Row="1" Grid.Column="1"
                   ItemsSource="{Binding CompaniesViewModel.Companies, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                   SelectedItem="{Binding CompaniesViewModel.SelectedCompany, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
@@ -115,20 +116,22 @@
                   >
             
         </DataGrid>-->
+        <Button Grid.Column="2" Grid.Row="1" Command="{Binding VacancyViewModel.GetAllVacanciesCommand}"
+                    Content="Показать все вакансии"
+                    Margin="5 5 5 5" 
+                    HorizontalAlignment="Center" Width="136">
+        </Button>
 
-        <StackPanel  Orientation="Horizontal" Grid.Row="1" Grid.Column="3">
-            <Button Command="{Binding MainWindowViewModel.ShowGameWindowCommand}" 
-                     CommandParameter="{Binding}"
-                     Content="Добавить"
-                     Margin="5 5 5 5" 
-                     HorizontalAlignment="Left" Width="136">
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="3">
+            <Button CommandParameter="{Binding}"
+                    Content="Добавить"
+                    Margin="5 5 5 5" 
+                    HorizontalAlignment="Left" Width="136">
             </Button>
-            <Button Command="{Binding MainWindowViewModel.RemoveGameCommand}"
-                     Content="Удалить" Margin="5 5 5 5" HorizontalAlignment="Left" Width="136">
+            <Button Content="Удалить" Margin="5 5 5 5" HorizontalAlignment="Left" Width="136">
             </Button>
-            <Button Command="{Binding MainWindowViewModel.ShowGameWindowUpdateCommand}" 
-                     CommandParameter="{Binding}"
-                     Content="Редактировать" Margin="5 5 5 5" HorizontalAlignment="Left" Width="136">
+            <Button CommandParameter="{Binding}"
+                    Content="Редактировать" Margin="5 5 5 5" HorizontalAlignment="Left" Width="136">
             </Button>
         </StackPanel>
 

@@ -42,5 +42,25 @@ namespace Employment.WPF
             companiesWithVacanciesView.Show();
 
         }
+
+        private void MenuItem_Click_TopPositionByDateRange(object sender, RoutedEventArgs e)
+        {
+            var topPos = new TopPositionByVacanciesForPeriodView();
+            topPos.Show();
+
+        }
+
+        private void MenuItem_Click_CompaniesWithNoEducationRequirementView(object sender, RoutedEventArgs e)
+        {
+            var CompaniesWithNoEducationRequirementView = new CompaniesWithNoEducationRequirementView();
+            CompaniesWithNoEducationRequirementView.Show();
+        }
+
+        private void MenuItem_Click_ShowKmeansClick(object sender, RoutedEventArgs e)
+        {
+            var kmeans = new ClusterAnalysisView();
+            kmeans.Show();
+        }
+
     }
 }

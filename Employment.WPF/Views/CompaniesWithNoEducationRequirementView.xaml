@@ -1,0 +1,24 @@
+﻿<Window x:Class="Employment.WPF.Views.CompaniesWithNoEducationRequirementView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:viewModels="clr-namespace:Employment.WPF.ViewModels"
+        Title="Компании без требований к образованию" Height="700" Width="400">
+
+    <Window.DataContext>
+        <viewModels:EmploymentViewModel/>
+    </Window.DataContext>
+
+    <Grid>
+        <StackPanel VerticalAlignment="Top">
+
+            <DatePicker x:Name="datePicker" Margin="10" SelectedDate="{Binding Path=CurrentDate, Mode=TwoWay}" />
+
+            <Button Content="Поиск" 
+                    Command="{Binding LoadCompaniesWithNoEducationRequirementCommand}" 
+                    Height="30" Margin="10" />
+
+            <ListBox ItemsSource="{Binding CompaniesWithNoEducationRequirement, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" DisplayMemberPath="Name">
+            </ListBox>
+        </StackPanel>
+    </Grid>
+</Window>

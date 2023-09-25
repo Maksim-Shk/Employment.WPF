@@ -48,6 +48,31 @@ namespace Employment.WPF.ViewModels
             }
         }
 
+        private RelayCommand _GetAllVacanciesCommand;
+        public RelayCommand GetAllVacanciesCommand
+        {
+            get
+            {
+                return _GetAllVacanciesCommand ??
+                  (_GetAllVacanciesCommand = new RelayCommand(obj =>
+                  {
+                      using (var db = new EmploymentContext())
+                      {
+                          var company = obj as Company;
+                          var vacancies = db.Vacancies
+                                            .Include(v => v.Skills).ThenInclude(vs => vs.Skill)
+                                            .Include(v => v.Responsibilities).ThenInclude(vr => vr.Responsibility)
+                                            .Include(v => v.Education)
+                                            .Include(v => v.Position)
+                                            .Select(v => v.ToVacancyDto())
+                                            .ToList();
+
+                          Vacancies = new ObservableCollection<VacancyDto>(vacancies);
+                      }
+                  }));
+            }
+        }
+
         private RelayCommand _LoadVacanciesCommand;
         public RelayCommand LoadVacanciesCommand
         {
@@ -76,9 +101,6 @@ namespace Employment.WPF.ViewModels
 
                           Vacancies = new ObservableCollection<VacancyDto>(vacancies);
                       }
-
-                      //Обратите внимание на использование Include и ThenInclude - это способ гарантировать, что Entity Framework загрузит связанные данные, когда вы запрашиваете основные данные.Это поможет избежать "ленивой загрузки"(lazy loading) и сделает ваш код более эффективным, так как он будет выполнять меньше запросов к базе данных.
-
                   }));
             }
         }

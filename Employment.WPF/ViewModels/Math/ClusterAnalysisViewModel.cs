@@ -1,12 +1,18 @@
 ﻿using Accord.MachineLearning;
 using Employment.WPF.Models;
+using Microsoft.Win32;
 using OxyPlot;
 using OxyPlot.Series;
+using OxyPlot.Wpf;
 using System;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows.Media;
+using System.Windows.Controls;
+using Accord.IO;
+using System.Drawing;
 
 namespace Employment.WPF.ViewModels.Math
 {
@@ -31,6 +37,41 @@ namespace Employment.WPF.ViewModels.Math
                 }
             }
         }
+
+        private RelayCommand _SavePlotCommand;
+        public RelayCommand SavePlotCommand
+        {
+            get
+            {
+                return _SavePlotCommand ?? (_SavePlotCommand = new RelayCommand(param =>
+                {
+                    var plotView = param as PlotView;
+                    SavePlotAsPng(plotView);
+                }));
+            }
+        }
+
+        private void SavePlotAsPng(PlotView plotView)
+        {
+            var dialog = new SaveFileDialog()
+            {
+                Filter = "PNG Files (*.png)|*.png",
+                DefaultExt = ".png",
+                AddExtension = true
+            };
+
+            if (dialog.ShowDialog() == true)
+            {
+                string fileName = dialog.FileName;
+                var pngExporter = new OxyPlot.Wpf.PngExporter { Width = 600, Height = 400 };
+                var bitmap = pngExporter.ExportToBitmap(plotView.Model);
+                bitmap.Save(fileName, System.Drawing.Imaging.ImageFormat.Png);
+            }
+        }
+
+
+
+
 
         private RelayCommand _LoadClusterAnalysisWindowCommand;
         public RelayCommand LoadClusterAnalysisWindowCommand

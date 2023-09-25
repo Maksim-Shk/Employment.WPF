@@ -80,11 +80,20 @@ namespace Employment.WPF.Models.Helpers
                     TopAge = _random.Next(50, 70),
                     //LowerSalary = _random.Next(25, 60) * 1000,
                     //UpperSalary = _random.Next(61, 100) * 1000,
-                    EducationId = _random.Next(1, 6),
-                    PositionId = _random.Next(1,10),
+                    PositionId = _random.Next(1,50),
                     Responsibilities = new List<VacancyResponsibility>(),
                     Skills = new List<VacancySkill>()
                 };
+
+                double randomValueEducation = _random.NextDouble();
+                if (randomValueEducation > 0.02)
+                {
+                    vacancy.EducationId = _random.Next(2, 6);
+                }
+                else
+                {
+                    vacancy.EducationId = 1;
+                }
 
                 double randomValue = _random.NextDouble();
                 if (randomValue < 0.2) // 20% вероятность
@@ -272,18 +281,59 @@ namespace Employment.WPF.Models.Helpers
         {
 
             return new List<Position>
-                {
-                    new Position { PositionId = 1, Title = "Программист" },
-                    new Position { PositionId = 2, Title = "Дизайнер" },
-                    new Position { PositionId = 3, Title = "Менеджер проекта" },
-                    new Position { PositionId = 4, Title = "Аналитик" },
-                    new Position { PositionId = 5, Title = "Тестировщик" },
-                    new Position { PositionId = 6, Title = "Системный администратор" },
-                    new Position { PositionId = 7, Title = "Сетевой инженер" },
-                    new Position { PositionId = 8, Title = "Директор по IT" },
-                    new Position { PositionId = 9, Title = "HR-специалист" },
-                    new Position { PositionId = 10, Title = "Бухгалтер" }
-                };
+{
+    new Position { PositionId = 1, Title = "Программист" },
+    new Position { PositionId = 2, Title = "Дизайнер" },
+    new Position { PositionId = 3, Title = "Менеджер проекта" },
+    new Position { PositionId = 4, Title = "Аналитик" },
+    new Position { PositionId = 5, Title = "Тестировщик" },
+    new Position { PositionId = 6, Title = "Системный администратор" },
+    new Position { PositionId = 7, Title = "Сетевой инженер" },
+    new Position { PositionId = 8, Title = "Директор по IT" },
+    new Position { PositionId = 9, Title = "HR-специалист" },
+    new Position { PositionId = 10, Title = "Бухгалтер" },
+    new Position { PositionId = 11, Title = "DevOps-инженер" },
+    new Position { PositionId = 12, Title = "Фронтенд-разработчик" },
+    new Position { PositionId = 13, Title = "Бэкенд-разработчик" },
+    new Position { PositionId = 14, Title = "Full Stack-разработчик" },
+    new Position { PositionId = 15, Title = "Android-разработчик" },
+    new Position { PositionId = 16, Title = "iOS-разработчик" },
+    new Position { PositionId = 17, Title = "Веб-дизайнер" },
+    new Position { PositionId = 18, Title = "UI/UX дизайнер" },
+    new Position { PositionId = 19, Title = "Data Scientist" },
+    new Position { PositionId = 20, Title = "ML-инженер" },
+    new Position { PositionId = 21, Title = "Бизнес-аналитик" },
+    new Position { PositionId = 22, Title = "QA-инженер" },
+    new Position { PositionId = 23, Title = "Инженер по автоматизации" },
+    new Position { PositionId = 24, Title = "Технический писатель" },
+    new Position { PositionId = 25, Title = "Главный инженер" },
+    new Position { PositionId = 26, Title = "Специалист по базам данных" },
+    new Position { PositionId = 27, Title = "Системный архитектор" },
+    new Position { PositionId = 28, Title = "Инженер по кибербезопасности" },
+    new Position { PositionId = 29, Title = "Технический директор" },
+    new Position { PositionId = 30, Title = "Продуктовый менеджер" },
+    new Position { PositionId = 31, Title = "Специалист по SEO" },
+    new Position { PositionId = 32, Title = "Специалист по интернет-маркетингу" },
+    new Position { PositionId = 33, Title = "Специалист по техподдержке" },
+    new Position { PositionId = 34, Title = "Ведущий инженер-программист" },
+    new Position { PositionId = 35, Title = "3D моделлер" },
+    new Position { PositionId = 36, Title = "Специалист по AR/VR" },
+    new Position { PositionId = 37, Title = "Специалист по игровой разработке" },
+    new Position { PositionId = 38, Title = "Инженер-проектировщик" },
+    new Position { PositionId = 39, Title = "Специалист по облачным технологиям" },
+    new Position { PositionId = 40, Title = "Blockchain-разработчик" },
+    new Position { PositionId = 41, Title = "Специалист по искусственному интеллекту" },
+    new Position { PositionId = 42, Title = "Специалист по графическому дизайну" },
+    new Position { PositionId = 43, Title = "Специалист по UX исследованиям" },
+    new Position { PositionId = 44, Title = "Ведущий аналитик" },
+    new Position { PositionId = 45, Title = "Менеджер по продажам IT-решений" },
+    new Position { PositionId = 46, Title = "Инженер по железу" },
+    new Position { PositionId = 47, Title = "Начальник IT-отдела" },
+    new Position { PositionId = 48, Title = "Младший разработчик" },
+    new Position { PositionId = 49, Title = "Инженер по внедрению" },
+    new Position { PositionId = 50, Title = "Мобильный разработчик" }
+};
+
         }
 
         public static List<LocalityType> GenerateLocalityTypes()
