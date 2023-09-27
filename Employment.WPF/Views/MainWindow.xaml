@@ -100,7 +100,7 @@
 
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="SelectionChanged">
-                    <i:InvokeCommandAction Command="{Binding VacancyViewModel.LoadVacanciesCommand}" CommandParameter="{Binding ElementName=companyCb, Path=SelectedItem}"/>
+                    <i:InvokeCommandAction Command="{Binding VacancyDtoViewModel.LoadVacanciesCommand}" CommandParameter="{Binding ElementName=companyCb, Path=SelectedItem}"/>
                 </i:EventTrigger>
             </i:Interaction.Triggers>
 
@@ -116,7 +116,7 @@
                   >
             
         </DataGrid>-->
-        <Button Grid.Column="2" Grid.Row="1" Command="{Binding VacancyViewModel.GetAllVacanciesCommand}"
+        <Button Grid.Column="2" Grid.Row="1" Command="{Binding VacancyDtoViewModel.GetAllVacanciesCommand}"
                     Content="Показать все вакансии"
                     Margin="5 5 5 5" 
                     HorizontalAlignment="Center" Width="136">
@@ -146,7 +146,7 @@
                   Grid.ColumnSpan="3"
                   VirtualizingPanel.ScrollUnit="Item" 
                   VirtualizingPanel.IsVirtualizing="True"
-                  ItemsSource="{Binding VacancyViewModel.Vacancies, UpdateSourceTrigger=PropertyChanged}">
+                  ItemsSource="{Binding VacancyDtoViewModel.Vacancies, UpdateSourceTrigger=PropertyChanged}">
             <DataGrid.RowStyle>
                 <Style TargetType="DataGridRow">
                     <Setter Property="Height" Value="80"/>

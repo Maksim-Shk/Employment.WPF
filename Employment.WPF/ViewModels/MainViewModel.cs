@@ -6,7 +6,7 @@ public class MainViewModel
 {
     public MainMenuViewModel MainMenuViewModel { get; set; }
     public CompaniesViewModel CompaniesViewModel { get; set; }
-    public VacancyViewModel VacancyViewModel { get; set; }  
+    public VacancyDtoViewModel VacancyDtoViewModel { get; set; }  
     public EmploymentViewModel EmploymentViewModel { get; set; }
     public ClusterAnalysisViewModel ClusterAnalysisViewModel { get; set; }
 
@@ -14,7 +14,7 @@ public class MainViewModel
     {
         MainMenuViewModel = new MainMenuViewModel();
         CompaniesViewModel = new CompaniesViewModel();
-        VacancyViewModel = new VacancyViewModel();
+        VacancyDtoViewModel = new VacancyDtoViewModel();
         EmploymentViewModel = new EmploymentViewModel();
         ClusterAnalysisViewModel = new ClusterAnalysisViewModel();
     }

@@ -1,7 +1,6 @@
 ﻿using Employment.WPF.Models;
 using Employment.WPF.ViewModels.DTOs;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
@@ -9,17 +8,19 @@ using System.Runtime.CompilerServices;
 
 namespace Employment.WPF.ViewModels
 {
-    public class VacancyViewModel : INotifyPropertyChanged
+    public class VacancyDtoViewModel : INotifyPropertyChanged
     {
-        public VacancyViewModel()
+        public VacancyDtoViewModel()
         {
+            Vacancies = new();
             using (var db = new EmploymentContext())
             {
+                LoadVacanciesCommand.Execute(db.Companies.First());
 
                 CompanyCollection = new ObservableCollection<Company>(db.Companies.ToList());
 
                 PositionCollection = new ObservableCollection<Position>(db.Positions.ToList());
-                EducationCollection = new ObservableCollection<Education>(db.Educations.ToList());
+                EducationCollection = new ObservableCollection<Education>(db.Educations.ToList()); 
                 SkillCollection = new ObservableCollection<Skill>(db.Skills.ToList());
                 ResponsibilityCollection = new ObservableCollection<Responsibility>(db.Responsibilities.ToList());
 
@@ -30,44 +31,68 @@ namespace Employment.WPF.ViewModels
             }
         }
 
-        private Vacancy _currentVacancy;
-        public Vacancy CurrentVacancy
+        private ObservableCollection<VacancyDto> _Vacancies;
+        public ObservableCollection<VacancyDto> Vacancies
         {
-            get { return _currentVacancy; }
+            get
+            {
+                return _Vacancies;
+            }
             set
             {
-                _currentVacancy = value;
-                OnPropertyChanged();
+                _Vacancies = value;
+                OnPropertyChanged("Vacancies");
             }
         }
 
-        public int SelectedEducationId
+        private RelayCommand _GetAllVacanciesCommand;
+        public RelayCommand GetAllVacanciesCommand
         {
-            get { return CurrentVacancy.EducationId; }
-            set
+            get
             {
-                CurrentVacancy.EducationId = value;
-                OnPropertyChanged();
+                return _GetAllVacanciesCommand ??
+                  (_GetAllVacanciesCommand = new RelayCommand(obj =>
+                  {
+                      using (var db = new EmploymentContext())
+                      {
+                          var company = obj as Company;
+                          var vacancies = db.Vacancies
+                                            .Include(v => v.Skills).ThenInclude(vs => vs.Skill)
+                                            .Include(v => v.Responsibilities).ThenInclude(vr => vr.Responsibility)
+                                            .Include(v => v.Education)
+                                            .Include(v => v.Position)
+                                            .Select(v => v.ToVacancyDto())
+                                            .ToList();
+
+                          Vacancies = new ObservableCollection<VacancyDto>(vacancies);
+                      }
+                  }));
             }
         }
 
-        public Guid SelectedCompanyId
+        private RelayCommand _LoadVacanciesCommand;
+        public RelayCommand LoadVacanciesCommand
         {
-            get { return CurrentVacancy.CompanyId; }
-            set
+            get
             {
-                CurrentVacancy.CompanyId = value;
-                OnPropertyChanged();
-            }
-        }
+                return _LoadVacanciesCommand ??
+                  (_LoadVacanciesCommand = new RelayCommand(obj =>
+                  {
+                      using (var db = new EmploymentContext())
+                      {
+                          var company = obj as Company;
+                          var vacancies = db.Vacancies
+                                            .Include(v => v.Skills).ThenInclude(vs => vs.Skill)
+                                            .Include(v => v.Responsibilities).ThenInclude(vr => vr.Responsibility)
+                                            .Include(v => v.Education)
+                                            .Include(v => v.Position)
+                                            .Where(x => x.CompanyId == company.CompanyId)
+                                            .Select(v => v.ToVacancyDto())
+                                            .ToList();
 
-        public int SelectedPositionId
-        {
-            get { return CurrentVacancy.PositionId; }
-            set
-            {
-                CurrentVacancy.PositionId = value;
-                OnPropertyChanged();
+                          Vacancies = new ObservableCollection<VacancyDto>(vacancies);
+                      }
+                  }));
             }
         }
 
