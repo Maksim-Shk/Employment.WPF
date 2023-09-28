@@ -1,10 +1,12 @@
 ﻿using Employment.WPF.Models;
 using Employment.WPF.ViewModels.DTOs;
+using Employment.WPF.Views;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Windows.Input;
 
 namespace Employment.WPF.ViewModels
 {
@@ -20,7 +22,7 @@ namespace Employment.WPF.ViewModels
                 CompanyCollection = new ObservableCollection<Company>(db.Companies.ToList());
 
                 PositionCollection = new ObservableCollection<Position>(db.Positions.ToList());
-                EducationCollection = new ObservableCollection<Education>(db.Educations.ToList()); 
+                EducationCollection = new ObservableCollection<Education>(db.Educations.ToList());
                 SkillCollection = new ObservableCollection<Skill>(db.Skills.ToList());
                 ResponsibilityCollection = new ObservableCollection<Responsibility>(db.Responsibilities.ToList());
 
@@ -42,6 +44,47 @@ namespace Employment.WPF.ViewModels
             {
                 _Vacancies = value;
                 OnPropertyChanged("Vacancies");
+            }
+        }
+
+        private VacancyDto _selectedVacancy;
+        public VacancyDto SelectedVacancy
+        {
+            get => _selectedVacancy;
+            set
+            {
+                if (_selectedVacancy != value)
+                {
+                    _selectedVacancy = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        public ICommand AddVacancyCommand => new RelayCommand(_ => AddVacancy());
+        public ICommand UpdateVacancyCommand => new RelayCommand(_ => UpdateVacancy());
+
+        private void AddVacancy()
+        {
+            var addOrUpdateWindow = new AddOrUpdateVacancy();
+            var vacancyViewModel = new VacancyViewModel();
+            addOrUpdateWindow.DataContext = vacancyViewModel;
+            addOrUpdateWindow.ShowDialog();
+        }
+        private void UpdateVacancy()
+        {
+            if (SelectedVacancy == null) return;
+            using (var db = new EmploymentContext())
+            {
+                var addOrUpdateWindow = new AddOrUpdateVacancy();
+                var vacancy = db.Vacancies.FirstOrDefault(v => v.VacancyId == SelectedVacancy.VacancyId);
+
+                vacancy.Skills = db.VacancySkills.Where(x => x.VacancyId == vacancy.VacancyId).ToList();
+                vacancy.Responsibilities = db.VacancyResponsibilities.Where(x => x.VacancyId == vacancy.VacancyId).ToList();
+
+                var vacancyViewModel = new VacancyViewModel(vacancy);
+                addOrUpdateWindow.DataContext = vacancyViewModel;
+                addOrUpdateWindow.ShowDialog();
             }
         }
 

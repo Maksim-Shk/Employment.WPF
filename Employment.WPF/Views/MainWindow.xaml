@@ -123,14 +123,14 @@
         </Button>
 
         <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="3">
-            <Button CommandParameter="{Binding}"
+            <Button Command="{Binding VacancyDtoViewModel.AddVacancyCommand}"
                     Content="Добавить"
                     Margin="5 5 5 5" 
                     HorizontalAlignment="Left" Width="136">
             </Button>
             <Button Content="Удалить" Margin="5 5 5 5" HorizontalAlignment="Left" Width="136">
             </Button>
-            <Button CommandParameter="{Binding}"
+            <Button Command="{Binding VacancyDtoViewModel.UpdateVacancyCommand}"
                     Content="Редактировать" Margin="5 5 5 5" HorizontalAlignment="Left" Width="136">
             </Button>
         </StackPanel>
@@ -146,6 +146,7 @@
                   Grid.ColumnSpan="3"
                   VirtualizingPanel.ScrollUnit="Item" 
                   VirtualizingPanel.IsVirtualizing="True"
+                  SelectedItem="{Binding VacancyDtoViewModel.SelectedVacancy, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                   ItemsSource="{Binding VacancyDtoViewModel.Vacancies, UpdateSourceTrigger=PropertyChanged}">
             <DataGrid.RowStyle>
                 <Style TargetType="DataGridRow">

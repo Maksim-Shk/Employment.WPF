@@ -1,0 +1,183 @@
+﻿<Window x:Class="Employment.WPF.Views.AddOrUpdateVacancy"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Employment.WPF"
+        xmlns:viewModels="clr-namespace:Employment.WPF.ViewModels"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        mc:Ignorable="d"
+        Title="AddOrUpdateVacancy" Height="450" Width="800">
+
+    <Window.DataContext>
+        <viewModels:VacancyViewModel/>
+    </Window.DataContext>
+
+    <Window.Resources>
+        <Style TargetType="{x:Type TextBlock}" x:Key="WrapText">
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="DataGridColumnHeader" x:Key="WrapTextHeader">
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+        </Style>
+    </Window.Resources>
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <!--<i:InvokeCommandAction Command="{Binding MainMenuViewModel.LoadMainWindowCommand}"/>-->
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <!--<RowDefinition Height="20*" MaxHeight="500"/>-->
+            <RowDefinition Height="10*" MaxHeight="5000"/>
+            <RowDefinition Height="100*" MaxHeight="5000"/>
+            <RowDefinition Height="100*" MaxHeight="5000"/>
+            <RowDefinition Height="100*" MaxHeight="5000"/>
+            <RowDefinition Height="100*" MaxHeight="5000"/>
+            <RowDefinition Height="100*" MaxHeight="5000"/>
+            <RowDefinition Height="100*" MaxHeight="5000"/>
+            <RowDefinition Height="100*" MaxHeight="5000"/>
+            <RowDefinition Height="10*" MaxHeight="5000"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10*" MaxWidth="4000"/>
+            <ColumnDefinition Width="150*" MaxWidth="4000"/>
+            <ColumnDefinition Width="150*" MaxWidth="4000"/>
+            <ColumnDefinition Width="150*" MaxWidth="4000"/>
+            <ColumnDefinition Width="10*" MaxWidth="4000"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1">
+            <Label Content="Наименование" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <TextBox Text="{Binding VacancyName}"
+               HorizontalAlignment="Left" Height="35" TextWrapping="Wrap" VerticalAlignment="Top" MinWidth="200"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
+            <Label Content="Возраст от" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <TextBox Text="{Binding VacancyLowerAge}"
+               HorizontalAlignment="Left" Height="35" TextWrapping="Wrap" VerticalAlignment="Top" MinWidth="50"/>
+            <Label Content="До" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <TextBox Text="{Binding VacancyTopAge}"
+               HorizontalAlignment="Left" Height="35" TextWrapping="Wrap" VerticalAlignment="Top" MinWidth="50"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1">
+            <Label Content="Зарплата от" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <TextBox Text="{Binding VacancyLowerSalary}"
+               HorizontalAlignment="Left" Height="35" TextWrapping="Wrap" VerticalAlignment="Top" MinWidth="50"/>
+            <Label Content="До" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <TextBox Text="{Binding VacancyUpperSalary}"
+               HorizontalAlignment="Left" Height="35" TextWrapping="Wrap" VerticalAlignment="Top" MinWidth="50"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" Grid.Row="4" Grid.Column="1">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <Label Content="Оформление трудовой книжки " HorizontalAlignment="Left" VerticalAlignment="Top" />
+                <CheckBox IsChecked="{Binding VacancyWorkBookRegistration}"
+       HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" MinWidth="200"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Социальный пакет" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                <CheckBox IsChecked="{Binding VacancySocialPackage}"
+       HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" MinWidth="200"/>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" Grid.Row="5" Grid.Column="1">
+            <Label Content="Дата открытия вакансии" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <DatePicker HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" MinWidth="50"
+                        SelectedDate="{Binding VacancyOpenDate}"/>
+        </StackPanel>
+
+        <Grid Grid.Row="1" Grid.Column="2" Grid.RowSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*" MaxHeight="50"/>
+                <RowDefinition Height="10*" MaxHeight="5000"/>
+            </Grid.RowDefinitions>
+            
+            <Label Grid.Row="0"
+                    Content="Доступные обязанности" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <ListBox Grid.Row="1"
+                     HorizontalAlignment="Left" VerticalAlignment="Top" MinWidth="50"
+                     ItemsSource="{Binding AvailableResponsibilities, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <CheckBox Content="{Binding Responsibility.Name}" IsChecked="{Binding IsSelected, Mode=TwoWay}"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="3" Grid.RowSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*" MaxHeight="50"/>
+                <RowDefinition Height="10*" MaxHeight="5000"/>
+            </Grid.RowDefinitions>
+            
+            <Label Grid.Row="0"
+                    Content="Выбранные обязанности" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <ListBox Grid.Row="1"
+                     HorizontalAlignment="Left" VerticalAlignment="Top" MinWidth="50"
+                     ItemsSource="{Binding SelectedResponsibilities, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <CheckBox Content="{Binding Responsibility.Name}" IsChecked="{Binding IsSelected, Mode=TwoWay}"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+
+        <Grid Grid.Row="3" Grid.Column="2" Grid.RowSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*" MaxHeight="50"/>
+                <RowDefinition Height="10*" MaxHeight="5000"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0"
+                    Content="Доступные навыки" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <ListBox Grid.Row="1"
+                     HorizontalAlignment="Left" VerticalAlignment="Top" MinWidth="50"
+                     ItemsSource="{Binding AvailablSkills, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <CheckBox Content="{Binding Skill.Name}" IsChecked="{Binding IsSelected, Mode=TwoWay}"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+
+        <Grid Grid.Row="3" Grid.Column="3" Grid.RowSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*" MaxHeight="50"/>
+                <RowDefinition Height="10*" MaxHeight="5000"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0"
+                    Content="Выбранные навыки" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <ListBox Grid.Row="1"
+                     HorizontalAlignment="Left" VerticalAlignment="Top" MinWidth="50"
+                     ItemsSource="{Binding SelectedSkills, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <CheckBox Content="{Binding Skill.Name}" IsChecked="{Binding IsSelected, Mode=TwoWay}"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+
+        <Button Grid.Column="1" Grid.Row="7" Margin="10 10 10 10" Content="Сохранить">
+
+        </Button>
+
+        <Button Grid.Column="3" Grid.Row="7" Margin="10 10 10 10" Content="Отмена">
+
+        </Button>
+
+    </Grid>
+</Window>

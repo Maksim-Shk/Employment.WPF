@@ -2,6 +2,7 @@
 using Employment.WPF.ViewModels.DTOs;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
@@ -11,10 +12,65 @@ namespace Employment.WPF.ViewModels
 {
     public class VacancyViewModel : INotifyPropertyChanged
     {
-        public VacancyViewModel()
+        public ObservableCollection<ResponsibilityViewModel> AvailableResponsibilities { get; set; }
+        public ObservableCollection<ResponsibilityViewModel> SelectedResponsibilities { get; set; }
+
+        public ObservableCollection<SkillViewModel> AvailablSkills { get; set; }
+        public ObservableCollection<SkillViewModel> SelectedSkills { get; set; }
+
+        public void OnLoad()
         {
             using (var db = new EmploymentContext())
             {
+                AvailableResponsibilities = new ObservableCollection<ResponsibilityViewModel>(
+                    db.Responsibilities.Select(r => new ResponsibilityViewModel(r)));
+                SelectedResponsibilities = new ObservableCollection<ResponsibilityViewModel>();
+
+                foreach (var rvm in AvailableResponsibilities)
+                {
+                    rvm.OnSelectedChanged += (sender, args) =>
+                    {
+                        var item = sender as ResponsibilityViewModel;
+                        if (item != null)
+                        {
+                            if (item.IsSelected)
+                            {
+                                SelectedResponsibilities.Add(item);
+                                AvailableResponsibilities.Remove(item);
+                            }
+                            else
+                            {
+                                AvailableResponsibilities.Add(item);
+                                SelectedResponsibilities.Remove(item);
+                            }
+                        }
+                    };
+                }
+
+                AvailablSkills = new ObservableCollection<SkillViewModel>(
+                    db.Skills.Select(r => new SkillViewModel(r)));
+                SelectedSkills = new ObservableCollection<SkillViewModel>();
+
+                foreach (var svm in AvailablSkills)
+                {
+                    svm.OnSelectedChanged += (sender, args) =>
+                    {
+                        var item = sender as SkillViewModel;
+                        if (item != null)
+                        {
+                            if (item.IsSelected)
+                            {
+                                SelectedSkills.Add(item);
+                                AvailablSkills.Remove(item);
+                            }
+                            else
+                            {
+                                AvailablSkills.Add(item);
+                                SelectedSkills.Remove(item);
+                            }
+                        }
+                    };
+                }
 
                 CompanyCollection = new ObservableCollection<Company>(db.Companies.ToList());
 
@@ -27,7 +83,48 @@ namespace Employment.WPF.ViewModels
                 StreetCollection = new ObservableCollection<Street>(db.Streets.ToList());
                 StreetTypeCollection = new ObservableCollection<StreetType>(db.StreetTypes.ToList());
                 LocalityCollection = new ObservableCollection<Locality>(db.Localities.ToList());
+
+                CurrentVacancy = new();
             }
+        }
+
+        public VacancyViewModel()
+        {
+            OnLoad();
+        }
+        public VacancyViewModel(Vacancy vacancy)
+        {
+            //VacancyName = vacancy.Name;
+            //VacancyLowerAge = vacancy.LowerAge;
+            //VacancyTopAge = vacancy.TopAge;
+            //VacancyLowerSalary = vacancy.LowerSalary;
+            //VacancyUpperSalary = vacancy.UpperSalary;
+            //VacancySocialPackage = vacancy.SocialPackage;
+            //VacancyWorkBookRegistration = vacancy.WorkBookRegistration;
+            //VacancyOpenDate = vacancy.OpenDate;
+
+
+            OnLoad();
+            CurrentVacancy = vacancy;
+            //using (var db = new EmploymentContext())
+            //{
+            //    foreach (var resp in vacancy.Responsibilities)
+            //    {
+            //        SelectedResponsibilities
+            //            .Add(new ResponsibilityViewModel(db.Responsibilities
+            //            .First(r => r.ResponsibilityId == resp.ResponsibilityId)));
+            //        AvailableResponsibilities.Remove(new ResponsibilityViewModel(db.Responsibilities
+            //            .First(r => r.ResponsibilityId == resp.ResponsibilityId)));
+            //    }
+            //    foreach (var skill in vacancy.Skills)
+            //    {
+            //        SelectedSkills
+            //            .Add(new SkillViewModel(db.Skills
+            //            .First(r => r.SkillId == skill.SkillId)));
+            //        AvailablSkills.Remove(new SkillViewModel(db.Skills
+            //            .First(r => r.SkillId == skill.SkillId)));
+            //    }
+            //}
         }
 
         private Vacancy _currentVacancy;
@@ -40,6 +137,27 @@ namespace Employment.WPF.ViewModels
                 OnPropertyChanged();
             }
         }
+        private ObservableCollection<ResponsibilityViewModel> _responsibilityViewModelsCollection;
+        public ObservableCollection<ResponsibilityViewModel> ResponsibilityViewModelsCollection
+        {
+            get => _responsibilityViewModelsCollection;
+            set
+            {
+                _responsibilityViewModelsCollection = value;
+                OnPropertyChanged(nameof(ResponsibilityViewModelsCollection));
+            }
+        }
+
+        //private ObservableCollection<ResponsibilityViewModel> _responsibilityViewModelsCollection;
+        //public ObservableCollection<ResponsibilityViewModel> ResponsibilityViewModelsCollection
+        //{
+        //    get => _responsibilityViewModelsCollection;
+        //    set
+        //    {
+        //        _responsibilityViewModelsCollection = value;
+        //        OnPropertyChanged(nameof(ResponsibilityViewModelsCollection));
+        //    }
+        //}
 
         public int SelectedEducationId
         {
@@ -67,6 +185,110 @@ namespace Employment.WPF.ViewModels
             set
             {
                 CurrentVacancy.PositionId = value;
+                OnPropertyChanged();
+            }
+        }
+        public string VacancyName
+        {
+            get { return CurrentVacancy.Name; }
+            set
+            {
+                CurrentVacancy.Name = value;
+                OnPropertyChanged();
+            }
+        }
+        public bool VacancyWorkBookRegistration
+        {
+            get { return CurrentVacancy.WorkBookRegistration; }
+            set
+            {
+                CurrentVacancy.WorkBookRegistration = value;
+                OnPropertyChanged();
+            }
+        }
+        public bool VacancySocialPackage
+        {
+            get { return CurrentVacancy.SocialPackage; }
+            set
+            {
+                CurrentVacancy.SocialPackage = value;
+                OnPropertyChanged();
+            }
+        }
+        public DateTime VacancyOpenDate
+        {
+            get { return CurrentVacancy.OpenDate; }
+            set
+            {
+                CurrentVacancy.OpenDate = value;
+                OnPropertyChanged();
+            }
+        }
+        public string? VacancyGender
+        {
+            get { return CurrentVacancy.Gender; }
+            set
+            {
+                CurrentVacancy.Gender = value;
+                OnPropertyChanged();
+            }
+        }
+        public int? VacancyLowerAge
+        {
+            get { return CurrentVacancy.LowerAge; }
+            set
+            {
+                CurrentVacancy.LowerAge = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public int? VacancyTopAge
+        {
+            get { return CurrentVacancy.TopAge; }
+            set
+            {
+                CurrentVacancy.TopAge = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public double? VacancyLowerSalary
+        {
+            get { return CurrentVacancy.LowerSalary; }
+            set
+            {
+                CurrentVacancy.LowerSalary = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public double? VacancyUpperSalary
+        {
+            get { return CurrentVacancy.UpperSalary; }
+            set
+            {
+                CurrentVacancy.UpperSalary = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public ICollection<VacancySkill>? VacancySkills
+        {
+            get { return CurrentVacancy.Skills; }
+            set
+            {
+                CurrentVacancy.Skills = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public ICollection<VacancyResponsibility>? VacancyResponsibilites
+        {
+            get { return CurrentVacancy.Responsibilities; }
+            set
+            {
+                CurrentVacancy.Responsibilities = value;
                 OnPropertyChanged();
             }
         }

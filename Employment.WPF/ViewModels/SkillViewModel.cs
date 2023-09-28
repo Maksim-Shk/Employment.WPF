@@ -14,44 +14,72 @@ namespace Employment.WPF.ViewModels
 {
     public class SkillViewModel : INotifyPropertyChanged
     {
-        public SkillViewModel()
-        {
-            Skills = new();
-            using (var db = new EmploymentContext())
-            {
-                LoadVacanciesCommand.Execute(null);
-            }
-        }
 
-        private ObservableCollection<Skill> _skills;
-        public ObservableCollection<Skill> Skills
+        private Skill _skill;
+
+        private bool _isSelected;
+        public Skill Skill => _skill;
+
+        public string Name => _skill.Name;
+
+        public bool IsSelected
         {
-            get
-            {
-                return _skills;
-            }
+            get => _isSelected;
             set
             {
-                _skills = value;
-                OnPropertyChanged("Skills");
+                if (_isSelected != value)
+                {
+                    _isSelected = value;
+                    OnPropertyChanged(nameof(IsSelected));
+
+                    OnSelectedChanged?.Invoke(this, EventArgs.Empty);
+                }
             }
+        }
+        public event EventHandler? OnSelectedChanged;
+        public SkillViewModel(Skill skill)
+        {
+            _skill = skill ?? throw new ArgumentNullException(nameof(skill));
         }
 
-        private RelayCommand _LoadVacanciesCommand;
-        public RelayCommand LoadVacanciesCommand
-        {
-            get
-            {
-                return _LoadVacanciesCommand ??
-                  (_LoadVacanciesCommand = new RelayCommand(obj =>
-                  {
-                      using (var db = new EmploymentContext())
-                      {
-                          Skills = new ObservableCollection<Skill>(db.Skills.ToList());
-                      }
-                  }));
-            }
-        }
+        //public SkillViewModel()
+        //{
+        //    Skills = new();
+        //    using (var db = new EmploymentContext())
+        //    {
+        //        LoadVacanciesCommand.Execute(null);
+        //    }
+        //}
+
+        //private ObservableCollection<Skill> _skills;
+        //public ObservableCollection<Skill> Skills
+        //{
+        //    get
+        //    {
+        //        return _skills;
+        //    }
+        //    set
+        //    {
+        //        _skills = value;
+        //        OnPropertyChanged("Skills");
+        //    }
+        //}
+
+        //private RelayCommand _LoadVacanciesCommand;
+        //public RelayCommand LoadVacanciesCommand
+        //{
+        //    get
+        //    {
+        //        return _LoadVacanciesCommand ??
+        //          (_LoadVacanciesCommand = new RelayCommand(obj =>
+        //          {
+        //              using (var db = new EmploymentContext())
+        //              {
+        //                  Skills = new ObservableCollection<Skill>(db.Skills.ToList());
+        //              }
+        //          }));
+        //    }
+        //}
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")
