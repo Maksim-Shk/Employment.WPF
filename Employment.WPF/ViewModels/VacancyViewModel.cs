@@ -2,6 +2,7 @@
 using Employment.WPF.ViewModels.DTOs;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
@@ -15,6 +16,7 @@ namespace Employment.WPF.ViewModels
         {
             using (var db = new EmploymentContext())
             {
+                CurrentVacancy = db.Vacancies.FirstOrDefault(); 
 
                 CompanyCollection = new ObservableCollection<Company>(db.Companies.ToList());
 
@@ -67,6 +69,110 @@ namespace Employment.WPF.ViewModels
             set
             {
                 CurrentVacancy.PositionId = value;
+                OnPropertyChanged();
+            }
+        }
+        public string VacancyName
+        {
+            get { return CurrentVacancy.Name; }
+            set
+            {
+                CurrentVacancy.Name = value;
+                OnPropertyChanged();
+            }
+        }
+        public bool VacancyWorkBookRegistration
+        {
+            get { return CurrentVacancy.WorkBookRegistration; }
+            set
+            {
+                CurrentVacancy.WorkBookRegistration = value;
+                OnPropertyChanged();
+            }
+        }
+        public bool VacancySocialPackage
+        {
+            get { return CurrentVacancy.SocialPackage; }
+            set
+            {
+                CurrentVacancy.SocialPackage = value;
+                OnPropertyChanged();
+            }
+        }
+        public DateTime VacancyOpenDate
+        {
+            get { return CurrentVacancy.OpenDate; }
+            set
+            {
+                CurrentVacancy.OpenDate = value;
+                OnPropertyChanged();
+            }
+        }
+        public string? VacancyGender
+        {
+            get { return CurrentVacancy.Gender; }
+            set
+            {
+                CurrentVacancy.Gender = value;
+                OnPropertyChanged();
+            }
+        }
+        public int? VacancyLowerAge
+        {
+            get { return CurrentVacancy.LowerAge; }
+            set
+            {
+                CurrentVacancy.LowerAge = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public int? VacancyTopAge
+        {
+            get { return CurrentVacancy.TopAge; }
+            set
+            {
+                CurrentVacancy.TopAge = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public double? VacancyLowerSalary
+        {
+            get { return CurrentVacancy.LowerSalary; }
+            set
+            {
+                CurrentVacancy.LowerSalary = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public double? VacancyUpperSalary
+        {
+            get { return CurrentVacancy.UpperSalary; }
+            set
+            {
+                CurrentVacancy.UpperSalary = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public ICollection<VacancySkill>? VacancySkills
+        {
+            get { return CurrentVacancy.Skills; }
+            set
+            {
+                CurrentVacancy.Skills = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public ICollection<VacancyResponsibility>? VacancyResponsibilites
+        {
+            get { return CurrentVacancy.Responsibilities; }
+            set
+            {
+                CurrentVacancy.Responsibilities = value;
                 OnPropertyChanged();
             }
         }
