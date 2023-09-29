@@ -76,7 +76,7 @@
         </StackPanel>
 
         <StackPanel Orientation="Vertical" Grid.Row="4" Grid.Column="1">
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center"> 
                 <Label Content="Оформление трудовой книжки " HorizontalAlignment="Left" VerticalAlignment="Top" />
                 <CheckBox IsChecked="{Binding VacancyWorkBookRegistration}"
        HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" MinWidth="200"/>
@@ -88,7 +88,7 @@
        HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" MinWidth="200"/>
             </StackPanel>
         </StackPanel>
-
+        
         <StackPanel Orientation="Vertical" Grid.Row="5" Grid.Column="1">
             <Label Content="Дата открытия вакансии" HorizontalAlignment="Left" VerticalAlignment="Top" />
             <DatePicker HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" MinWidth="50"
@@ -138,7 +138,7 @@
                 <RowDefinition Height="3*" MaxHeight="50"/>
                 <RowDefinition Height="10*" MaxHeight="5000"/>
             </Grid.RowDefinitions>
-
+        
             <Label Grid.Row="0"
                     Content="Доступные навыки" HorizontalAlignment="Left" VerticalAlignment="Top" />
             <ListBox Grid.Row="1"
