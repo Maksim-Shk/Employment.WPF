@@ -91,6 +91,7 @@ namespace Employment.WPF.ViewModels
         public VacancyViewModel()
         {
             OnLoad();
+            VacancyOpenDate = DateTime.Now;
         }
         public VacancyViewModel(Vacancy vacancy)
         {
@@ -125,6 +126,56 @@ namespace Employment.WPF.ViewModels
             //            .First(r => r.SkillId == skill.SkillId)));
             //    }
             //}
+
+            AvailableResponsibilities.Where(resp =>
+                CurrentVacancy.Responsibilities.Any(vacResp =>
+                vacResp.ResponsibilityId == resp.Responsibility.ResponsibilityId))
+                .ToList()
+                .ForEach(resp => resp.IsSelected = true);
+
+            AvailablSkills.Where(skill =>
+                CurrentVacancy.Skills.Any(vacSkill =>
+                vacSkill.SkillId == skill.Skill.SkillId))
+                .ToList()
+                .ForEach(skill => skill.IsSelected = true);
+
+            //using (var db = new EmploymentContext())
+            //{
+            //    var matchingResponsibilities = AvailableResponsibilities
+            //        .Where(resp => CurrentVacancy.Responsibilities
+            //        .Any(vacResp => vacResp.ResponsibilityId == resp.Responsibility.ResponsibilityId))
+            //        .ToList();
+
+
+            //    foreach (var responsibility in CurrentVacancy.Responsibilities)
+            //    {
+            //        if (AvailableResponsibilities
+            //            .Any(resp => resp.Responsibility.ResponsibilityId == responsibility.ResponsibilityId))
+            //        {
+
+            //        }
+            //    }
+            //}
+        }
+
+        private void AddResponsibilitiesAndSkills(EmploymentContext db)
+        {
+            foreach (var resp in SelectedResponsibilities)
+            {
+                db.VacancyResponsibilities.Add(new VacancyResponsibility
+                {
+                    ResponsibilityId = resp.Responsibility.ResponsibilityId,
+                    VacancyId = CurrentVacancy.VacancyId
+                });
+            }
+            foreach (var skill in SelectedSkills)
+            {
+                db.VacancySkills.Add(new VacancySkill
+                {
+                    SkillId = skill.Skill.SkillId,
+                    VacancyId = CurrentVacancy.VacancyId
+                });
+            }
         }
 
         private RelayCommand _AddCommand;
@@ -137,24 +188,41 @@ namespace Employment.WPF.ViewModels
                   {
                       using (var db = new EmploymentContext())
                       {
-                          try
+                          using (var transaction = db.Database.BeginTransaction())
                           {
-                              CurrentVacancy.OpenDate = CurrentVacancy.OpenDate.ToUniversalTime();
-                              CurrentVacancy.CloseDate = null;
-                              if (CurrentVacancy.VacancyId == null || CurrentVacancy.VacancyId < 1)
+                              try
                               {
-                                  db.Vacancies.Add(CurrentVacancy);
-                              }
-                              else
-                              {
-                                  
-                                  db.Vacancies.Update(CurrentVacancy);
-                              }
-                              db.SaveChanges();
-                          }
-                          catch
-                          {
+                                  CurrentVacancy.OpenDate = CurrentVacancy.OpenDate.ToUniversalTime();
+                                  CurrentVacancy.CloseDate = null;
+                                  if (CurrentVacancy.VacancyId == null || CurrentVacancy.VacancyId < 1)
+                                  {
+                                      db.Vacancies.Add(CurrentVacancy);
+                                      db.SaveChanges();
+                                      AddResponsibilitiesAndSkills(db);
+                                  }
+                                  else
+                                  {
+                                      db.Vacancies.Update(CurrentVacancy);
+                                      db.SaveChanges();
 
+                                      var responsibilitiesToRemove = db.VacancyResponsibilities.Where(resp => resp.VacancyId == CurrentVacancy.VacancyId);
+                                      db.VacancyResponsibilities.RemoveRange(responsibilitiesToRemove);
+
+                                      var skillsToRemove = db.VacancySkills.Where(skill => skill.VacancyId == CurrentVacancy.VacancyId);
+                                      db.VacancySkills.RemoveRange(skillsToRemove);
+
+                                      db.SaveChanges();
+
+                                      AddResponsibilitiesAndSkills(db);
+                                  }
+
+                                  db.SaveChanges();
+                                  transaction.Commit();
+                              }
+                              catch
+                              {
+                                  transaction.Rollback();
+                              }
                           }
                       }
                   }));

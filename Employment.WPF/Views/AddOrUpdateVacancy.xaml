@@ -7,7 +7,8 @@
         xmlns:viewModels="clr-namespace:Employment.WPF.ViewModels"
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
-        Title="AddOrUpdateVacancy" Height="450" Width="800">
+        Title="Работа с вакансией" Height="500" Width="1200"
+        MaxHeight="1000" MaxWidth="1500">
 
     <Window.DataContext>
         <viewModels:VacancyViewModel/>
@@ -37,18 +38,17 @@
             <RowDefinition Height="100*" MaxHeight="5000"/>
             <RowDefinition Height="100*" MaxHeight="5000"/>
             <RowDefinition Height="100*" MaxHeight="5000"/>
-            <RowDefinition Height="100*" MaxHeight="5000"/>
-            <RowDefinition Height="100*" MaxHeight="5000"/>
-            <RowDefinition Height="100*" MaxHeight="5000"/>
+            <RowDefinition Height="60*" MaxHeight="5000"/>
             <RowDefinition Height="10*" MaxHeight="5000"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="10*" MaxWidth="4000"/>
-            <ColumnDefinition Width="150*" MaxWidth="4000"/>
-            <ColumnDefinition Width="150*" MaxWidth="4000"/>
-            <ColumnDefinition Width="150*" MaxWidth="4000"/>
-            <ColumnDefinition Width="10*" MaxWidth="4000"/>
+            <ColumnDefinition Width="10*"  MaxWidth="4000" MinWidth="10"/>
+            <ColumnDefinition Width="150*" MaxWidth="4000" MinWidth="100"/>
+            <ColumnDefinition Width="150*" MaxWidth="4000" MinWidth="100"/>
+            <ColumnDefinition Width="150*" MaxWidth="4000" MinWidth="100"/>
+            <ColumnDefinition Width="150*" MaxWidth="4000" MinWidth="100"/>
+            <ColumnDefinition Width="10*"  MaxWidth="4000" MinWidth="10"/>
         </Grid.ColumnDefinitions>
 
         <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1">
@@ -66,7 +66,7 @@
                HorizontalAlignment="Left" Height="35" TextWrapping="Wrap" VerticalAlignment="Top" MinWidth="50"/>
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1">
+        <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1" >
             <Label Content="Зарплата от" HorizontalAlignment="Left" VerticalAlignment="Top" />
             <TextBox Text="{Binding VacancyLowerSalary}"
                HorizontalAlignment="Left" Height="35" TextWrapping="Wrap" VerticalAlignment="Top" MinWidth="50"/>
@@ -89,13 +89,14 @@
             </StackPanel>
         </StackPanel>
         
-        <StackPanel Orientation="Vertical" Grid.Row="5" Grid.Column="1">
+        <StackPanel Orientation="Vertical" Grid.Row="4" Grid.Column="2">
             <Label Content="Дата открытия вакансии" HorizontalAlignment="Left" VerticalAlignment="Top" />
             <DatePicker HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" MinWidth="50"
-                        SelectedDate="{Binding VacancyOpenDate}"/>
+                        SelectedDate="{Binding VacancyOpenDate}"
+                        Margin="10 10 10 10"/>
         </StackPanel>
 
-        <Grid Grid.Row="1" Grid.Column="2" Grid.RowSpan="2">
+        <Grid Grid.Row="1" Grid.Column="3" Grid.RowSpan="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="3*" MaxHeight="50"/>
                 <RowDefinition Height="10*" MaxHeight="5000"/>
@@ -114,7 +115,7 @@
             </ListBox>
         </Grid>
 
-        <Grid Grid.Row="1" Grid.Column="3" Grid.RowSpan="2">
+        <Grid Grid.Row="1" Grid.Column="4" Grid.RowSpan="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="3*" MaxHeight="50"/>
                 <RowDefinition Height="10*" MaxHeight="5000"/>
@@ -133,7 +134,7 @@
             </ListBox>
         </Grid>
 
-        <Grid Grid.Row="3" Grid.Column="2" Grid.RowSpan="2">
+        <Grid Grid.Row="3" Grid.Column="3" Grid.RowSpan="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="3*" MaxHeight="50"/>
                 <RowDefinition Height="10*" MaxHeight="5000"/>
@@ -152,7 +153,7 @@
             </ListBox>
         </Grid>
 
-        <Grid Grid.Row="3" Grid.Column="3" Grid.RowSpan="2">
+        <Grid Grid.Row="3" Grid.Column="4" Grid.RowSpan="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="3*" MaxHeight="50"/>
                 <RowDefinition Height="10*" MaxHeight="5000"/>
@@ -171,41 +172,44 @@
             </ListBox>
         </Grid>
 
-        <StackPanel Orientation="Vertical" Grid.Row="6" Grid.Column="1">
+        <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="2">
             <Label Content="Компания" HorizontalAlignment="Left" VerticalAlignment="Top" />
             <ComboBox ItemsSource="{Binding CompanyCollection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                HorizontalAlignment="Left" Height="35"
-               VerticalAlignment="Top" MinWidth="50"
+               VerticalAlignment="Top" MinWidth="150"
                SelectedValuePath="CompanyId"
+               Margin="10 10 10 10"
                DisplayMemberPath="Name"
                SelectedValue="{Binding SelectedCompanyId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         </StackPanel>
 
-        <StackPanel Orientation="Vertical" Grid.Row="6" Grid.Column="2">
+        <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="2">
             <Label Content="Образование" HorizontalAlignment="Left" VerticalAlignment="Top" />
             <ComboBox ItemsSource="{Binding EducationCollection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                HorizontalAlignment="Left" Height="35"
-               VerticalAlignment="Top" MinWidth="50"
+               VerticalAlignment="Top" MinWidth="150"
                SelectedValuePath="EducationId"
-               DisplayMemberPath="EducationLevel"
+               Margin="10 10 10 10"
+               DisplayMemberPath="Level"
                SelectedValue="{Binding SelectedEducationId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         </StackPanel>
 
-        <StackPanel Orientation="Vertical" Grid.Row="6" Grid.Column="3">
+        <StackPanel Orientation="Vertical" Grid.Row="3" Grid.Column="2">
             <Label Content="Должность" HorizontalAlignment="Left" VerticalAlignment="Top" />
             <ComboBox ItemsSource="{Binding PositionCollection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                HorizontalAlignment="Left" Height="35"
-               VerticalAlignment="Top" MinWidth="50"
+               VerticalAlignment="Top" MinWidth="150"
                SelectedValuePath="PositionId"
+               Margin="10 10 10 10"
                DisplayMemberPath="Title"
                SelectedValue="{Binding SelectedPositionId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         </StackPanel>
 
-        <Button Grid.Column="1" Grid.Row="7" Margin="10 10 10 10" Command="{Binding AddCommand}" Content="Сохранить">
+        <Button Grid.Column="1" Grid.Row="5" Margin="10 10 10 10" Command="{Binding AddCommand}" Content="Сохранить">
 
         </Button>
 
-        <Button Grid.Column="3" Grid.Row="7" Margin="10 10 10 10" Content="Отмена">
+        <Button Grid.Column="4" Grid.Row="5" Margin="10 10 10 10" Content="Отмена">
 
         </Button>
 
