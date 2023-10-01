@@ -127,6 +127,40 @@ namespace Employment.WPF.ViewModels
             //}
         }
 
+        private RelayCommand _AddCommand;
+        public RelayCommand AddCommand
+        {
+            get
+            {
+                return _AddCommand ??
+                  (_AddCommand = new RelayCommand(obj =>
+                  {
+                      using (var db = new EmploymentContext())
+                      {
+                          try
+                          {
+                              CurrentVacancy.OpenDate = CurrentVacancy.OpenDate.ToUniversalTime();
+                              CurrentVacancy.CloseDate = null;
+                              if (CurrentVacancy.VacancyId == null || CurrentVacancy.VacancyId < 1)
+                              {
+                                  db.Vacancies.Add(CurrentVacancy);
+                              }
+                              else
+                              {
+                                  
+                                  db.Vacancies.Update(CurrentVacancy);
+                              }
+                              db.SaveChanges();
+                          }
+                          catch
+                          {
+
+                          }
+                      }
+                  }));
+            }
+        }
+
         private Vacancy _currentVacancy;
         public Vacancy CurrentVacancy
         {

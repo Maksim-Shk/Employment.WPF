@@ -171,7 +171,37 @@
             </ListBox>
         </Grid>
 
-        <Button Grid.Column="1" Grid.Row="7" Margin="10 10 10 10" Content="Сохранить">
+        <StackPanel Orientation="Vertical" Grid.Row="6" Grid.Column="1">
+            <Label Content="Компания" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <ComboBox ItemsSource="{Binding CompanyCollection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+               HorizontalAlignment="Left" Height="35"
+               VerticalAlignment="Top" MinWidth="50"
+               SelectedValuePath="CompanyId"
+               DisplayMemberPath="Name"
+               SelectedValue="{Binding SelectedCompanyId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" Grid.Row="6" Grid.Column="2">
+            <Label Content="Образование" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <ComboBox ItemsSource="{Binding EducationCollection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+               HorizontalAlignment="Left" Height="35"
+               VerticalAlignment="Top" MinWidth="50"
+               SelectedValuePath="EducationId"
+               DisplayMemberPath="EducationLevel"
+               SelectedValue="{Binding SelectedEducationId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" Grid.Row="6" Grid.Column="3">
+            <Label Content="Должность" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <ComboBox ItemsSource="{Binding PositionCollection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+               HorizontalAlignment="Left" Height="35"
+               VerticalAlignment="Top" MinWidth="50"
+               SelectedValuePath="PositionId"
+               DisplayMemberPath="Title"
+               SelectedValue="{Binding SelectedPositionId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        </StackPanel>
+
+        <Button Grid.Column="1" Grid.Row="7" Margin="10 10 10 10" Command="{Binding AddCommand}" Content="Сохранить">
 
         </Button>
 

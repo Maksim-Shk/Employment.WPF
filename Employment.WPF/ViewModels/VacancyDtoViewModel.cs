@@ -81,7 +81,7 @@ namespace Employment.WPF.ViewModels
 
                 vacancy.Skills = db.VacancySkills.Where(x => x.VacancyId == vacancy.VacancyId).ToList();
                 vacancy.Responsibilities = db.VacancyResponsibilities.Where(x => x.VacancyId == vacancy.VacancyId).ToList();
-
+                
                 var vacancyViewModel = new VacancyViewModel(vacancy);
                 addOrUpdateWindow.DataContext = vacancyViewModel;
                 addOrUpdateWindow.ShowDialog();
