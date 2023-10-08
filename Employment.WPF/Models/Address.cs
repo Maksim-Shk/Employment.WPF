@@ -26,10 +26,11 @@ namespace Employment.WPF.Models
         /// </summary>
         public int StreetId { get; set; }
 
-        /// <summary>
-        /// Ид организации / компании
-        /// </summary>
-        public Guid ExternalId { get; set; }
+        ///// <summary>
+        ///// Ид организации / компании
+        ///// </summary>
+        public Guid CompanyId { get; set; }
+        //public Guid ExternalId { get; set; }
 
         //public Organization? Organization { get; set; }
         public Company? Company { get; set; }

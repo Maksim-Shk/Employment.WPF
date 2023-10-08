@@ -86,7 +86,7 @@ public class EmploymentContext : DbContext
 
             entity.HasMany<Phone>(o => o.Phones)
                 .WithOne()
-                .HasForeignKey(p => p.ExternalId)
+                .HasForeignKey(p => p.CompanyId)
                 .OnDelete(DeleteBehavior.Cascade);
         });
 
@@ -100,8 +100,8 @@ public class EmploymentContext : DbContext
             //      .OnDelete(DeleteBehavior.Restrict);
 
             entity.HasOne(a => a.Company)
-                  .WithMany()
-                  .HasForeignKey(a => a.ExternalId)
+                  .WithMany(c=>c.Addresses)
+                  .HasForeignKey(a => a.CompanyId)
                   .OnDelete(DeleteBehavior.Restrict);
 
             entity.HasOne(a => a.Locality)
@@ -119,7 +119,7 @@ public class EmploymentContext : DbContext
 
             entity.HasOne(p => p.Company)
                   .WithMany(c => c.Phones)
-                  .HasForeignKey(p => p.ExternalId)
+                  .HasForeignKey(p => p.CompanyId)
                   .OnDelete(DeleteBehavior.Restrict)
                   .IsRequired(false);
 

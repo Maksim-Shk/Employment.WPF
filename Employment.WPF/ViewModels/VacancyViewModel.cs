@@ -165,7 +165,8 @@ namespace Employment.WPF.ViewModels
                 db.VacancyResponsibilities.Add(new VacancyResponsibility
                 {
                     ResponsibilityId = resp.Responsibility.ResponsibilityId,
-                    VacancyId = CurrentVacancy.VacancyId
+                    VacancyId = CurrentVacancy.VacancyId,
+                    CreateDate = DateTime.Now
                 });
             }
             foreach (var skill in SelectedSkills)
@@ -173,7 +174,8 @@ namespace Employment.WPF.ViewModels
                 db.VacancySkills.Add(new VacancySkill
                 {
                     SkillId = skill.Skill.SkillId,
-                    VacancyId = CurrentVacancy.VacancyId
+                    VacancyId = CurrentVacancy.VacancyId,
+                    CreateDate = DateTime.Now
                 });
             }
         }

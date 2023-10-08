@@ -65,7 +65,7 @@ namespace Employment.WPF.Models.Helpers
             {
                 var randomResponsibilities = responsibilities.OrderBy(x => _random.Next()).Take(_random.Next(2, 6)).ToList();
                 var randomSkills = skills.OrderBy(x => _random.Next()).Take(_random.Next(2, 6)).ToList();
-
+                var vacancyOpenDate = DateTime.UtcNow.AddDays(-_random.Next(100, 130));
                 var vacancy = new Vacancy
                 {
                     CompanyId = companyId,
@@ -73,7 +73,7 @@ namespace Employment.WPF.Models.Helpers
                     Name = $"Вакансия {i + 1} в <{companyName}>",
                     WorkBookRegistration = _random.Next(0, 2) == 0,
                     SocialPackage = _random.Next(0, 2) == 0,
-                    OpenDate = DateTime.UtcNow.AddDays(-_random.Next(100, 130)),
+                    OpenDate = vacancyOpenDate,
                     //CloseDate = _random.Next(0, 2) == 0 ? (DateTime?)null : DateTime.UtcNow.AddDays(_random.Next(1, 30)),
                     Gender = _random.Next(0, 3) == 0 ? "Мужской" : (_random.Next(0, 3) == 1 ? "Женский" : "Не указан"),
                     LowerAge = _random.Next(18, 24),
@@ -153,7 +153,8 @@ namespace Employment.WPF.Models.Helpers
                     vacancy.Responsibilities.Add(new VacancyResponsibility
                     {
                         Vacancy = vacancy,
-                        Responsibility = responsibility
+                        Responsibility = responsibility,
+                        CreateDate = vacancyOpenDate
                     });
                 }
                 foreach (var skill in skills)
@@ -161,7 +162,8 @@ namespace Employment.WPF.Models.Helpers
                     vacancy.Skills.Add(new VacancySkill
                     {
                         Vacancy = vacancy,
-                        Skill = skill
+                        Skill = skill,
+                        CreateDate = vacancyOpenDate
                     });
                 }
 
@@ -182,7 +184,7 @@ namespace Employment.WPF.Models.Helpers
                 {
                     PhoneId = _entityIdCounter--,
                     PhoneNumber = $"+7{_random.Next(900, 999)}{_random.Next(100, 999)}{_random.Next(1000, 9999)}",
-                    ExternalId = companyId
+                    CompanyId = companyId
                 });
             }
 
@@ -210,7 +212,7 @@ namespace Employment.WPF.Models.Helpers
                     Apartment = _random.Next(1, 200).ToString(),
                     StreetId = streets[_random.Next(streets.Count)].StreetId,
                     LocalityId = localities[_random.Next(localities.Count)].LocalityId,
-                    ExternalId = companyId
+                    CompanyId = companyId
                 });
             }
 

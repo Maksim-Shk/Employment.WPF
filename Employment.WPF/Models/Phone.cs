@@ -10,9 +10,10 @@ namespace Employment.WPF.Models
         /// <summary>
         /// OrganizationId / CompanyId
         /// </summary>
-        public Guid ExternalId { get; set; }
+        public Guid CompanyId { get; set; }
+        //public Guid ExternalId { get; set; }
 
-        public EntityType EntityType { get; set; }
+        //public EntityType EntityType { get; set; }
         public Company? Company { get; set; }
         //public Organization? Organization { get; set; }
     }
