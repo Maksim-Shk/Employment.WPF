@@ -30,9 +30,6 @@ namespace Employment.WPF.Models
         ///// Ид организации / компании
         ///// </summary>
         public Guid CompanyId { get; set; }
-        //public Guid ExternalId { get; set; }
-
-        //public Organization? Organization { get; set; }
         public Company? Company { get; set; }
         public Locality Locality { get; set; } = null!;
         public Street Street { get; set; } = null!;

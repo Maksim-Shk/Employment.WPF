@@ -128,7 +128,8 @@
                     Margin="5 5 5 5" 
                     HorizontalAlignment="Left" Width="136">
             </Button>
-            <Button Content="Удалить" Margin="5 5 5 5" HorizontalAlignment="Left" Width="136">
+            <Button Command="{Binding VacancyDtoViewModel.RemoveCommand}"
+                Content="Удалить" Margin="5 5 5 5" HorizontalAlignment="Left" Width="136">
             </Button>
             <Button Command="{Binding VacancyDtoViewModel.UpdateVacancyCommand}"
                     Content="Редактировать" Margin="5 5 5 5" HorizontalAlignment="Left" Width="136">
@@ -152,6 +153,16 @@
                 <Style TargetType="DataGridRow">
                     <Setter Property="Height" Value="80"/>
                     <Setter Property="Height" Value="Auto"/>
+                    <Setter Property="ToolTip">
+                        <Setter.Value>
+                            <ToolTip>
+                                <StackPanel>
+                                    <TextBlock Text="{Binding OpenDate, StringFormat='Дата открытия: {0:dd.MM.yyyy}'}"/>
+                                    <TextBlock Text="{Binding CloseDate, StringFormat='Дата закрытия: {0:dd.MM.yyyy}'}"/>
+                                </StackPanel>
+                            </ToolTip>
+                        </Setter.Value>
+                    </Setter>
                 </Style>
             </DataGrid.RowStyle>
             <DataGrid.Columns>

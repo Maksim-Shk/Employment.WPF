@@ -166,7 +166,7 @@ namespace Employment.WPF.ViewModels
                 {
                     ResponsibilityId = resp.Responsibility.ResponsibilityId,
                     VacancyId = CurrentVacancy.VacancyId,
-                    CreateDate = DateTime.Now
+                    CreateDate = DateTime.UtcNow
                 });
             }
             foreach (var skill in SelectedSkills)
@@ -175,7 +175,7 @@ namespace Employment.WPF.ViewModels
                 {
                     SkillId = skill.Skill.SkillId,
                     VacancyId = CurrentVacancy.VacancyId,
-                    CreateDate = DateTime.Now
+                    CreateDate = DateTime.UtcNow
                 });
             }
         }
@@ -207,14 +207,14 @@ namespace Employment.WPF.ViewModels
                                       db.Vacancies.Update(CurrentVacancy);
                                       db.SaveChanges();
 
-                                      var responsibilitiesToRemove = db.VacancyResponsibilities.Where(resp => resp.VacancyId == CurrentVacancy.VacancyId);
+                                      var responsibilitiesToRemove = db.VacancyResponsibilities
+                                            .Where(resp => resp.VacancyId == CurrentVacancy.VacancyId);
                                       db.VacancyResponsibilities.RemoveRange(responsibilitiesToRemove);
 
                                       var skillsToRemove = db.VacancySkills.Where(skill => skill.VacancyId == CurrentVacancy.VacancyId);
                                       db.VacancySkills.RemoveRange(skillsToRemove);
 
                                       db.SaveChanges();
-
                                       AddResponsibilitiesAndSkills(db);
                                   }
 
@@ -230,6 +230,7 @@ namespace Employment.WPF.ViewModels
                   }));
             }
         }
+
 
         private Vacancy _currentVacancy;
         public Vacancy CurrentVacancy

@@ -117,6 +117,37 @@ namespace Employment.WPF.ViewModels
                 addOrUpdateWindow.ShowDialog();
             }
         }
+        private RelayCommand _RemoveCommand;
+        public RelayCommand RemoveCommand
+        {
+            get
+            {
+                return _RemoveCommand ??
+                  (_RemoveCommand = new RelayCommand(obj =>
+                  {
+                      using (var db = new EmploymentContext())
+                      {
+                          using (var transaction = db.Database.BeginTransaction())
+                          {
+                              try
+                              {
+                                  var vacancy = db.Vacancies
+                                        .FirstOrDefault(v => v.VacancyId == SelectedVacancy.VacancyId);
+                                  vacancy!.CloseDate = DateTime.UtcNow;
+                                  db.Vacancies.Update(vacancy);
+                                  db.SaveChanges();
+
+                                  transaction.Commit();
+                              }
+                              catch
+                              {
+                                  transaction.Rollback();
+                              }
+                          }
+                      }
+                  }));
+            }
+        }
 
         private RelayCommand _GetAllVacanciesCommand;
         public RelayCommand GetAllVacanciesCommand

@@ -124,7 +124,15 @@ namespace Employment.WPF.ViewModels
                   (_loadCompaniesWithVacanciesForPositionCommand = new RelayCommand(obj =>
                   {
                       var positionId = (int)obj; // Конвертируем полученный объект в int
-                      DateTime currentDate = DateTime.Now;
+                      DateTime currentDate = new();
+                      try 
+                      {
+                          currentDate = CurrentDate;
+                      }
+                      catch
+                      {
+                          currentDate = DateTime.Now;
+                      }
 
                       string query = $@"
                              SELECT DISTINCT c.*
@@ -193,7 +201,15 @@ namespace Employment.WPF.ViewModels
                   (_loadCompaniesWithNoEducationRequirementCommand = new RelayCommand(obj =>
                   {
                       //DateTime date = (DateTime)obj;
-                      var date = DateTime.Now;
+                      DateTime date = new();
+                      try
+                      {
+                          date = CurrentDate;
+                      }
+                      catch
+                      {
+                          date = DateTime.Now;
+                      }
                       string query = $@"
                              SELECT DISTINCT c.*
                              FROM ""Company"" c
