@@ -15,7 +15,6 @@ public class EmploymentContext : DbContext
         : base(options) { }
 
     public virtual DbSet<Company> Companies { get; set; }
-    //public virtual DbSet<Organization> Organizations { get; set; }
     public virtual DbSet<Vacancy> Vacancies { get; set; }
     public virtual DbSet<Address> Addresses { get; set; }
     public virtual DbSet<Phone> Phones { get; set; }
@@ -40,28 +39,6 @@ public class EmploymentContext : DbContext
     }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        //modelBuilder.Entity<Organization>(entity =>
-        //{
-        //    entity.HasKey(e => e.OrganizationId);
-
-        //    entity.Property(e => e.OrganizationId)
-        //       .ValueGeneratedOnAdd()
-        //       .HasDefaultValueSql("gen_random_uuid()");
-
-        //    entity.Property(e => e.Name)
-        //       .HasMaxLength(255);
-
-        //    entity.Property(e => e.ShortName)
-        //       .HasMaxLength(63);
-
-        //    entity.Property(e => e.Email)
-        //        .HasMaxLength(256);
-
-        //    entity.HasMany<Phone>(o => o.Phones)
-        //        .WithOne()
-        //        .HasForeignKey(p => p.ExternalId)
-        //        .OnDelete(DeleteBehavior.Cascade);
-        //});
         foreach (var entityType in modelBuilder.Model.GetEntityTypes())
         {
             entityType.SetTableName(entityType.DisplayName());
@@ -94,11 +71,6 @@ public class EmploymentContext : DbContext
         {
             entity.HasKey(a => a.AddressId);
 
-            //entity.HasOne(a => a.Organization)
-            //      .WithMany()
-            //      .HasForeignKey(a => a.ExternalId)
-            //      .OnDelete(DeleteBehavior.Restrict);
-
             entity.HasOne(a => a.Company)
                   .WithMany(c=>c.Addresses)
                   .HasForeignKey(a => a.CompanyId)
@@ -122,12 +94,6 @@ public class EmploymentContext : DbContext
                   .HasForeignKey(p => p.CompanyId)
                   .OnDelete(DeleteBehavior.Restrict)
                   .IsRequired(false);
-
-            //entity.HasOne(p => p.Organization)
-            //      .WithMany(o => o.Phones)
-            //      .HasForeignKey(p => p.ExternalId)
-            //      .OnDelete(DeleteBehavior.Restrict)
-            //      .IsRequired(false);
         });
 
         modelBuilder.Entity<Locality>(entity =>

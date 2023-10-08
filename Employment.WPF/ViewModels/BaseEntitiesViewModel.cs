@@ -104,7 +104,6 @@ namespace Employment.WPF.ViewModels
             }
         }
 
-
         private RelayCommand _addOrUpdateLocalityCommand;
         public RelayCommand AddOrUpdateLocalityCommand
         {
@@ -138,7 +137,7 @@ namespace Employment.WPF.ViewModels
                           MessageBox.Show("Locality added or updated successfully!");
                       }
                   },
-                  obj => CurrentLocality != null && !string.IsNullOrEmpty(CurrentLocality.Name))); // The command can execute if the CurrentLocality exists and its Name is not empty.
+                  obj => CurrentLocality != null && !string.IsNullOrEmpty(CurrentLocality.Name)));
             }
         }
 
