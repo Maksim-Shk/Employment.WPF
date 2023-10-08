@@ -9,10 +9,6 @@ using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Windows.Media;
-using System.Windows.Controls;
-using Accord.IO;
-using System.Drawing;
 
 namespace Employment.WPF.ViewModels.Math
 {
@@ -71,13 +67,6 @@ namespace Employment.WPF.ViewModels.Math
                 }
             }
         }
-
-
-
-
-
-
-
         private RelayCommand _LoadClusterAnalysisWindowCommand;
         public RelayCommand LoadClusterAnalysisWindowCommand
         {

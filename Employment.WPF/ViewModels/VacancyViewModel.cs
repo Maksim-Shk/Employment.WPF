@@ -95,38 +95,9 @@ namespace Employment.WPF.ViewModels
         }
         public VacancyViewModel(Vacancy vacancy)
         {
-            //VacancyName = vacancy.Name;
-            //VacancyLowerAge = vacancy.LowerAge;
-            //VacancyTopAge = vacancy.TopAge;
-            //VacancyLowerSalary = vacancy.LowerSalary;
-            //VacancyUpperSalary = vacancy.UpperSalary;
-            //VacancySocialPackage = vacancy.SocialPackage;
-            //VacancyWorkBookRegistration = vacancy.WorkBookRegistration;
-            //VacancyOpenDate = vacancy.OpenDate;
-
-
             OnLoad();
             CurrentVacancy = vacancy;
-            //using (var db = new EmploymentContext())
-            //{
-            //    foreach (var resp in vacancy.Responsibilities)
-            //    {
-            //        SelectedResponsibilities
-            //            .Add(new ResponsibilityViewModel(db.Responsibilities
-            //            .First(r => r.ResponsibilityId == resp.ResponsibilityId)));
-            //        AvailableResponsibilities.Remove(new ResponsibilityViewModel(db.Responsibilities
-            //            .First(r => r.ResponsibilityId == resp.ResponsibilityId)));
-            //    }
-            //    foreach (var skill in vacancy.Skills)
-            //    {
-            //        SelectedSkills
-            //            .Add(new SkillViewModel(db.Skills
-            //            .First(r => r.SkillId == skill.SkillId)));
-            //        AvailablSkills.Remove(new SkillViewModel(db.Skills
-            //            .First(r => r.SkillId == skill.SkillId)));
-            //    }
-            //}
-
+          
             AvailableResponsibilities.Where(resp =>
                 CurrentVacancy.Responsibilities.Any(vacResp =>
                 vacResp.ResponsibilityId == resp.Responsibility.ResponsibilityId))
@@ -138,24 +109,6 @@ namespace Employment.WPF.ViewModels
                 vacSkill.SkillId == skill.Skill.SkillId))
                 .ToList()
                 .ForEach(skill => skill.IsSelected = true);
-
-            //using (var db = new EmploymentContext())
-            //{
-            //    var matchingResponsibilities = AvailableResponsibilities
-            //        .Where(resp => CurrentVacancy.Responsibilities
-            //        .Any(vacResp => vacResp.ResponsibilityId == resp.Responsibility.ResponsibilityId))
-            //        .ToList();
-
-
-            //    foreach (var responsibility in CurrentVacancy.Responsibilities)
-            //    {
-            //        if (AvailableResponsibilities
-            //            .Any(resp => resp.Responsibility.ResponsibilityId == responsibility.ResponsibilityId))
-            //        {
-
-            //        }
-            //    }
-            //}
         }
 
         private void AddResponsibilitiesAndSkills(EmploymentContext db)
@@ -252,18 +205,6 @@ namespace Employment.WPF.ViewModels
                 OnPropertyChanged(nameof(ResponsibilityViewModelsCollection));
             }
         }
-
-        //private ObservableCollection<ResponsibilityViewModel> _responsibilityViewModelsCollection;
-        //public ObservableCollection<ResponsibilityViewModel> ResponsibilityViewModelsCollection
-        //{
-        //    get => _responsibilityViewModelsCollection;
-        //    set
-        //    {
-        //        _responsibilityViewModelsCollection = value;
-        //        OnPropertyChanged(nameof(ResponsibilityViewModelsCollection));
-        //    }
-        //}
-
         public int SelectedEducationId
         {
             get { return CurrentVacancy.EducationId; }

@@ -37,19 +37,9 @@ namespace Employment.WPF.Models.Helpers
                     CompanyId = Guid.NewGuid(),
                     Name = data.RussianName,
                     ShortName = shortName,
-                    Email = email,
-                    // Addresses = GenerateAddressForCompany(),
-                    // Phones = GeneratePhonesForCompany(),
-                    // Vacancies = GenerateVacanciesForCompany(2, data.RussianName)
+                    Email = email
                 };
             }).ToList();
-
-            foreach (var company in companies)
-            {
-                // company.Vacancies = GenerateVacanciesForCompany(company.Name, 2);
-                //  company.Addresses = GenerateAddressesForCompany(company.CompanyId, 2);
-                // company.Phones = GeneratePhonesForCompany(company.CompanyId, 2);
-            }
 
             return companies;
         }
@@ -128,26 +118,6 @@ namespace Employment.WPF.Models.Helpers
                     vacancy.CloseDate = vacancy.OpenDate.AddDays(_random.Next(1, 50));
                 }
 
-                //if (_random.Next(0, 4) != 0) 
-                //{
-                //    vacancy.LowerSalary = _random.Next(15, 30) * 1000; 
-                //    vacancy.UpperSalary = _random.Next(31, 50) * 1000;
-                //}
-                //else
-                //{
-                //    vacancy.LowerSalary = _random.Next(40, 60) * 1000; 
-                //    vacancy.UpperSalary = _random.Next(61, 120) * 1000;
-                //}
-
-                //if (_random.Next(0, 4) != 0) 
-                //{
-                //    vacancy.CloseDate = _random.Next(0, 4) == 0 ? (DateTime?)null : vacancy.OpenDate.AddDays(_random.Next(1, 10)); 
-                //}
-                //else
-                //{
-                //    vacancy.CloseDate = _random.Next(0, 4) == 0 ? (DateTime?)null : vacancy.OpenDate.AddDays(_random.Next(7, 40)); 
-                //}
-
                 foreach (var responsibility in randomResponsibilities)
                 {
                     vacancy.Responsibilities.Add(new VacancyResponsibility
@@ -195,11 +165,6 @@ namespace Employment.WPF.Models.Helpers
         public static List<Address> GenerateAddressesForCompany(Guid companyId, int count,
             List<Street> streets, List<StreetType> streetsTypes, List<LocalityType> localityTypes, List<Locality> localities)
         {
-            //var streetsTypes = GenerateStreetTypes();
-            //var streets = GenerateStreets(streetsTypes);
-            //
-            //var localityTypes = GenerateLocalityTypes();
-            //var localities = GenerateLocalities(localityTypes);
 
             var addresses = new List<Address>();
 
