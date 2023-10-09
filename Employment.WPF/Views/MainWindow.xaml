@@ -51,31 +51,30 @@
 
         <Menu Height="25" VerticalAlignment="Top" Grid.ColumnSpan="5">
             <MenuItem Header="Сервис" >
-                <MenuItem Header="Настройки" >
-                </MenuItem>
                 <MenuItem Header="Работа с подразделениями">
-                    <MenuItem Header="Добавить новое" >
+                    <MenuItem Header="Добавить новое" Command="{Binding VacancyDtoViewModel.AddVacancyCommand}">
                     </MenuItem>
-                    <MenuItem Header="Редактировать выбранное" >
+                    <MenuItem Header="Редактировать выбранное" Command="{Binding VacancyDtoViewModel.UpdateVacancyCommand}">
                     </MenuItem>
                     <Separator></Separator>
-                    <MenuItem Header="Удалить выбранное" >
+                    <MenuItem Header="Удалить выбранное" Command="{Binding VacancyDtoViewModel.UpdateVacancyCommand}">
                     </MenuItem>
                 </MenuItem>
                 <Separator></Separator>
                 <MenuItem Header="Отчеты">
                     <MenuItem Header="Список предприятий по должности" Click="MenuItem_Click_2">
-                        <!--Command="{Binding EmploymentViewModel.LoadCompaniesWithVacanciesForPositionCommand}"-->
                     </MenuItem>
                     <MenuItem Header="Самая популярная должность по дате" Click="MenuItem_Click_TopPositionByDateRange">
-
                     </MenuItem>
                     <MenuItem Header="Вакансии без образования по дате" Click="MenuItem_Click_CompaniesWithNoEducationRequirementView">
-
                     </MenuItem>
                 </MenuItem>
                 <Separator></Separator>
-                <MenuItem Header="Провести кластерный анализ" Click="MenuItem_Click_ShowKmeansClick">
+                <MenuItem Header="Провести кластерный анализ">
+                    <MenuItem Header="Графическое представление" Click="MenuItem_Click_ShowKmeansClick">
+                    </MenuItem>
+                    <MenuItem Header="Табличное представление" Click="MenuItem_Click_ShowKmeansTableClick">
+                    </MenuItem>
                 </MenuItem>
             </MenuItem>
             <MenuItem Header="Справка" Click="MenuItem_Click" >

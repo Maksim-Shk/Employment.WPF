@@ -1,10 +1,12 @@
 ﻿using Accord.MachineLearning;
 using Employment.WPF.Models;
+using Employment.WPF.ViewModels.DTOs;
 using Microsoft.Win32;
 using OxyPlot;
 using OxyPlot.Series;
 using OxyPlot.Wpf;
 using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
@@ -20,8 +22,10 @@ namespace Employment.WPF.ViewModels.Math
             PlotCollection.Background = OxyColors.White;
         }
 
-        private PlotModel _PlotCollection;
+        public ObservableCollection<ClusteredVacancy> ClusteredVacancies { get; set; } = new ObservableCollection<ClusteredVacancy>();
 
+
+        private PlotModel _PlotCollection;
         public PlotModel PlotCollection
         {
             get { return _PlotCollection; }
@@ -83,7 +87,8 @@ namespace Employment.WPF.ViewModels.Math
                                          select new
                                          {
                                              AverageSalary = (v.UpperSalary + v.LowerSalary) / 2.0,
-                                             DaysOpen = (v.CloseDate.Value - v.OpenDate).TotalDays
+                                             DaysOpen = (v.CloseDate.Value - v.OpenDate).TotalDays,
+                                             VacancyName = v.Name  // Предполагая, что у вашей вакансии есть поле Name
                                          }).ToList();
 
                           // 2. Нормализация данных
@@ -123,6 +128,20 @@ namespace Employment.WPF.ViewModels.Math
                           var clusters = kmeans.Learn(observations);
 
                           int[] labels = clusters.Decide(observations);
+
+                          ClusteredVacancies.Clear();
+                          for (int i = 0; i < rawData.Count; i++)
+                          {
+                              ClusteredVacancies.Add(new ClusteredVacancy
+                              {
+                                  OriginalAverageSalary = rawData[i].AverageSalary,
+                                  NormalizedAverageSalary = normalizedData[i][0],
+                                  OriginalDaysOpen = rawData[i].DaysOpen,
+                                  NormalizedDaysOpen = normalizedData[i][1],
+                                  AssignedCluster = labels[i],
+                                  VacancyName = rawData[i].VacancyName
+                              });
+                          }
 
                           var groupedByCluster = observations.Zip(labels, (observation, label) => new { observation, label })
                                    .GroupBy(ol => ol.label)

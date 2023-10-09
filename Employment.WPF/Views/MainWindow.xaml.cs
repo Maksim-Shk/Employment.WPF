@@ -61,6 +61,13 @@ namespace Employment.WPF
             var kmeans = new ClusterAnalysisView();
             kmeans.Show();
         }
+        private void MenuItem_Click_ShowKmeansTableClick(object sender, RoutedEventArgs e)
+        {
+            var kmeans = new ClusterAnalysisTableView();
+            kmeans.Show();
+        }
+
+        
 
     }
 }
