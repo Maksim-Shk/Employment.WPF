@@ -209,7 +209,7 @@
 
         </Button>
 
-        <Button Grid.Column="4" Grid.Row="5" Margin="10 10 10 10" Content="Отмена">
+        <Button Grid.Column="4" Grid.Row="5" Margin="10 10 10 10" Content="Отмена" Click="Button_Click">
 
         </Button>
 

@@ -57,7 +57,7 @@
                     <MenuItem Header="Редактировать выбранное" Command="{Binding VacancyDtoViewModel.UpdateVacancyCommand}">
                     </MenuItem>
                     <Separator></Separator>
-                    <MenuItem Header="Удалить выбранное" Command="{Binding VacancyDtoViewModel.UpdateVacancyCommand}">
+                    <MenuItem Header="Удалить выбранное" Command="{Binding VacancyDtoViewModel.RemoveCommand}">
                     </MenuItem>
                 </MenuItem>
                 <Separator></Separator>
